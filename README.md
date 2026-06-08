@@ -39,8 +39,10 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
 └── docs/
     ├── design/              ← what we're building and why (principles → requirements → drawings)
     │   ├── 00-design-principles.md
-    │   └── 10-requirements.md
+    │   ├── 10-requirements.md
+    │   └── 20-site-and-orientation.md
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
+    │   └── 00-slab-prepour-checklist.md
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
         └── 00-operating-principles.md
 ```
@@ -52,7 +54,7 @@ Each phase gets its own folder. Documents are numbered (`00-`, `10-`, `20-`…) 
 | Phase | Folder | Status |
 |-------|--------|--------|
 | **Design** — principles, requirements, site & structure decisions | `docs/design/` | 🟡 In progress |
-| **Build** — procurement, foundation, assembly, inspections | `docs/build/` | ⚪ Not started |
+| **Build** — procurement, foundation, assembly, inspections | `docs/build/` | 🟡 In progress |
 | **Operate** — growing program, maintenance, safety, curriculum | `docs/operate/` | 🟡 In progress |
 
 ## How to contribute
