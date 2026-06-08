@@ -7,9 +7,9 @@
 | BOM | Subsystem | Status |
 |-----|-----------|--------|
 | [off-grid-power.md](off-grid-power.md) | Solar array, battery, charge control, distribution | 🟡 Scaffolding (awaiting sizing) |
+| [controls.md](controls.md) | Compute core, sensors, actuators, comms, connectors | 🟡 Scaffolding (awaiting device list) |
+| [irrigation.md](irrigation.md) | Harvest, storage, gravity drip, fertigation, freeze | 🟡 Scaffolding (awaiting zone layout) |
 | *(structure.md)* | Frame, glazing, foundation hardware | ⚪ Later |
-| *(controls.md)* | Controller core, sensors, actuators, connectors | ⚪ Later |
-| *(irrigation.md)* | Pumps, drip, rainwater storage, filtration | ⚪ Later |
 
 ## Standard format
 

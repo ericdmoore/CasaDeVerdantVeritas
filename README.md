@@ -1,5 +1,7 @@
 # Casa de Verdant Veritas
 
+> House of Truth & Learning Covered In Greenery
+
 **Specifications for designing, building, and operating a greenhouse at Kramer Elementary School — Dallas, Texas.**
 
 This repository is the single source of truth for the project: the design intent, the build documentation, and the day-to-day operating procedures for a to-be-constructed teaching greenhouse. It is a living document set — written to be read by teachers, parents, volunteers, district staff, and the contractors and donors who help bring it to life.
@@ -51,7 +53,9 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │   ├── 10-regulatory-governance.md
     │   └── bom/             ← bills of materials (one per subsystem)
     │       ├── README.md
-    │       └── off-grid-power.md
+    │       ├── off-grid-power.md
+    │       ├── controls.md
+    │       └── irrigation.md
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
         ├── 00-operating-principles.md
         ├── 10-roles-and-tiers.md
