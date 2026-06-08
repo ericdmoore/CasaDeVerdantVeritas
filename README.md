@@ -36,9 +36,11 @@ A **mid-size, kit/modular greenhouse** (roughly 20×40 ft on a prepared foundati
 ├── LICENSE                  ← MIT
 └── docs/
     ├── design/              ← what we're building and why (principles → requirements → drawings)
-    │   └── 00-design-principles.md
+    │   ├── 00-design-principles.md
+    │   └── 10-requirements.md
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
+        └── 00-operating-principles.md
 ```
 
 Each phase gets its own folder. Documents are numbered (`00-`, `10-`, `20-`…) so the intended reading order is obvious and new docs can be inserted without renumbering everything.
@@ -49,7 +51,7 @@ Each phase gets its own folder. Documents are numbered (`00-`, `10-`, `20-`…) 
 |-------|--------|--------|
 | **Design** — principles, requirements, site & structure decisions | `docs/design/` | 🟡 In progress |
 | **Build** — procurement, foundation, assembly, inspections | `docs/build/` | ⚪ Not started |
-| **Operate** — growing program, maintenance, safety, curriculum | `docs/operate/` | ⚪ Not started |
+| **Operate** — growing program, maintenance, safety, curriculum | `docs/operate/` | 🟡 In progress |
 
 ## How to contribute
 
