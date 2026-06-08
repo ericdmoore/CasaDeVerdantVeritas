@@ -36,6 +36,7 @@ This is the danger window: **peak heat + weak solar + draining battery, all at o
 - [ ] **Confirm the passive layer is ready:** sides can roll up, wax-piston vents move freely, shade is deployed. The greenhouse must survive on these alone if the battery dies.
 - [ ] **Top up water** — passive cooling leans harder on ventilation, and any evaporative cooling burns water.
 - [ ] **Brief the on-call volunteer** that it's a watch period; eyes on the phone alerts.
+- [ ] **Consider the campus tether** (emergency only): for a forecast extreme stretch, an Amber/Red volunteer may run the temporary extension cord + garden hose from campus to back up power and water. Not a substitute for the passive layer — a bonus margin.
 
 ## D. Emergency response
 
@@ -44,6 +45,7 @@ This is the danger window: **peak heat + weak solar + draining battery, all at o
 2. **Are the fans/vents running?** If not → it's likely **power**: check the battery state-of-charge and the controller.
 3. **Battery dead / no power →** rely on the **passive** layer: get every vent and side open, confirm shade is on. The building is built to survive on passive cooling — your job is to make sure nothing is blocking it.
 4. **Still climbing →** call the maintenance contact / staff lead. For a severe spike, hand-water to protect plants and keep it open.
+5. **Emergency tether →** if it's an extreme-weather event, an Amber/Red volunteer can deploy the campus power/water tether for extra margin (emergency only).
 
 > **Volunteer heat safety:** never work alone deep in a hot greenhouse, go in the cool hours, hydrate, and step out if you feel unwell. People before plants — always.
 

@@ -50,9 +50,12 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 | PV modules | Mono panels; ground- or roof-mount TBD | TBD | REQ-PWR-1 | TBD | TBD | TBD | TBD | proposed | Tilt ~30–33° (year-round) or ~20° (summer-favored); unshaded — [site §orientation](../../design/20-site-and-orientation.md) |
 | Mounting / racking | Wind-rated for Dallas; matches mount choice | TBD | REQ-PWR-1, REQ-STR-1 | TBD | TBD | TBD | TBD | proposed | Roof-mount adds structural load — see open Q |
 | Charge controller | MPPT, sized to array V/I | TBD | REQ-PWR-1 | TBD | TBD | TBD | TBD | proposed | |
-| Battery bank | **LiFePO₄**, sized per calc | TBD | REQ-PWR-1, REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | Chemistry chosen for safety/longevity; **fire-code siting** ↓ |
-| Battery mgmt (BMS) | Integrated or external | TBD | REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | |
-| Inverter | Only if AC loads exist | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Prefer **DC-direct** loads; minimize AC ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)) |
+| **Fixed Tier-1 reserve battery** | **LiFePO₄**, small; *never leaves* | TBD | REQ-PWR-2, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Keeps safety loop + alerting alive when the cow is away |
+| **Mobile bulk pack ("power cow")** | **LiFePO₄** rack batteries, sized per calc | TBD | REQ-PWR-1, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Tier 2/3 storage + event power; **fire-code siting** ↓ |
+| Cow cart | Hand truck, rated for pack weight, securing straps, ramp | 1 | REQ-PWR-9 | TBD | TBD | TBD | TBD | proposed | 100s of lb loaded; Amber/Red move only |
+| Cow inverter | For event AC (rated to event loads) | 1 | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Greenhouse stays DC-first; inverter is for events |
+| Battery mgmt (BMS) | Per pack (reserve + cow) | TBD | REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | |
+| Cow dock connectors | **Keyed, arc-safe high-current DC** (load-break/pre-charge, Anderson SB class) | TBD | REQ-PWR-9, REQ-CTRL-1 | TBD | TBD | TBD | TBD | proposed | Terminal-protected in transit |
 | DC distribution + fusing | Bus, fuses/breakers per tier | TBD | REQ-PWR-2..4 | TBD | TBD | TBD | TBD | proposed | **Tier-separated** so shedding T3 can't brown out T1 |
 | Load-shed controller | Battery-SOC-based tier shedding | TBD | REQ-PWR-3, REQ-PWR-4 | TBD | TBD | TBD | TBD | proposed | |
 | DC disconnect(s) | PV + battery isolators | TBD | Safety | TBD | TBD | TBD | TBD | proposed | |
@@ -62,8 +65,11 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 | Combiner box | If multiple strings | TBD | — | TBD | TBD | TBD | TBD | proposed | |
 | Battery/electronics enclosure | Ventilated, lockable, weather/hail | 1 | REQ-PWR-6 | TBD | TBD | TBD | TBD | proposed | **Out of child reach**; thermal-managed ([REQ-CTRL-5](../../design/10-requirements.md#k-electronics--controls-architecture)) |
 | System monitor / shunt | SOC + production telemetry | 1 | REQ-ELEC-4 | TBD | TBD | TBD | TBD | proposed | Feeds alerts + the data layer |
+| Campus tether inlet | Weatherproof emergency power inlet + **hose bib w/ backflow preventer** | 1 | REQ-PWR-7, REQ-WATER-4 | TBD | TBD | TBD | TBD | proposed | **Emergency only**, temporary — not a permanent feed |
 
 **Running subtotal:** TBD
+
+> **Architecture:** see [`60-power-architecture.md`](../../design/60-power-architecture.md) for the three-layer model, the reserve/cow split, and the tether.
 
 ---
 

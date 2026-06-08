@@ -81,7 +81,7 @@ Each requirement has:
 | REQ-WATER-2 | MUST | Open water surfaces deeper than a few inches are covered or fenced. | Safety |
 | REQ-WATER-3 | SHOULD | Rainwater harvesting from the roof, sized to offset a meaningful share of irrigation demand. *(verify capacity.)* | Dallas, Affordability, Education |
 | REQ-WATER-4 | SHOULD | Backflow prevention on any municipal water connection (code). | Safety |
-| REQ-WATER-5 | SHOULD | **Off-water autonomy:** rainwater storage sized to carry irrigation *and* evaporative-cooling demand through a dry summer stretch; if it can't, identify the backup source (tank delivery / well). *(verify, see OQ.)* | Off-grid, Resilience |
+| REQ-WATER-5 | SHOULD | **Off-water autonomy:** rainwater storage sized to carry irrigation *and* evaporative-cooling demand through a dry summer stretch. Emergency backup source = **campus garden hose** (with backflow per REQ-WATER-4); a tank delivery is the fallback. *(verify storage sizing.)* | Off-grid, Resilience |
 
 ## F. Electrical & controls
 
@@ -104,6 +104,9 @@ Each requirement has:
 | REQ-PWR-4 | SHOULD | **Tier 3 (shed first):** grow lights, data logging, hydroponic pumps drop automatically on low battery state-of-charge. | Off-grid, Simplicity |
 | REQ-PWR-5 | MUST | The greenhouse survives a fully depleted battery on passive means alone (ties to REQ-COOL-2). | Safety, Resilience |
 | REQ-PWR-6 | SHOULD | PV/battery enclosure sited and secured out of child reach, ventilated, and weather/hail protected. | Safety |
+| REQ-PWR-7 | SHOULD | **Emergency campus tether** (temporary extension cord + garden hose) as a last-resort backstop — *not* a dependency, kept temporary (permanent feed = licensed Red work). Hose needs backflow protection ([REQ-WATER-4](#e-irrigation--water)). | Resilience |
+| REQ-PWR-8 | MUST | **Battery is modular/mobile with a fixed Tier-1 reserve that never leaves.** The wheeled "power cow" bulk pack can roll out for events; the greenhouse safety loop survives its absence on the reserve + passive layer. | Safety, Resilience |
+| REQ-PWR-9 | SHOULD | Cow docking uses **keyed, arc-safe high-current DC connectors** (load-break / pre-charge), terminal-protected in transit; moved by Amber/Red only, never Green/students. | Safety |
 
 ## G. Safety & egress
 
@@ -172,6 +175,26 @@ Each requirement has:
 | REQ-NET-8 | SHOULD | Transport = **as few as the physics needs, band-diverse, each earning its keep:** wired PoE backbone (wired-first) + one 2.4 GHz mesh (Zigbee, Thread-capable HW) + sub-GHz/LoRa for far/canopy nodes + WiFi for powered/bandwidth nodes. Guardrails: one transport per niche; each gateway a budgeted power line; spares + ≥2 Amber people per transport; one HA integration pattern. | Resilience, Simplicity |
 | REQ-NET-9 | SHOULD | Visitor access via **two QR codes** (guest WiFi join + local dashboard URL, mDNS `greenhouse.local`); optional **public read-only dashboard** for showcase. | Education, Showcase |
 | REQ-NET-10 | SHOULD | **Camera/data privacy:** any webcam points at plants not students, local-first, with a written data-governance note. | Safety, Education |
+
+## M. Passive architecture
+
+> Derived from [`50-passive-architecture.md`](50-passive-architecture.md). The zero-power survival layer.
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-PASV-1 | MUST | The passive layer (shade + natural/stack ventilation + thermal mass) alone holds the interior below the survival ceiling with **zero electricity** (realizes [REQ-COOL-2](#b-cooling--ventilation--the-headline-system)). | Safety, Resilience |
+| REQ-PASV-2 | SHOULD | **Solar chimney / thermal stack** for buoyancy-driven air turnover that scales with the heat load. | Resilience, Dallas |
+| REQ-PASV-3 | SHOULD | **Fixed sun-tuned overhangs** (foolproof, no moving parts) as the shade baseline, plus adjustable louvers to fine-tune. | Resilience, Dallas |
+| REQ-PASV-4 | SHOULD | **Gravity-fed irrigation** from an elevated rainwater header tank — waters with no pump / dead battery. | Resilience, Off-grid |
+| REQ-PASV-5 | SHOULD | **Wicking beds / sub-irrigation** to buffer multiple untended days. | Resilience |
+| REQ-PASV-6 | SHOULD | **Thermal mass** (slab + water containers) buffering heat and freeze; water mass doubles as irrigation store. | Resilience, Dallas |
+| REQ-PASV-7 | SHOULD | **Manual override on every powered system** + gravity/counterweight fail-open vents. | Safety, Resilience |
+| REQ-PASV-8 | SHOULD | **Deciduous / living shade** on the west/south for self-regulating seasonal shading. | Dallas, Education |
+| REQ-PASV-9 | MAY | **Earth-tube intake** (chimney-driven) *only if* the humid-climate mold/condensation/radon risk is engineered out — else omit. | Resilience |
+
+## N. Power architecture (off-grid system)
+
+> Derived from [`60-power-architecture.md`](60-power-architecture.md). See also [REQ-PWR](#f2-off-grid-energy--solar--battery-no-utility). The mobile-battery and tether requirements live in REQ-PWR-7/8/9.
 
 ---
 
