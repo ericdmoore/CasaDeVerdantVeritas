@@ -50,8 +50,8 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 | PV modules | Mono panels; ground- or roof-mount TBD | TBD | REQ-PWR-1 | TBD | TBD | TBD | TBD | proposed | Tilt ~30–33° (year-round) or ~20° (summer-favored); unshaded — [site §orientation](../../design/20-site-and-orientation.md) |
 | Mounting / racking | Wind-rated for Dallas; matches mount choice | TBD | REQ-PWR-1, REQ-STR-1 | TBD | TBD | TBD | TBD | proposed | Roof-mount adds structural load — see open Q |
 | Charge controller | MPPT, sized to array V/I | TBD | REQ-PWR-1 | TBD | TBD | TBD | TBD | proposed | |
-| **Fixed Tier-1 reserve battery** | **LiFePO₄**, small; *never leaves* | TBD | REQ-PWR-2, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Keeps safety loop + alerting alive when the cow is away |
-| **Mobile bulk pack ("power cow")** | **LiFePO₄** rack batteries, sized per calc | TBD | REQ-PWR-1, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Tier 2/3 storage + event power; **fire-code siting** ↓ |
+| **Fixed Tier-1 reserve 48v battery** | **LiFePO₄**, small; *never leaves* | TBD | REQ-PWR-2, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Keeps safety loop + alerting alive when the cow is away |
+| **Mobile 48v ("power cow")** | **LiFePO₄** rack batteries, sized per calc | TBD | REQ-PWR-1, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Tier 2/3 storage + event power; **fire-code siting** ↓ |
 | Cow cart | Hand truck, rated for pack weight, securing straps, ramp | 1 | REQ-PWR-9 | TBD | TBD | TBD | TBD | proposed | 100s of lb loaded; Amber/Red move only |
 | Cow inverter | For event AC (rated to event loads) | 1 | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Greenhouse stays DC-first; inverter is for events |
 | Battery mgmt (BMS) | Per pack (reserve + cow) | TBD | REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | |

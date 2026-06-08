@@ -212,6 +212,18 @@ Each requirement has:
 | REQ-CYCLE-8 | MAY | **Hügelkultur beds** merging water storage + in-place composting (build-time). | Resilience, Production |
 | REQ-CYCLE-9 | SHOULD | **LiFePO₄ end-of-life recycling plan** named (the hardware half of "produce no waste"). | Resilience |
 
+## P. Zone layout
+
+> Derived from [`80-zone-layout.md`](80-zone-layout.md). Realizes REQ-EDU / REQ-ACC / REQ-CTRL spatially.
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-ZONE-1 | MUST | **Central ADA circulation spine** giving single-glance supervision of the whole interior. | Safety, Education |
+| REQ-ZONE-2 | SHOULD | **Light gradient:** full-sun crops south, shade-tolerant + work zones north. | Production, Education |
+| REQ-ZONE-3 | SHOULD | **Primary gathering on the covered outdoor pad** — keep a full class out of the interior to preserve Group U. | Safety, Education |
+| REQ-ZONE-4 | SHOULD | **Controls + power infra in the cool/shaded corner, out of child reach.** | Safety, Resilience |
+| REQ-ZONE-5 | SHOULD | **~8 growing/irrigation zones** (IZ1–8): balanced soil beds + a hydroponic demo + wicking beds. | Education, Production |
+
 ---
 
 ## Traceability check

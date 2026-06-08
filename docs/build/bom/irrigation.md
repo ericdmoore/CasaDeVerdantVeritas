@@ -81,8 +81,9 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 - **Edible-use caution:** if condensate/greywater ever irrigates food, add pathogen treatment (open Q in [resource cycles](../../design/70-resource-cycles.md)).
 
 ## Open questions
-> **OPEN QUESTION:** Zone layout (how many irrigation zones / beds) → valve + line quantities.
-> **OPEN QUESTION:** Cistern + pure-tank + header sizing (ties autonomy calc, REQ-WATER-5).
-> **OPEN QUESTION:** Header-tank elevation + structural support (construction-locked).
+
+- **RESOLVED:** Zones defined in [`80-zone-layout.md`](../../design/80-zone-layout.md) — ~6 drip latching-valve zones (IZ1–5, IZ8) + IZ6 recirculating hydro + IZ7 wicking fill. Bed counts within zones still TBD.
+- **OPEN QUESTION:** Cistern + pure-tank + header sizing (ties autonomy calc, REQ-WATER-5).
+- **OPEN QUESTION:** Header-tank elevation + structural support (construction-locked).
 
 *Upstream: [`70-resource-cycles.md`](../../design/70-resource-cycles.md), [`50-passive-architecture.md`](../../design/50-passive-architecture.md). Format: [`README.md`](README.md). Related: [`controls.md`](controls.md) (valve drivers), [`off-grid-power.md`](off-grid-power.md).*

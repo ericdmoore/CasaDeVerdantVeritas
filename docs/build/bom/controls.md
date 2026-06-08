@@ -88,7 +88,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 - The safety loop **must demo working with HA powered off** before sign-off.
 
 ## Open questions
-> **OPEN QUESTION:** Final sensor + actuator list per zone → sets quantities here *and* the power load tiers.
+> **OPEN QUESTION:** Final sensor + actuator list per zone (zones now defined in [`80-zone-layout.md`](../../design/80-zone-layout.md): IZ1–8 + functional zones) → sets quantities here *and* the power load tiers.
 > **OPEN QUESTION:** Safety controller platform — ESPHome/ESP32 vs. a hardened micro-PLC (Tier-1 reliability vs. ecosystem).
 > **OPEN QUESTION:** LoRa gateway day-1 or deferred (depends on the far-node list).
 
