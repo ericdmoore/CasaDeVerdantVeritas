@@ -111,8 +111,10 @@ Load-shed here = a **SOC relay** (Victron SmartShunt/BMV relay → contactor, or
 
 **Both** keep the cow isolated/charge-only via the Victron Orion DC-DC, and both are single-bank on the house side (no multi-bank orchestration).
 
+> ✅ **Working direction (2026-06-08): Option B — EG4 6000XP-class**, right-sized for the greenhouse. Option A (GridBOSS) retained for reference; revisit only if programmable smart-load orchestration or big expansion is wanted. The 6000XP all-in-one bundles MPPT + inverter/charger + controller in one box.
+
 ## Open questions
-> **OPEN QUESTION:** Platform — Option A vs. B vs. Victron-native vs. DIY. Decide with the 🔴 Red designer once the load list sizes the system.
+> **OPEN QUESTION:** Confirm + size **Option B (EG4 6000XP-class)** with the 🔴 Red designer once the load list exists.
 > **OPEN QUESTION:** Cow charging rate — the small Orion-Tr 48/48 (~8 A) may be slow; size up or give the cow its own PV+MPPT.
 > **OPEN QUESTION:** Validate every port assignment against the current EG4 manuals (products evolve).
 

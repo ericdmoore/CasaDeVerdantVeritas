@@ -44,7 +44,7 @@ The cow is **never paralleled with the house bus.** Two separate, one-directiona
 - **Block sub-freezing charging** — a cow back cold from a winter event warms before its BMS allows charge.
 
 ### EMS — now a single-bank choice
-Because the house EMS only ever sees **one** bank (the cow is independent), there's **no multi-bank orchestration problem** — both **EG4** and **Victron** ecosystems handle this trivially. The house side needs an inverter/charger (house AC + tether-in), an MPPT, a battery monitor, and a controller. Platform still open (EG4 / Victron / Sol-Ark / DIY) — now an easy single-bank decision with the 🔴 Red designer.
+Because the house EMS only ever sees **one** bank (the cow is independent), there's **no multi-bank orchestration problem.** The house side needs an inverter/charger (house AC + tether-in), an MPPT, a battery monitor, and a controller — all of which an **all-in-one hybrid inverter bundles in one box.** **Working direction: an EG4 6000XP-class all-in-one** (greenhouse-scale; see [wiring concept Option B](../build/power-wiring-concept.md#option-b--eg4-6000xp-greenhouse-scale-simpler)). Confirm + size with the 🔴 Red designer.
 
 ## The "power cow" 🐄 — mobile dual-use storage
 
@@ -69,7 +69,7 @@ A **temporary** extension cord + garden hose from campus, for extreme weather ([
 
 ## Open questions
 
-> **OPEN QUESTION:** **EMS platform** — EG4 vs. Victron vs. Sol-Ark vs. DIY (now an easy *single-bank* choice). Decide with the 🔴 Red designer.
+> **OPEN QUESTION:** Confirm + size **EG4 6000XP-class all-in-one** (working direction) with the 🔴 Red designer once the load list exists.
 > **OPEN QUESTION:** **Cow charging path/rate** — a higher-power house→cow DC-DC charger vs. the cow's own small PV + MPPT (the Orion-Tr 48/48 alone is slow).
 > **OPEN QUESTION:** House-bank autonomy — confirm the ~35% covers Tier 1 + needed Tier 2 for the autonomy window once the load list exists.
 > **OPEN QUESTION:** Cow **sub-panel circuit list** + sizing (which Tier-3 loads live on it).
