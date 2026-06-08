@@ -8,7 +8,7 @@ This repository is the single source of truth for the project: the design intent
 
 ## What we're building
 
-A **mid-size, kit/modular greenhouse** (roughly 20×40 ft on a prepared foundation) that serves four overlapping missions:
+A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, **totally off-grid** on solar + battery) that serves four overlapping missions:
 
 1. **Hands-on education** — a living classroom where students grow plants and learn science, ecology, and nutrition. *This is the primary mission; every other goal yields to it when they conflict.*
 2. **Food production** — fresh produce for the cafeteria and garden-to-table learning.
@@ -16,6 +16,8 @@ A **mid-size, kit/modular greenhouse** (roughly 20×40 ft on a prepared foundati
 4. **Research & data** — sensors and monitoring that let students collect real environmental data and run controlled experiments.
 
 **Operated by** teachers and students during the school year, with a **parent/volunteer group** providing upkeep and summer coverage. This operating model drives a hard design constraint: systems must be **safe, simple, and resilient to gaps in human attention** (nights, weekends, and the long Texas summer break).
+
+**Being off-grid sharpens that constraint.** The worst case is a *hot-and-cloudy* multi-day summer stretch — peak cooling demand exactly when solar generation and battery reserves bottom out. So the design leans on **passive systems that survive with zero electricity**, with powered cooling as a solar-correlated assist. See the [design principles](docs/design/00-design-principles.md#project-constraints-decided).
 
 ## Site context
 

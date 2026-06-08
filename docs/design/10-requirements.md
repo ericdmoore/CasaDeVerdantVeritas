@@ -27,18 +27,34 @@ Each requirement has:
 | REQ-STR-5 | SHOULD | Clear interior footprint ≥ ~800 sq ft (e.g. 20×40) to hold a class of 20–25 plus growing zones. | Education |
 | REQ-STR-6 | SHOULD | Roof pitch and gutters sized to shed Dallas downpours and feed rainwater capture. | Dallas, Affordability |
 
-## B. Cooling & ventilation — *the headline system*
+## A2. Foundation & slab — *the one-way door*
 
-> The governing scenario is a ~100–105 °F summer afternoon with full sun. Design here, and the rest of the year is easy.
+> Everything here gets locked in concrete. Once the slab is poured, changes are demolition, not edits. These must all be finalized **before the pour** — see the forthcoming `docs/build/` pre-pour checklist.
 
 | ID | Pri | Requirement | Trace |
 |----|-----|-------------|-------|
-| REQ-COOL-1 | MUST | Maintain interior ≤ ~95 °F on the design day (105 °F ambient, full sun) with cooling active. *(verify target with crop needs.)* | Resilience, Production |
-| REQ-COOL-2 | MUST | Mechanical exhaust capacity to achieve ≥ ~1 air change/min. Rule of thumb: CFM ≈ floor area × 8, then add factors for light/temp. For 800 sq ft → ~6,400 CFM baseline, size up toward ~8–12k for the Dallas design day. *(verify)* | Dallas, Resilience |
-| REQ-COOL-3 | SHOULD | Evaporative (swamp) cooling — viable because TX summer humidity still leaves headroom. Pad area ≈ exhaust CFM ÷ ~250. *(verify pad type.)* | Dallas, Production |
-| REQ-COOL-4 | MUST | **Passive failsafe ventilation** independent of power — e.g. wax-piston auto vent openers and/or large roll-up sides — that opens on rising temperature with no electricity. | Safety, Resilience |
-| REQ-COOL-5 | MUST | On power or controller failure, powered vents/louvers **fail open**, never closed. | Safety, Resilience |
-| REQ-COOL-6 | SHOULD | Cross-ventilation aligned to prevailing summer breeze (intake low, exhaust high/opposite). | Dallas |
+| REQ-SLAB-1 | MUST | Floor plan (zones, beds, benches, paths) finalized before pour — slab features depend on it. | Education, all |
+| REQ-SLAB-2 | MUST | Integrated drainage: slope to floor/trench drains with a daylight or French-drain outlet, formed before pour. A greenhouse floor is wet by design. | Safety, Resilience |
+| REQ-SLAB-3 | MUST | Electrical conduit + stub-ups embedded for the control panel, fans, sensors, and the off-grid PV/battery feed. | Off-grid, Safety |
+| REQ-SLAB-4 | MUST | Plumbing stub-ups for irrigation supply, rainwater line, and drains, placed per the floor plan. | Resilience |
+| REQ-SLAB-5 | MUST | Anchor bolts / embeds set for the custom structure's base, per the wind-uplift design (ties to REQ-STR-1/4). | Safety |
+| REQ-SLAB-6 | SHOULD | Perimeter edge insulation + vapor barrier under slab; design whether slab thermal mass is exposed to buffer day/night swings. | Resilience, Dallas |
+| REQ-SLAB-7 | SHOULD | Slab finish flush and level for ADA access (ties to REQ-ACC-1). | Accessibility |
+
+## B. Cooling & ventilation — *the headline system*
+
+> The governing scenario is a ~100–105 °F summer afternoon with full sun. Design here, and the rest of the year is easy. **Because we're off-grid, a two-target rule applies:** the powered system holds the comfortable setpoint *when there's sun/battery*, but a **passive-only** layer must keep the greenhouse survivable when there isn't (the hot-and-cloudy stretch).
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-COOL-1 | MUST | **With powered assist available:** maintain interior ≤ ~95 °F on the design day (105 °F ambient, full sun). *(verify target with crop needs.)* | Resilience, Production |
+| REQ-COOL-2 | MUST | **Passive-only survival (cloudy stretch / depleted battery):** shade + natural ventilation alone must hold the interior below the plant/people safety ceiling on the design day *(verify ceiling, ~110–115 °F)* and never trap heat. This is the off-grid worst case. | Safety, Resilience |
+| REQ-COOL-3 | MUST | **Passive ventilation sized as the primary system:** combined roof + sidewall vent area ≥ ~20–25% of floor area, roof-vent area roughly equal to sidewall area to drive stack effect. *(verify)* | Dallas, Resilience |
+| REQ-COOL-4 | MUST | **Passive failsafe openers** independent of power — wax-piston auto vent openers and/or large roll-up sides — opening on rising temperature with zero electricity. | Safety, Resilience |
+| REQ-COOL-5 | SHOULD | **Powered exhaust as a solar-correlated assist:** prefer solar-direct DC fans that run off PV without draining the battery; size for ≥ ~1 air change/min when power is available (CFM ≈ floor area × 8 → ~6,400 CFM for 800 sq ft, up toward ~8–12k on the design day). *(verify)* | Off-grid, Dallas |
+| REQ-COOL-6 | SHOULD | Evaporative (swamp) cooling as an assist — viable because TX summer humidity still leaves headroom; pad area ≈ exhaust CFM ÷ ~250. Note its **water draw** counts against the off-grid water budget. *(verify pad type.)* | Dallas, Production |
+| REQ-COOL-7 | MUST | On power or controller failure, powered vents/louvers **fail open**, never closed. | Safety, Resilience |
+| REQ-COOL-8 | SHOULD | Cross-ventilation aligned to prevailing summer breeze (intake low, exhaust high/opposite). | Dallas |
 
 ## C. Shading & light
 
@@ -65,6 +81,7 @@ Each requirement has:
 | REQ-WATER-2 | MUST | Open water surfaces deeper than a few inches are covered or fenced. | Safety |
 | REQ-WATER-3 | SHOULD | Rainwater harvesting from the roof, sized to offset a meaningful share of irrigation demand. *(verify capacity.)* | Dallas, Affordability, Education |
 | REQ-WATER-4 | SHOULD | Backflow prevention on any municipal water connection (code). | Safety |
+| REQ-WATER-5 | SHOULD | **Off-water autonomy:** rainwater storage sized to carry irrigation *and* evaporative-cooling demand through a dry summer stretch; if it can't, identify the backup source (tank delivery / well). *(verify, see OQ.)* | Off-grid, Resilience |
 
 ## F. Electrical & controls
 
@@ -73,7 +90,20 @@ Each requirement has:
 | REQ-ELEC-1 | MUST | All circuits GFCI-protected; wiring in conduit, connections out of child reach. | Safety |
 | REQ-ELEC-2 | MUST | The critical safety loop (vent/exhaust on overtemp) operates without the data/automation layer — and has passive backup per REQ-COOL-4. | Safety, Resilience |
 | REQ-ELEC-3 | SHOULD | Controller for temperature-driven ventilation and scheduled irrigation, using standard repairable components. | Resilience, Simplicity |
-| REQ-ELEC-4 | SHOULD | Remote alerting (temp/moisture/power) to a phone. | Resilience |
+| REQ-ELEC-4 | SHOULD | Remote alerting (temp/moisture/power, plus battery state-of-charge) to a phone. | Resilience |
+
+## F2. Off-grid energy — *solar + battery, no utility*
+
+> No grid means "power loss" is a normal cloudy-week event, not a rare fault. Size and prioritize accordingly.
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-PWR-1 | MUST | PV array + battery sized against the Tier 1/2/3 load list and a worst-case cloudy stretch; design days-of-autonomy target set explicitly. *(verify, see OQ.)* | Off-grid, Resilience |
+| REQ-PWR-2 | MUST | **Tier 1 (shed last):** control brain, temp sensing, alerting, and night irrigation are battery-protected and survive a multi-day low-solar stretch. | Safety, Resilience |
+| REQ-PWR-3 | SHOULD | **Tier 2:** cooling assist (fans, evap pump) prefers solar-direct operation; runs when sun/battery allow. | Off-grid, Dallas |
+| REQ-PWR-4 | SHOULD | **Tier 3 (shed first):** grow lights, data logging, hydroponic pumps drop automatically on low battery state-of-charge. | Off-grid, Simplicity |
+| REQ-PWR-5 | MUST | The greenhouse survives a fully depleted battery on passive means alone (ties to REQ-COOL-2). | Safety, Resilience |
+| REQ-PWR-6 | SHOULD | PV/battery enclosure sited and secured out of child reach, ventilated, and weather/hail protected. | Safety |
 
 ## G. Safety & egress
 
@@ -107,21 +137,23 @@ Each requirement has:
 | ID | Pri | Requirement | Trace |
 |----|-----|-------------|-------|
 | REQ-DATA-1 | SHOULD | Sensors (temp, humidity, soil moisture, light) logging to a student-accessible record. | Research |
-| REQ-DATA-2 | MUST | The data layer is **not** in the critical safety/survival path — if it fails, plants and people are unaffected. | Safety, Simplicity |
+| REQ-DATA-2 | SHOULD | The data layer is **not** in the critical safety/survival path — if it fails, plants and people are unaffected. | Safety, Simplicity |
 | REQ-DATA-3 | MAY | Simple dashboard/export for classroom experiments. | Research, Education |
 
 ---
 
 ## Traceability check
 
-Every **MUST** above maps to **Safety** or **Resilience** (the top of the priority hierarchy) or to **code** — as it should. Production and Showcase goals appear only as **SHOULD**/**MAY**. If you ever find a Production requirement marked MUST that overrides a Safety SHOULD, that's a smell — re-check it against [the priority order](00-design-principles.md#the-order-of-priorities).
+Every **MUST** above maps to **Safety** or **Resilience** (the top of the priority hierarchy) or to **code** — as it should. *Off-grid* and *Dallas* appear as trace tags too: they're project constraints (the decided context), not goals that compete in the hierarchy — a MUST tagged `Off-grid` still earns its MUST from Safety or Resilience. Production and Showcase goals appear only as **SHOULD**/**MAY**. If you ever find a Production requirement marked MUST that overrides a Safety SHOULD, that's a smell — re-check it against [the priority order](00-design-principles.md#the-order-of-priorities).
 
 ---
 
 ## Open questions feeding back into design
 
-> **OPEN QUESTION:** Confirm current Dallas wind-speed and snow/live-load figures with the AHJ (authority having jurisdiction) before fixing REQ-STR-1.
-> **OPEN QUESTION:** Crop list drives REQ-COOL-1 and REQ-HEAT-2 targets — warm-season vs. cool-season changes the setpoints.
+> **OPEN QUESTION:** Confirm current Dallas wind-speed and snow/live-load figures with the AHJ (authority having jurisdiction) before fixing REQ-STR-1; a custom (non-kit) structure may need an engineer's stamp.
+> **OPEN QUESTION:** Crop list drives REQ-COOL-1/2 and REQ-HEAT-2 targets — warm-season vs. cool-season changes both the comfortable setpoint and the survivable ceiling.
 > **OPEN QUESTION:** Occupancy classification for the structure (is it an accessory building, an assembly space?) drives egress requirements REQ-SAFE-2.
+> **OPEN QUESTION:** Days-of-autonomy target for REQ-PWR-1 — how long a cloudy stretch must the battery carry Tier 1 loads?
+> **OPEN QUESTION:** Water budget for REQ-WATER-5 — does rainwater storage cover irrigation + evaporative cooling through a dry summer, or do we need a backup source?
 
 *Related: [`docs/operate/00-operating-principles.md`](../operate/00-operating-principles.md) — how the building actually gets run once these requirements are met.*

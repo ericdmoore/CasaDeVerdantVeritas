@@ -50,7 +50,8 @@ Split tasks by consequence-of-failure.
 
 - **Automated (failure = dead plants or danger):** temperature-driven ventilation, irrigation, freeze/heat alerts. These never wait on a human. *(See [REQ-COOL](../design/10-requirements.md#b-cooling--ventilation--the-headline-system), [REQ-WATER-1](../design/10-requirements.md#e-irrigation--water).)*
 - **Human (failure = a worse lesson or a smaller harvest):** observing, pruning, transplanting, harvesting, teaching, experimenting. These are the rewarding parts — leave them for people.
-- **Trust but verify the automation.** A weekly checklist confirms the timers fired, the tank has water, the vents move. Automation that silently fails is worse than no automation.
+- **Trust but verify the automation.** A weekly checklist confirms the timers fired, the rainwater tank has water, the battery is charging, and the vents move. Automation that silently fails is worse than no automation.
+- **Off-grid means watching the weather as an operator, not just a gardener.** A forecasted hot-and-cloudy stretch is the danger window: pre-charge what you can, shed Tier 3 loads early, and lean on the passive systems. The greenhouse is designed to survive it untended — but a heads-up volunteer makes it survive *comfortably*.
 
 ## 5. Alert early, escalate clearly
 
