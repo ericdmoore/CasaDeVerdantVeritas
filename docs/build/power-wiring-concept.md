@@ -14,46 +14,46 @@ Best if you want **built-in SOC smart-load shedding** and **tether-as-grid** sea
 
 ```
  GENERATION / CONVERSION
-   ☀ PV ARRAY ──DC──▶ ┌──────────────────────────┐
+   ☀ PV ARRAY ──DC──▶  ┌──────────────────────────┐
                        │  EG4 FlexBOSS21          │◀── CAN ──┐ closed-loop
                        │  hybrid inverter (MPPTs) │          │
-                       └────────────┬─────────────┘   ┌──────┴───────────┐
-                               AC   │                  │ HOUSE BATTERY     │
-                                    │                  │ EG4 48V rack ×N   │
-                                    │                  │ (≈35% of total)   │
-                                    ▼                  └──────┬───────────┘
- GATEWAY / DISTRIBUTION                           48V DC bus  │
- ┌──────────────────── EG4 GRIDBOSS (MID) ─────────────────┐  │
- │ IN :  GRID ◀── campus tether (emergency AC)              │  │
- │       GEN  ◀── optional generator                        │  │
- │       INV  ◀── FlexBOSS21 AC                              │  │
- │ OUT:  BACKUP ────▶ CRITICAL panel  (Tier 1 + Tier 2)      │  │
- │       SMART 1 ───▶ grow lights      ┐                     │  │
- │       SMART 2 ───▶ hydro pump       │ SOC-based load-shed │  │
- │       SMART 3 ───▶ supplemental fans│  (Tier 2/3)         │  │
- │       SMART 4 ───▶ spare / AC-couple┘                     │  │
- │       NON-BACKUP ▶ least-critical loads                   │  │
- └───────────────────────────────────────────────────────────┘  │
-                                                                 │
- ISOLATED COW BRANCH (taps house 48V DC bus — NEVER paralleled)  │
-   house 48V DC bus ──▶ ┌──────────────────────────────────────┐ │
-                        │ Victron Orion-Tr Smart 48/48 DC-DC    │◀┘
-                        │ one-way · current-limited · NO inrush │
+                       └────────────┬─────────────┘    ┌──────┴───────────┐
+                               AC   │                  │ HOUSE BATTERY    │
+                                    │                  │ EG4 48V rack ×N  │
+                                    │                  │ (≈35% of total)  │
+                                    ▼                  └───────────┬──────┘
+ GATEWAY / DISTRIBUTION                           48V DC bus       │
+ ┌──────────────────── EG4 GRIDBOSS (MID) ───────────────────┐     │
+ │ IN :  GRID ◀── campus tether (emergency AC)               │     │
+ │       GEN  ◀── optional generator                         │     │
+ │       INV  ◀── FlexBOSS21 AC                              │     │
+ │ OUT:  BACKUP ────▶ CRITICAL panel  (Tier 1 + Tier 2)      │     │
+ │       SMART 1 ───▶ grow lights      ┐                     │     │
+ │       SMART 2 ───▶ hydro pump       │ SOC-based load-shed │     │
+ │       SMART 3 ───▶ supplemental fans│  (Tier 2/3)         │     │
+ │       SMART 4 ───▶ spare / AC-couple┘                     │     │
+ │       NON-BACKUP ▶ least-critical loads                   │     │
+ └───────────────────────────────────────────────────────────┘     │
+                                                                   │
+ ISOLATED COW BRANCH (taps house 48V DC bus — NEVER paralleled)    │
+   house 48V DC bus ──▶ ┌───────────────────────────────────────┐  │
+                        │ Victron Orion-Tr Smart 48/48 DC-DC    │◀ ┘
+                        │ one-way · current-limited · NO inrush  │
                         │ engages only when bus V = house-healthy│
-                        └───────────────────┬──────────────────┘
+                        └────────────────────┬───────────────────┘
                                  charge only │
                                              ▼
-                        ┌──────────────────────────────────────┐
+                        ┌────────────────────────────────────────┐
                         │ POWER COW (isolated): EG4 48V rack +   │
                         │ BMS/LVD on cart + portable inverter +  │
                         │ Victron SmartShunt (SOC)               │
-                        └───────────────────┬────────────────────┘
+                        └────────────────────────────────┬───────┘
                           load out (docked & ≥ LVD only) │
-                                             ▼
-                        ┌──────────────────────────────────────┐
+                                                         ▼
+                        ┌────────────────────────────────────────┐
                         │ COW SUB-PANEL (Tier 3): hydro demo,    │
                         │ data rig, event outlet, supplemental   │
-                        └──────────────────────────────────────┘
+                        └────────────────────────────────────────┘
 ```
 
 **Key connections**
@@ -118,4 +118,71 @@ Load-shed here = a **SOC relay** (Victron SmartShunt/BMV relay → contactor, or
 > **OPEN QUESTION:** Cow charging rate — the small Orion-Tr 48/48 (~8 A) may be slow; size up or give the cow its own PV+MPPT.
 > **OPEN QUESTION:** Validate every port assignment against the current EG4 manuals (products evolve).
 
-*Related: [`../design/60-power-architecture.md`](../design/60-power-architecture.md), [`bom/off-grid-power.md`](bom/off-grid-power.md). Sources: [EG4 GridBOSS wiring diagrams](https://bigbattery.com/wp-content/uploads/2024/11/EG4-GridBOSS-System-Wiring-Diagrams.pdf), [GridBOSS manual](https://signaturesolar.com/content/documents/EG4/EG4%20GridBOSS%20User%20Manual%20v1.1.2%2011-01-24.pdf), [FlexBOSS21 manual](https://eg4electronics.com/wp-content/uploads/2024/08/FlexBOSS-21-Manual.pdf).*
+---
+
+## Detailed wiring — EG4 6000XP (✅ working direction)
+
+Terminal-level view of Option B. *(Conceptual; confirm terminal names + the neutral/ground bonding scheme against the [6000XP manual](https://eg4electronics.com/wp-content/uploads/2024/03/EG4_6000XP_Off_Grid_Inverter_User_Manual.pdf) and your installer — off-grid N-G bonding is an easy thing to get wrong.)*
+
+```
+  PV STRINGS                                                   MONITORING
+  ┌───────┐  DC                                                ┌──────────────┐
+  │ str 1 ├─────▶ MPPT 1 ┐                                     │ EG4 WiFi/4G  │
+  └───────┘             ├──┐                                   │ dongle → app │
+  ┌───────┐  DC         │  │                                   └──────┬───────┘
+  │ str 2 ├─────▶ MPPT 2 ┘  │                                         │ RS485/CAN
+  └───────┘                 ▼                                          ▼
+                    ┌─────────────────────────────────────────────────────────┐
+                    │                  EG4 6000XP  (48 V hybrid)               │
+   HOUSE BATTERY    │  [PV1] [PV2]   [BAT +/–]  [BMS CAN/RS485]                │
+   EG4 48V rack ×N ─┼──────────────▶ BAT ◀─────── CAN (closed-loop) ──────────┤
+   (~35% of total)  │                                                          │
+   campus tether ──▶│ [AC IN  (Grid/Gen)]              [AC OUT (Load)]         │
+   (emergency AC)   └──────────────────────────────────────────┬──────────────┘
+                         ▲ auto-transfer + charge               │ 120/240 V
+                         │ (runs loads + recharges even         ▼
+                         │  with a flat battery — REQ-PWR-13)  ┌──────────────────────┐
+                         │                                     │ GREENHOUSE LOAD PANEL │
+   ⏚ ground rod / SPD ───┴── bond per manual                  │ main breaker          │
+                                                              │  ├─ Tier 1 critical ──── always on (safety loop)
+                          SmartShunt ──▶ relay ──▶ contactor ─┤  ├─ Tier 2/3 branch ──── shed on low SOC
+                          (house SOC)        (sheds T2/3)      │  └─ ...                │
+                                                              └──────────┬────────────┘
+                                                                         │
+  ISOLATED COW BRANCH (taps the 48 V BATTERY bus — never the AC, never paralleled)
+   48V battery bus ──▶ ┌────────────────────────────────────┐
+                       │ Victron Orion-Tr Smart 48/48 DC-DC │  one-way · current-limited ·
+                       │ (input-voltage lockout = house-OK) │  NO inrush
+                       └──────────────────┬─────────────────┘
+                                charge only│
+                                           ▼
+                       ┌────────────────────────────────────┐
+                       │ POWER COW: EG4 48V rack + BMS/LVD,  │
+                       │ on cart + portable inverter (events)│
+                       │ + Victron SmartShunt (SOC readout)  │
+                       └──────────────────┬─────────────────┘
+                         load out (docked & ≥ LVD)│
+                                           ▼
+                       ┌────────────────────────────────────┐
+                       │ COW SUB-PANEL (Tier 3): hydro demo, │
+                       │ data rig, event outlet, supplemental│
+                       └────────────────────────────────────┘
+```
+
+**6000XP terminal connections**
+
+| 6000XP terminal | Connects to | Notes |
+|-----------------|-------------|-------|
+| **PV1 / PV2** | PV strings | Dual MPPT, ≤ ~500 V/string per manual |
+| **BAT +/–** | House EG4 48 V rack bus | Plus **BMS CAN/RS485** for closed-loop SOC/charge |
+| **AC IN (Grid/Gen)** | **Campus tether** (emergency) | Auto-transfer; charges + powers loads with a flat battery |
+| **AC OUT (Load)** | Greenhouse load panel | 120/240 V split-phase |
+| **Comms** | EG4 WiFi/4G dongle | Monitoring/alerts app |
+| **Ground/SPD** | Ground rod + bond | **N-G bonding per manual** (off-grid gotcha) |
+| 48 V battery bus | Victron Orion-Tr 48/48 | One-way cow charger, taps **DC**, not AC |
+
+> **Note:** the cow charger taps the **48 V battery bus** (DC side), *not* the AC output — so the cow is fed at the battery, charges one-way, and never touches the AC distribution or parallels the house.
+
+---
+
+*Related: [`../design/60-power-architecture.md`](../design/60-power-architecture.md), [`bom/off-grid-power.md`](bom/off-grid-power.md). Sources: [EG4 6000XP manual](https://eg4electronics.com/wp-content/uploads/2024/03/EG4_6000XP_Off_Grid_Inverter_User_Manual.pdf), [EG4 GridBOSS wiring diagrams](https://bigbattery.com/wp-content/uploads/2024/11/EG4-GridBOSS-System-Wiring-Diagrams.pdf), [FlexBOSS21 manual](https://eg4electronics.com/wp-content/uploads/2024/08/FlexBOSS-21-Manual.pdf).*
