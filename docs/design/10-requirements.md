@@ -164,6 +164,7 @@ Each requirement has:
 | REQ-CTRL-5 | SHOULD | **Commodity hardware in a managed sealed enclosure** over rugged gear — *with* thermal siting (shade/cool, reflective), a breather/membrane vent + desiccant, and conformal-coated boards. | Simplicity, Affordability |
 | REQ-CTRL-6 | SHOULD | **Low-voltage SELV DC (≤ ~48 V)** in wet and child-accessible zones; reserve line-voltage AC for where genuinely needed, away from hands and water. | Safety |
 | REQ-CTRL-7 | SHOULD | **Surge protection (SPD) + proper ground** shielding the Tier 1 core (off-grid PV + TX storms). | Resilience, Off-grid |
+| REQ-CTRL-8 | SHOULD | **Wiring conventions:** on any low-voltage DC pair the **marked conductor = positive (+)**; **Wago Lever-Nuts** for wire-to-wire splices (non-terminations), *not* the high-current bus. | Safety, Simplicity |
 
 ## L. Network & connectivity
 

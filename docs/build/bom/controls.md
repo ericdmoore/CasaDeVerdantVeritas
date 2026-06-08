@@ -69,6 +69,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | Sealed field connectors | **M12 X-coded (IP67)** for wet/exposed runs | TBD | REQ-CTRL-2 | TBD | TBD | TBD | TBD | proposed | Minimize exposed runs |
 | Indoor data connectors | RJ45 (inside enclosures) | TBD | REQ-CTRL-2 | TBD | TBD | TBD | TBD | proposed | |
 | Cabling | PoE/Cat6, low-voltage DC, conduit | TBD | REQ-ELEC-1, REQ-CTRL-3 | TBD | TBD | TBD | TBD | proposed | Conduit stub-ups pre-poured (REQ-SLAB-3) |
+| Wire-to-wire splices | **Wago Lever-Nuts (221-series or equal)** — tool-free, reusable, transparent | TBD | REQ-CTRL-1, REQ-CTRL-8 | TBD | TBD | TBD | TBD | proposed | **Splices only** (non-terminations); low-voltage control — *not* the high-current bus (lugs/Anderson there) |
 
 ## F. Enclosure & support
 
@@ -84,6 +85,8 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 
 ## Notes
 - **Poka-yoke everything pluggable** ([REQ-CTRL-1](../../design/10-requirements.md#k-electronics--controls-architecture)) — keyed + color-coded so 🟢 Green can only plug power, and can't plug it wrong.
+- **Polarity convention** ([REQ-CTRL-8](../../design/10-requirements.md#k-electronics--controls-architecture)): on any low-voltage DC pair, the **marked conductor = positive (+)**. One rule, everywhere — so Amber never guesses.
+- **Splices vs. terminations:** **Wago Lever-Nuts** for wire-to-wire splices; device terminals use their proper lugs/connectors; the high-current battery bus uses lugs / Anderson, never Wagos.
 - **DC-first** ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)) — minimize AC/inverter inside the greenhouse.
 - The safety loop **must demo working with HA powered off** before sign-off.
 
