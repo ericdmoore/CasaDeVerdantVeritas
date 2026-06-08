@@ -56,11 +56,24 @@ Echoes [electronics Principle 4](30-electronics-and-controls.md#4-design-around-
 - **SSD, not an SD card, for HA.** SD-card corruption is *the* classic HA death — straight violation of design-around-failure.
 - **Monitor the monitors:** HA alerts when a sensor node drops offline, so silent failures surface (this is what the weekly "trust but verify" SOP checks by hand — automate it).
 
-## 5. Standardize the internal transport — don't let it sprawl
+## 5. Transport: as few as the physics needs — band-diverse, each earning its keep
 
-- **PoE/Ethernet backbone** (the [M12/RJ45 connector standard](30-electronics-and-controls.md#2-right-connector-for-the-context--and-keep-the-wet-boundary-small)) for the reliable, powered core and key actuators.
-- **One** HA-friendly radio for distributed battery sensors — *not* five. **Thread/Matter** (emerging standard, local, commodity) or Zigbee; **LoRa** only for far-flung low-power outdoor nodes.
-- Overall stack: **ESPHome + HA** fits our ethos — open, local-first, cheap, huge community = repairable by a volunteer.
+Not one radio, and not five. The [tiered operating model](../operate/10-roles-and-tiers.md) changes the old "keep it to one radio" rule: 🟢 **Green never sees the radios**, 🟠 **Amber can run several**, and the [heartbeat/reachability diagnostic](10-requirements.md#l-network--connectivity) makes the transport under a node nearly irrelevant to fault-finding. So the constraint moves from *simplicity* to *physics + cost*.
+
+- **Wired PoE/Ethernet backbone** (the [M12/RJ45 connector standard](30-electronics-and-controls.md#2-right-connector-for-the-context--and-keep-the-wet-boundary-small)) for the reliable, powered core and key actuators. **Wired-first** — radio only where wiring can't reach.
+- **One 2.4 GHz mesh** (**Zigbee** now; Thread/Matter later on the same 802.15.4 hardware) for distributed in-greenhouse sensors near mains routers.
+- **Sub-GHz / LoRa** for **far or canopy-buried outdoor nodes** — rain cistern, weather station, outdoor beds — where 2.4 GHz can't penetrate wet foliage or reach the distance. (Sub-GHz penetration is real: **water absorbs 2.4 GHz**.)
+- **WiFi (ESP32/ESPHome)** reserved for powered, bandwidth-y nodes — aggregators, the camera.
+
+> **Band diversity is a resilience feature, not sprawl:** a single 2.4 GHz insult (interference, a dead coordinator) can't take the sub-GHz nodes down with it — **no single RF point of failure** ([design-around-failure](30-electronics-and-controls.md#4-design-around-failure--assume-it-will-fail-keep-it-reachable) applied to spectrum).
+
+**Guardrails so it stays disciplined, not sprawling:**
+- **One transport per niche** — don't run two radios doing the same near-field 2.4 GHz mesh job.
+- **Each gateway is a budgeted power line** on the [power BOM](../build/bom/off-grid-power.md) (always-on = Wh/day).
+- **Each transport needs spares + ≥ 2 Amber people** who know it (continuity over a thin Amber pool — the *residual* form of the old cognitive-load worry).
+- **Standardize the integration pattern** — every transport lands in HA through a documented bridge and one diagnostic view, even if the radios differ.
+
+Overall stack: **ESPHome + HA** fits our ethos — open, local-first, cheap, huge community.
 
 ## 6. The QR / dashboard experience (education + showcase)
 
@@ -82,8 +95,8 @@ Echoes [electronics Principle 4](30-electronics-and-controls.md#4-design-around-
                                  │  brokers
         ┌──── IoT / control segment (no direct internet) ────┐
         │  PoE/Ethernet backbone ── key actuators            │
-        │  Thread/Matter (or Zigbee) ── battery sensors      │
-        │  LoRa ── far outdoor nodes                          │
+        │  Zigbee (Thread-capable HW) ── in-house sensors    │
+        │  LoRa / sub-GHz ── far + canopy-buried nodes        │
         └────────────────────────────────────────────────────┘
 
    ╔══════════════ Tier 1/2 (survives) ══════════════╗
@@ -101,7 +114,7 @@ Echoes [electronics Principle 4](30-electronics-and-controls.md#4-design-around-
 ## Open questions
 
 > **OPEN QUESTION (recommendation: cellular-primary):** External uplink — own LTE vs. pursuing school IT approval vs. both. Leaning **own LTE** for independence; school WiFi only as a blessed secondary.
-> **OPEN QUESTION (recommendation: Thread/Matter):** Internal sensor radio — Thread/Matter vs. Zigbee vs. all-wired. Leaning **wired PoE backbone + Thread/Matter** for battery sensors.
+> **OPEN QUESTION (recommendation: Zigbee + LoRa):** Sensor transports — **Zigbee** for the in-greenhouse 2.4 GHz mesh (broadest cheap/DIY sensor ecosystem; Thread/Matter a later evolution on the same 802.15.4 hardware), **paired with LoRa/sub-GHz** for far or canopy-buried nodes where 2.4 GHz can't reach. Band diversity also buys RF resilience. (Z-Wave largely squeezed out — LoRa covers the sub-GHz role.)
 > **OPEN QUESTION:** HA host platform + whether the safety controller is the same brain or a separate Tier 1 device (ties to the [electronics open question](30-electronics-and-controls.md#open-questions)).
 > **OPEN QUESTION:** Does the critical-alert path use cellular data, SMS, or both? Determines the modem/plan on the power BOM.
 > **OPEN QUESTION:** Data governance + camera privacy policy for student-facing data.
