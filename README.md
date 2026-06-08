@@ -52,6 +52,7 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
     │   ├── 00-slab-prepour-checklist.md
     │   ├── 10-regulatory-governance.md
+    │   ├── power-wiring-concept.md   ← conceptual EG4/Victron wiring (platform open)
     │   └── bom/             ← bills of materials (one per subsystem)
     │       ├── README.md
     │       ├── off-grid-power.md
