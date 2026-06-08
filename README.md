@@ -44,7 +44,8 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │   ├── 30-electronics-and-controls.md
     │   ├── 40-network-and-connectivity.md
     │   ├── 50-passive-architecture.md
-    │   └── 60-power-architecture.md
+    │   ├── 60-power-architecture.md
+    │   └── 70-resource-cycles.md
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
     │   ├── 00-slab-prepour-checklist.md
     │   ├── 10-regulatory-governance.md

@@ -196,6 +196,22 @@ Each requirement has:
 
 > Derived from [`60-power-architecture.md`](60-power-architecture.md). See also [REQ-PWR](#f2-off-grid-energy--solar--battery-no-utility). The mobile-battery and tether requirements live in REQ-PWR-7/8/9.
 
+## O. Resource cycles (water + nutrient)
+
+> Derived from [`70-resource-cycles.md`](70-resource-cycles.md). Closes the "produce no waste" gap.
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-CYCLE-1 | SHOULD | **Multi-surface rainwater harvest** (greenhouse roof + PV array) with first-flush diverter + screening → cistern. | Off-grid, Education |
+| REQ-CYCLE-2 | SHOULD | **Interior condensation capture** (twin-wall channels / eave gutters) to a separate **pure-water** store for evap pads, battery top-up, and sensitive hydroponics. | Resilience, Off-grid |
+| REQ-CYCLE-3 | SHOULD | **Tiered, covered storage** ([REQ-WATER-2](#e-irrigation--water)) + an **elevated header tank** for gravity feed ([REQ-PASV-4](#m-passive-architecture)). | Resilience, Safety |
+| REQ-CYCLE-4 | SHOULD | **Overflow routed to soil / swale / compost beds**, never to waste. | Off-grid, Education |
+| REQ-CYCLE-5 | SHOULD | **Composting program** — vermicompost, bokashi, hot compost, hügelkultur — sited in an **outdoor service zone** (pests/pathogens out of the growing house); finished product returns inside. | Education, Production |
+| REQ-CYCLE-6 | SHOULD | **Cafeteria-scrap loop** via **bokashi pre-treatment**; requires health-dept/district sign-off ([REQ-REG](../build/10-regulatory-governance.md)) and sealed, rodent-proof handling. | Education, Production |
+| REQ-CYCLE-7 | SHOULD | **Fertigation path** — compost / worm tea into the irrigation system. | Production, Education |
+| REQ-CYCLE-8 | MAY | **Hügelkultur beds** merging water storage + in-place composting (build-time). | Resilience, Production |
+| REQ-CYCLE-9 | SHOULD | **LiFePO₄ end-of-life recycling plan** named (the hardware half of "produce no waste"). | Resilience |
+
 ---
 
 ## Traceability check
