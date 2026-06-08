@@ -16,6 +16,7 @@
 | [SOP-01](SOP-01-daily-check.md) | **Daily check** | Teacher + students | Each school day | ~5 min |
 | [SOP-02](SOP-02-weekly-check.md) | **Weekly check** | Volunteer | Weekly, year-round | ~30 min |
 | [SOP-03](SOP-03-summer-survival.md) | **Summer survival** | Season owner + rota | Pre-summer + weekly over break | varies |
+| [SOP-04](SOP-04-something-isnt-working.md) | **Something isn't working** | 🟢 Green (anyone) | When a behavior is missing | ~2 min |
 
 *More to come: planting, harvest, freeze response, pest scouting, controller reset. Add them here as they're written.*
 

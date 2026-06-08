@@ -89,7 +89,7 @@ Operating budget is the quiet killer of school greenhouses.
 
 ## 9. Build the operating group as deliberately as the building
 
-- **Name roles, not just volunteers:** a staff lead (continuity across years), a volunteer coordinator, season owners, a maintenance contact.
+- **Name roles, not just volunteers:** a staff lead (continuity across years), a volunteer coordinator, season owners, a maintenance contact. Roles also split by **competence/safety tier** — 🟢 Green (plants/ops), 🟠 Amber (infra), 🔴 Red (licensed pros). See [`10-roles-and-tiers.md`](10-roles-and-tiers.md).
 - **Plan for turnover.** Students graduate, families move, teachers change. Onboarding and SOPs are what survive the churn.
 - **Partner outward:** local master gardeners, a nursery, the district grounds crew, nearby high-school ag programs — borrow expertise the school doesn't have in-house.
 

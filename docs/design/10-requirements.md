@@ -168,7 +168,7 @@ Each requirement has:
 | REQ-NET-4 | MUST | **No inbound port-forwarding to HA.** Remote access via outbound tunnel only (Nabu Casa / Tailscale / WireGuard); no default credentials. | Safety |
 | REQ-NET-5 | SHOULD | External uplink **sized to the alert path**, not the dashboard; full remote/dashboard traffic is Tier 3 sheddable. Recommended primary: **own LTE**. | Off-grid, Resilience |
 | REQ-NET-6 | SHOULD | Self-recovery: **watchdog/auto power-cycle**, an **RTC** for off-grid timekeeping, and **SSD (not SD card)** for the HA host. | Resilience |
-| REQ-NET-7 | SHOULD | **Offline-node alerting** — the system reports when a sensor/actuator node drops off (automates the weekly trust-but-verify check). | Resilience |
+| REQ-NET-7 | SHOULD | **Per-node heartbeat / last-seen + a reachability diagnostic**, surfaced so an Amber volunteer can localize a fault post-escalation; alerts when a node drops off. This is what lets a Green SOS resolve without Green diagnosing. | Resilience |
 | REQ-NET-8 | SHOULD | Standardize internal transport: **PoE/Ethernet backbone + one** sensor radio (Thread/Matter or Zigbee); LoRa only for far outdoor nodes. | Simplicity |
 | REQ-NET-9 | SHOULD | Visitor access via **two QR codes** (guest WiFi join + local dashboard URL, mDNS `greenhouse.local`); optional **public read-only dashboard** for showcase. | Education, Showcase |
 | REQ-NET-10 | SHOULD | **Camera/data privacy:** any webcam points at plants not students, local-first, with a written data-governance note. | Safety, Education |
