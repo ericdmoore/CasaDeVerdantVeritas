@@ -25,7 +25,7 @@ These sit at the base of the resilience stack: **passive (always) → solar+batt
 ## 2. Shade — the cheapest cooling is heat never admitted
 
 - **Sliding solar louvers** — adjustable external shading that can track season/sun.
-- **Fixed, geometry-tuned overhangs / light shelves** — sized to Dallas's **32.8 °N** sun angles to block high summer sun yet admit low winter sun. **The most foolproof shade device: nothing moves, nothing fails.** Pair with the louvers — fixed overhang as the can't-fail baseline, louvers to fine-tune.
+- **Fixed, geometry-tuned overhangs / awnings / light shelves** — sized to Dallas's **32.8 °N** sun angles to block high summer sun yet admit low winter sun. **The most foolproof shade device: nothing moves, nothing fails.** Pair with the louvers — fixed awning/overhang as the can't-fail baseline, louvers to fine-tune.
 - **Deciduous living shade** — vines on a west/south trellis or a tree: leafs out for summer, drops for winter, self-regulating *and* a teaching feature. West side especially (brutal low afternoon sun).
 - **Seasonal shade cloth / whitewash** ([REQ-LIGHT-1](10-requirements.md#c-shading--light)).
 

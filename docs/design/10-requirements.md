@@ -184,7 +184,7 @@ Each requirement has:
 |----|-----|-------------|-------|
 | REQ-PASV-1 | MUST | The passive layer (shade + natural/stack ventilation + thermal mass) alone holds the interior below the survival ceiling with **zero electricity** (realizes [REQ-COOL-2](#b-cooling--ventilation--the-headline-system)). | Safety, Resilience |
 | REQ-PASV-2 | SHOULD | **Solar chimney / thermal stack** for buoyancy-driven air turnover that scales with the heat load. | Resilience, Dallas |
-| REQ-PASV-3 | SHOULD | **Fixed sun-tuned overhangs** (foolproof, no moving parts) as the shade baseline, plus adjustable louvers to fine-tune. | Resilience, Dallas |
+| REQ-PASV-3 | SHOULD | **Fixed sun-tuned overhangs / awnings** (foolproof, no moving parts) as the shade baseline, plus adjustable louvers to fine-tune. | Resilience, Dallas |
 | REQ-PASV-4 | SHOULD | **Gravity-fed irrigation** from an elevated rainwater header tank — waters with no pump / dead battery. | Resilience, Off-grid |
 | REQ-PASV-5 | SHOULD | **Wicking beds / sub-irrigation** to buffer multiple untended days. | Resilience |
 | REQ-PASV-6 | SHOULD | **Thermal mass** (slab + water containers) buffering heat and freeze; water mass doubles as irrigation store. | Resilience, Dallas |
