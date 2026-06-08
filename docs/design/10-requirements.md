@@ -20,7 +20,7 @@ Each requirement has:
 
 | ID | Pri | Requirement | Trace |
 |----|-----|-------------|-------|
-| REQ-STR-1 | MUST | Withstand local wind loads per Dallas/TX building code (design wind speed ~115 mph, *verify* current IBC/local amendment). | Safety |
+| REQ-STR-1 | MUST | Withstand local wind loads per Dallas/TX building code (design wind speed ~115 mph, *verify* current IBC/local amendment). As a public school building this needs a **sealed architect/engineer design** — see [regulatory governance](../build/10-regulatory-governance.md). | Safety |
 | REQ-STR-2 | MUST | Glazing within child reach (below ~5 ft) shall be impact-resistant polycarbonate, not glass. | Safety, Dallas (hail) |
 | REQ-STR-3 | SHOULD | Twin- or triple-wall polycarbonate glazing for light diffusion + insulation + hail resistance. | Dallas, Production |
 | REQ-STR-4 | MUST | Anchored to a foundation rated for uplift; not a free-standing kit staked to soil. | Safety, Resilience |
@@ -139,6 +139,8 @@ Each requirement has:
 | REQ-DATA-1 | SHOULD | Sensors (temp, humidity, soil moisture, light) logging to a student-accessible record. | Research |
 | REQ-DATA-2 | SHOULD | The data layer is **not** in the critical safety/survival path — if it fails, plants and people are unaffected. | Safety, Simplicity |
 | REQ-DATA-3 | MAY | Simple dashboard/export for classroom experiments. | Research, Education |
+| REQ-DATA-4 | SHOULD | The Data Layer should allow for class rooms to setup experiments and monitor them from the class room. (A Webcam, an automated lamp, a ruler in view, then watch timelapse/ AV artifacts of growth rate.) | Research, Simplicity |
+| REQ-DATA-3 | MUST | Data Must be local-first, there can be a cloud-enabled observability / extension storage option too | Research, Simplicity |
 
 ---
 
@@ -150,9 +152,10 @@ Every **MUST** above maps to **Safety** or **Resilience** (the top of the priori
 
 ## Open questions feeding back into design
 
-> **OPEN QUESTION:** Confirm current Dallas wind-speed and snow/live-load figures with the AHJ (authority having jurisdiction) before fixing REQ-STR-1; a custom (non-kit) structure may need an engineer's stamp.
+> ⭐ **OPEN QUESTION (highest leverage):** Occupancy classification — accessory **Group U** greenhouse vs. **occupied instructional space (E/B)**. Decides egress (REQ-SAFE-2), fire requirements, and overall cost. See [regulatory governance](../build/10-regulatory-governance.md#-the-decision-that-governs-everything-occupancy-classification).
+> ✅ **RESOLVED:** Sealed architect/engineer design **is required** — this is a public school building under 19 TAC §61.1040, which overrides the agricultural/small-building seal exemptions. *(2026-06-08; see [regulatory governance](../build/10-regulatory-governance.md).)*
+> **OPEN QUESTION:** Confirm current Dallas wind-speed and snow/live-load figures + code edition/local amendments with the AHJ before fixing REQ-STR-1.
 > **OPEN QUESTION:** Crop list drives REQ-COOL-1/2 and REQ-HEAT-2 targets — warm-season vs. cool-season changes both the comfortable setpoint and the survivable ceiling.
-> **OPEN QUESTION:** Occupancy classification for the structure (is it an accessory building, an assembly space?) drives egress requirements REQ-SAFE-2.
 > **OPEN QUESTION:** Days-of-autonomy target for REQ-PWR-1 — how long a cloudy stretch must the battery carry Tier 1 loads?
 > **OPEN QUESTION:** Water budget for REQ-WATER-5 — does rainwater storage cover irrigation + evaporative cooling through a dry summer, or do we need a backup source?
 

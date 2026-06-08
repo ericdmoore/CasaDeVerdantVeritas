@@ -50,7 +50,7 @@ Grouped by trade. Walk it on site with the plan in hand before the pour crew arr
 ### 5. Structural anchors & embeds (REQ-SLAB-5, REQ-STR-1/4)
 - [ ] Anchor bolts / embed plates set per the **wind-uplift design**, located to the structure's base plan. **(MUST)**
 - [ ] Anchor layout matches the (custom) frame — verified against shop drawings. **(MUST)**
-- [ ] If an engineer's stamp is required for the custom structure, anchor/embed design is **stamped** before pour. **(MUST — verify need with AHJ.)**
+- [ ] Anchor/embed design is **sealed by the licensed architect/engineer** before pour — required for a public school building per [regulatory governance](10-regulatory-governance.md). **(MUST)**
 
 ### 6. Accessibility & finish (REQ-SLAB-7, REQ-ACC-1)
 - [ ] Finished floor flush/level at the accessible entry; no lip or step. **(MUST)**
@@ -85,7 +85,7 @@ Grouped by trade. Walk it on site with the plan in hand before the pour crew arr
 ## Open questions
 
 > **OPEN QUESTION:** Geotech results → which slab type? (Blocks the whole document.)
-> **OPEN QUESTION:** Does the custom structure need an engineer's stamp for the anchor/embed design? (Confirm with AHJ.)
+> ✅ **RESOLVED:** The structure needs a sealed architect/engineer design (public school building). Anchor/embed design must be stamped before pour. See [regulatory governance](10-regulatory-governance.md).
 > **OPEN QUESTION:** Roof-mount vs. ground-mount PV changes whether the structure carries array loads — affects anchors and conduit routing.
 
 *Upstream: [`docs/design/20-site-and-orientation.md`](../design/20-site-and-orientation.md), [`docs/design/10-requirements.md`](../design/10-requirements.md) (REQ-SLAB-*, REQ-PWR-*, REQ-WATER-*).*

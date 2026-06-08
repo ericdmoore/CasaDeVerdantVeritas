@@ -14,7 +14,7 @@ Every operating principle below is an answer to one question:
 
 ---
 
-## 1. Assume the gap, don't assume the hero
+## 1. Assume the gap, don't assume a hero
 
 Plans that depend on a dedicated, expert caretaker showing up daily will fail the first time that person is sick, graduates, or moves. Design the operation for the *typical* week, not the heroic one.
 
@@ -48,6 +48,8 @@ The greenhouse runs in distinct modes, and the dangerous transitions are the bou
 
 Split tasks by consequence-of-failure.
 
+The greenhouse tries to take care of itself. Humans may have to check that all the automations worked.
+
 - **Automated (failure = dead plants or danger):** temperature-driven ventilation, irrigation, freeze/heat alerts. These never wait on a human. *(See [REQ-COOL](../design/10-requirements.md#b-cooling--ventilation--the-headline-system), [REQ-WATER-1](../design/10-requirements.md#e-irrigation--water).)*
 - **Human (failure = a worse lesson or a smaller harvest):** observing, pruning, transplanting, harvesting, teaching, experimenting. These are the rewarding parts — leave them for people.
 - **Trust but verify the automation.** A weekly checklist confirms the timers fired, the rainwater tank has water, the battery is charging, and the vents move. Automation that silently fails is worse than no automation.
@@ -59,7 +61,7 @@ Split tasks by consequence-of-failure.
 - **A written escalation chain:** alert → on-call volunteer → backup → staff lead. Posted, with current phone numbers, and reviewed each semester.
 - **Tune alerts to avoid fatigue.** Too many false alarms and people stop looking. Set thresholds with margin but not noise.
 
-## 6. Safety is an operating practice, not just a built-in feature
+## 6. Safety is an operating practice, not a built-in feature
 
 The building is designed safe (Principle 1 of the design doc), but safety is also something people *do*.
 
