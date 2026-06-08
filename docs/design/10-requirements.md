@@ -107,6 +107,12 @@ Each requirement has:
 | REQ-PWR-7 | SHOULD | **Emergency campus tether** (temporary extension cord + garden hose) as a last-resort backstop — *not* a dependency, kept temporary (permanent feed = licensed Red work). Hose needs backflow protection ([REQ-WATER-4](#e-irrigation--water)). | Resilience |
 | REQ-PWR-8 | MUST | **Battery is modular/mobile with a fixed Tier-1 reserve that never leaves.** The wheeled "power cow" bulk pack can roll out for events; the greenhouse safety loop survives its absence on the reserve + passive layer. | Safety, Resilience |
 | REQ-PWR-9 | SHOULD | Cow docking uses **keyed, arc-safe high-current DC connectors** (load-break / pre-charge), terminal-protected in transit; moved by Amber/Red only, never Green/students. | Safety |
+| REQ-PWR-10 | MUST | **Managed coupling** between house + cow banks — **never hard-parallel at mismatched SOC** (inrush/arc). Pre-charge contactor (default) or bidirectional DC-DC. | Safety, Resilience |
+| REQ-PWR-11 | MUST | **House pack (~35% of total) sized to carry Tier-1 autonomy on its own**; cow (~65%) is additive when docked. | Safety, Resilience |
+| REQ-PWR-12 | MUST | **SOC policy enforced:** house reserve floor sacred; a depleted cow recharges from **solar first**; house→cow transfer rate-limited and only when house is high; **block sub-freezing charging**. | Safety, Resilience |
+| REQ-PWR-13 | SHOULD | Campus tether can **power loads + recharge the house** via an AC→DC charger / inverter-charger (Layer-3, emergency/temporary). | Resilience |
+| REQ-PWR-14 | SHOULD | **Manual battery selector/isolator** on the **bulk pool** for Amber override/maintenance. **Tier-1 feed is NOT behind it** (can't be switched off); **BOTH only when SOC-matched** (prefer dual-on/off over make-before-break). | Safety, Resilience |
+| REQ-PWR-15 | SHOULD | **Integrated, locally-controllable EMS** providing per-bank SOC, coordinated charge control, inverter/charger, and automations. *(Platform open — Victron / Sol-Ark / EG4 / Schneider / DIY.)* | Resilience, Off-grid |
 
 ## G. Safety & egress
 
