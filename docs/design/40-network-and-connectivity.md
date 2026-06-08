@@ -60,6 +60,8 @@ Echoes [electronics Principle 4](30-electronics-and-controls.md#4-design-around-
 
 Not one radio, and not five. The [tiered operating model](../operate/10-roles-and-tiers.md) changes the old "keep it to one radio" rule: 🟢 **Green never sees the radios**, 🟠 **Amber can run several**, and the [heartbeat/reachability diagnostic](10-requirements.md#l-network--connectivity) makes the transport under a node nearly irrelevant to fault-finding. So the constraint moves from *simplicity* to *physics + cost*.
 
+> ✅ **Locked transport stack (2026-06-08):** wired **PoE/Ethernet** backbone · **Zigbee** 2.4 GHz mesh (Thread-capable 802.15.4 hardware) · **LoRa/sub-GHz** for far + canopy nodes · **WiFi** for powered aggregators + camera.
+
 - **Wired PoE/Ethernet backbone** (the [M12/RJ45 connector standard](30-electronics-and-controls.md#2-right-connector-for-the-context--and-keep-the-wet-boundary-small)) for the reliable, powered core and key actuators. **Wired-first** — radio only where wiring can't reach.
 - **One 2.4 GHz mesh** (**Zigbee** now; Thread/Matter later on the same 802.15.4 hardware) for distributed in-greenhouse sensors near mains routers.
 - **Sub-GHz / LoRa** for **far or canopy-buried outdoor nodes** — rain cistern, weather station, outdoor beds — where 2.4 GHz can't penetrate wet foliage or reach the distance. (Sub-GHz penetration is real: **water absorbs 2.4 GHz**.)
@@ -114,7 +116,9 @@ Overall stack: **ESPHome + HA** fits our ethos — open, local-first, cheap, hug
 ## Open questions
 
 > **OPEN QUESTION (recommendation: cellular-primary):** External uplink — own LTE vs. pursuing school IT approval vs. both. Leaning **own LTE** for independence; school WiFi only as a blessed secondary.
-> **OPEN QUESTION (recommendation: Zigbee + LoRa):** Sensor transports — **Zigbee** for the in-greenhouse 2.4 GHz mesh (broadest cheap/DIY sensor ecosystem; Thread/Matter a later evolution on the same 802.15.4 hardware), **paired with LoRa/sub-GHz** for far or canopy-buried nodes where 2.4 GHz can't reach. Band diversity also buys RF resilience. (Z-Wave largely squeezed out — LoRa covers the sub-GHz role.)
+> ✅ **RESOLVED (2026-06-08):** Sensor transports = **Zigbee** (in-greenhouse 2.4 GHz mesh, Thread-capable HW for a later Matter evolution) **+ LoRa/sub-GHz** (far/canopy nodes) **+ WiFi** (powered aggregators/camera) over the **wired PoE backbone**. Z-Wave dropped — LoRa covers the sub-GHz role. Band diversity buys RF resilience.
+> **OPEN QUESTION:** Sensor *topology* — how many scattered battery sensors (→ Zigbee carries more) vs. powered aggregators (→ WiFi carries more). Shifts the load between locked transports; doesn't change the stack.
+> **OPEN QUESTION:** The actual far/canopy node list that justifies standing up LoRa on day one vs. later (rain cistern, weather station, outdoor beds).
 > **OPEN QUESTION:** HA host platform + whether the safety controller is the same brain or a separate Tier 1 device (ties to the [electronics open question](30-electronics-and-controls.md#open-questions)).
 > **OPEN QUESTION:** Does the critical-alert path use cellular data, SMS, or both? Determines the modem/plan on the power BOM.
 > **OPEN QUESTION:** Data governance + camera privacy policy for student-facing data.
