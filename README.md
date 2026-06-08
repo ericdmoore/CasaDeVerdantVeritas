@@ -40,7 +40,8 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     ├── design/              ← what we're building and why (principles → requirements → drawings)
     │   ├── 00-design-principles.md
     │   ├── 10-requirements.md
-    │   └── 20-site-and-orientation.md
+    │   ├── 20-site-and-orientation.md
+    │   └── 30-electronics-and-controls.md
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
     │   ├── 00-slab-prepour-checklist.md
     │   └── 10-regulatory-governance.md

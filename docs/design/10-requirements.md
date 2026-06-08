@@ -142,6 +142,20 @@ Each requirement has:
 | REQ-DATA-4 | SHOULD | The Data Layer should allow for class rooms to setup experiments and monitor them from the class room. (A Webcam, an automated lamp, a ruler in view, then watch timelapse/ AV artifacts of growth rate.) | Research, Simplicity |
 | REQ-DATA-3 | MUST | Data Must be local-first, there can be a cloud-enabled observability / extension storage option too | Research, Simplicity |
 
+## K. Electronics & controls architecture
+
+> Derived from [`30-electronics-and-controls.md`](30-electronics-and-controls.md). Makes those sub-principles checkable.
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-CTRL-1 | MUST | Connectors are **keyed and color-coded by function** so a wrong connection is physically impossible (power can't seat in data, 12 V can't seat in 5 V). | Safety, Simplicity |
+| REQ-CTRL-2 | MUST | **Sealed connectors (e.g. M12 X-coded, IP67) on any run that crosses the wet/exposed environment;** commodity RJ45/PoE++ only inside controlled enclosures. Minimize exposed runs. | Resilience, Dallas |
+| REQ-CTRL-3 | MUST | **Data and power separated at the core** (controller, critical-loop power, alerting); convergence (PoE++) allowed only at the edge. | Safety, Resilience |
+| REQ-CTRL-4 | MUST | Electronics **serviceable without special access** — nothing critical buried/potted or needing a ladder + two people; optimize for low repair time. | Resilience |
+| REQ-CTRL-5 | SHOULD | **Commodity hardware in a managed sealed enclosure** over rugged gear — *with* thermal siting (shade/cool, reflective), a breather/membrane vent + desiccant, and conformal-coated boards. | Simplicity, Affordability |
+| REQ-CTRL-6 | SHOULD | **Low-voltage SELV DC (≤ ~48 V)** in wet and child-accessible zones; reserve line-voltage AC for where genuinely needed, away from hands and water. | Safety |
+| REQ-CTRL-7 | SHOULD | **Surge protection (SPD) + proper ground** shielding the Tier 1 core (off-grid PV + TX storms). | Resilience, Off-grid |
+
 ---
 
 ## Traceability check

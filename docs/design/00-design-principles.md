@@ -95,6 +95,14 @@ A school budget builds it once; a school budget also has to *keep* it running fo
 
 ---
 
+## Sub-domain principles
+
+Some domains are detailed enough to carry their own principles doc, nested under these:
+
+- **Electronics & controls** → [`30-electronics-and-controls.md`](30-electronics-and-controls.md) — connector poka-yoke, data/power separation, commodity-in-enclosures, design-around-failure. Same priority hierarchy applies.
+
+---
+
 ## How to use these principles
 
 When you're writing a requirement, choosing a kit, or settling a debate, **cite the principle**. For example:
