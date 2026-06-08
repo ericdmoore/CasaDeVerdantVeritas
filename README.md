@@ -41,10 +41,14 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │   ├── 00-design-principles.md
     │   ├── 10-requirements.md
     │   ├── 20-site-and-orientation.md
-    │   └── 30-electronics-and-controls.md
+    │   ├── 30-electronics-and-controls.md
+    │   └── 40-network-and-connectivity.md
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
     │   ├── 00-slab-prepour-checklist.md
-    │   └── 10-regulatory-governance.md
+    │   ├── 10-regulatory-governance.md
+    │   └── bom/             ← bills of materials (one per subsystem)
+    │       ├── README.md
+    │       └── off-grid-power.md
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
         ├── 00-operating-principles.md
         └── sops/            ← laminated, point-of-use procedures

@@ -80,4 +80,4 @@ Off-grid PV + Texas thunderstorms = real surge exposure. A surge protective devi
 > **OPEN QUESTION:** Enclosure siting — where is the cool, shaded, reachable home for the core box? (Feeds the floor plan and the slab conduit runs.)
 > **OPEN QUESTION:** Grounding/SPD design for an off-grid system — coordinate with the PV/battery installer.
 
-*Parent: [`00-design-principles.md`](00-design-principles.md). Feeds: [`10-requirements.md`](10-requirements.md) (REQ-CTRL, REQ-ELEC, REQ-PWR, REQ-DATA).*
+*Parent: [`00-design-principles.md`](00-design-principles.md). Sibling: [`40-network-and-connectivity.md`](40-network-and-connectivity.md). Feeds: [`10-requirements.md`](10-requirements.md) (REQ-CTRL, REQ-ELEC, REQ-PWR, REQ-DATA).*

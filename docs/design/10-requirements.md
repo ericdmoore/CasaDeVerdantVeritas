@@ -156,6 +156,23 @@ Each requirement has:
 | REQ-CTRL-6 | SHOULD | **Low-voltage SELV DC (≤ ~48 V)** in wet and child-accessible zones; reserve line-voltage AC for where genuinely needed, away from hands and water. | Safety |
 | REQ-CTRL-7 | SHOULD | **Surge protection (SPD) + proper ground** shielding the Tier 1 core (off-grid PV + TX storms). | Resilience, Off-grid |
 
+## L. Network & connectivity
+
+> Derived from [`40-network-and-connectivity.md`](40-network-and-connectivity.md).
+
+| ID | Pri | Requirement | Trace |
+|----|-----|-------------|-------|
+| REQ-NET-1 | MUST | The safety loop (overtemp→vent, irrigation, alarm) runs with **Home Assistant, the LAN, and the internet all down**. HA is orchestration/observability, never the safety system. | Safety, Resilience |
+| REQ-NET-2 | MUST | A **critical-alert channel** (e.g. low-power cellular/SMS from the safety controller) that survives independently of the full HA + access-point stack. | Safety, Resilience |
+| REQ-NET-3 | MUST | **Network segmentation:** isolated IoT/control segment; guest (QR) segment is **read-only and cannot reach any actuator**. | Safety |
+| REQ-NET-4 | MUST | **No inbound port-forwarding to HA.** Remote access via outbound tunnel only (Nabu Casa / Tailscale / WireGuard); no default credentials. | Safety |
+| REQ-NET-5 | SHOULD | External uplink **sized to the alert path**, not the dashboard; full remote/dashboard traffic is Tier 3 sheddable. Recommended primary: **own LTE**. | Off-grid, Resilience |
+| REQ-NET-6 | SHOULD | Self-recovery: **watchdog/auto power-cycle**, an **RTC** for off-grid timekeeping, and **SSD (not SD card)** for the HA host. | Resilience |
+| REQ-NET-7 | SHOULD | **Offline-node alerting** — the system reports when a sensor/actuator node drops off (automates the weekly trust-but-verify check). | Resilience |
+| REQ-NET-8 | SHOULD | Standardize internal transport: **PoE/Ethernet backbone + one** sensor radio (Thread/Matter or Zigbee); LoRa only for far outdoor nodes. | Simplicity |
+| REQ-NET-9 | SHOULD | Visitor access via **two QR codes** (guest WiFi join + local dashboard URL, mDNS `greenhouse.local`); optional **public read-only dashboard** for showcase. | Education, Showcase |
+| REQ-NET-10 | SHOULD | **Camera/data privacy:** any webcam points at plants not students, local-first, with a written data-governance note. | Safety, Education |
+
 ---
 
 ## Traceability check
