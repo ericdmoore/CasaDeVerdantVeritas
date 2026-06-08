@@ -50,16 +50,16 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 | PV modules | Mono panels; ground- or roof-mount TBD | TBD | REQ-PWR-1 | TBD | TBD | TBD | TBD | proposed | Tilt ~30–33° (year-round) or ~20° (summer-favored); unshaded — [site §orientation](../../design/20-site-and-orientation.md) |
 | Mounting / racking | Wind-rated for Dallas; matches mount choice | TBD | REQ-PWR-1, REQ-STR-1 | TBD | TBD | TBD | TBD | proposed | Roof-mount adds structural load — see open Q |
 | Charge controller | MPPT, sized to array V/I | TBD | REQ-PWR-1 | TBD | TBD | TBD | TBD | proposed | |
-| **Fixed Tier-1 reserve 48v battery** | **LiFePO₄**, **~35% of total**; *never leaves* | TBD | REQ-PWR-2, REQ-PWR-8, REQ-PWR-11 | TBD | TBD | TBD | TBD | proposed | Sized for Tier-1 autonomy alone; alive when cow is away |
-| **Mobile 48v ("power cow")** | **LiFePO₄** rack batteries, **~65% of total** | TBD | REQ-PWR-1, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Tier 2/3 storage + event power; **fire-code siting** ↓ |
-| Bank coupler | Pre-charge contactor (default) **or** bidirectional DC-DC (e.g. Orion XS *or equal*) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | Never hard-parallel at mismatched SOC |
-| Battery selector / isolator | Marine-style; **dual on/off** preferred; bulk pool only | 1 | REQ-PWR-14 | TBD | TBD | TBD | TBD | proposed | Tier-1 feed NOT behind it; BOTH only when matched |
-| Energy-management system | Integrated EMS: per-bank SOC, DVCC-style control, automations (e.g. **Victron Cerbo GX *or equal*** — Sol-Ark/EG4/Schneider/DIY) | 1 | REQ-PWR-15, REQ-PWR-12 | TBD | TBD | TBD | TBD | proposed | **Platform open** |
-| House inverter/charger | For house AC + **tether-in** charging (e.g. MultiPlus-II 48 V *or equal*) | 1 | REQ-PWR-13 | TBD | TBD | TBD | TBD | proposed | Bidirectional; runs house off tether w/ dead battery |
+| **House bank (48 V)** | **LiFePO₄**, **~35% of total**; always present | TBD | REQ-PWR-2, REQ-PWR-8, REQ-PWR-11 | TBD | TBD | TBD | TBD | proposed | Carries Tier 1 + 2 critical loads on its own |
+| **Power cow (48 V)** | **LiFePO₄** rack batteries, **~65% of total**; *isolated, charge-only* | TBD | REQ-PWR-1, REQ-PWR-8 | TBD | TBD | TBD | TBD | proposed | Tier-3 sub-panel + event power; **fire-code siting** ↓; never parallels house |
+| **House→cow DC-DC charger** | One-way 48→48 V, **current-limited** (Orion-Tr *or equal*; size up for rate) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | No inrush; gated to "house healthy"; *or* give cow its own MPPT |
+| **Cow sub-panel + LVD** | Dedicated Tier-3 sub-panel; BatteryProtect / BMS low-voltage disconnect | 1 | REQ-PWR-12 | TBD | TBD | TBD | TBD | proposed | Live only when docked + above LVD |
+| Energy-management system | Integrated **single-bank** house EMS: SOC, charge control, automations (e.g. **Victron Cerbo / EG4 *or equal*** — Sol-Ark/DIY) | 1 | REQ-PWR-15 | TBD | TBD | TBD | TBD | proposed | **Platform open**; single-bank = simple |
+| House inverter/charger | House AC + **tether-in** charging (e.g. MultiPlus-II 48 V / EG4 *or equal*) | 1 | REQ-PWR-13 | TBD | TBD | TBD | TBD | proposed | Bidirectional; runs house off tether w/ dead battery |
 | Cow cart | Hand truck, rated for pack weight, securing straps, ramp | 1 | REQ-PWR-9 | TBD | TBD | TBD | TBD | proposed | 100s of lb loaded; Amber/Red move only |
-| Cow inverter | For event AC (rated to event loads) | 1 | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Greenhouse stays DC-first; inverter is for events |
-| Battery mgmt (BMS) | Per pack (reserve + cow) | TBD | REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | |
-| Cow dock connectors | **Keyed, arc-safe high-current DC** (load-break/pre-charge, Anderson SB class) | TBD | REQ-PWR-9, REQ-CTRL-1 | TBD | TBD | TBD | TBD | proposed | Terminal-protected in transit |
+| Cow portable inverter | For event AC (travels with the cow) | 1 | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Greenhouse stays DC-first; inverter is for events |
+| Battery mgmt (BMS) | Per bank (house + cow); cow BMS does the LVD | TBD | REQ-PWR-2, REQ-PWR-12 | TBD | TBD | TBD | TBD | proposed | |
+| Cow connectors | **Keyed, arc-safe** charge-in + load-out (Anderson SB class) | TBD | REQ-PWR-9, REQ-CTRL-1 | TBD | TBD | TBD | TBD | proposed | Separate one-way paths; terminal-protected in transit |
 | DC distribution + fusing | Bus, fuses/breakers per tier | TBD | REQ-PWR-2..4 | TBD | TBD | TBD | TBD | proposed | **Tier-separated** so shedding T3 can't brown out T1 |
 | Load-shed controller | Battery-SOC-based tier shedding | TBD | REQ-PWR-3, REQ-PWR-4 | TBD | TBD | TBD | TBD | proposed | |
 | DC disconnect(s) | PV + battery isolators | TBD | Safety | TBD | TBD | TBD | TBD | proposed | |
@@ -73,7 +73,7 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 
 **Running subtotal:** TBD
 
-> **Architecture:** see [`60-power-architecture.md`](../../design/60-power-architecture.md) for the three-layer model, the reserve/cow split, and the tether.
+> **Architecture:** see [`60-power-architecture.md`](../../design/60-power-architecture.md) for the three-layer model, the **isolated charge-only cow + sub-panel**, and the tether.
 
 ---
 

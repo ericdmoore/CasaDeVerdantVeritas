@@ -105,14 +105,14 @@ Each requirement has:
 | REQ-PWR-5 | MUST | The greenhouse survives a fully depleted battery on passive means alone (ties to REQ-COOL-2). | Safety, Resilience |
 | REQ-PWR-6 | SHOULD | PV/battery enclosure sited and secured out of child reach, ventilated, and weather/hail protected. | Safety |
 | REQ-PWR-7 | SHOULD | **Emergency campus tether** (temporary extension cord + garden hose) as a last-resort backstop — *not* a dependency, kept temporary (permanent feed = licensed Red work). Hose needs backflow protection ([REQ-WATER-4](#e-irrigation--water)). | Resilience |
-| REQ-PWR-8 | MUST | **Battery is modular/mobile with a fixed Tier-1 reserve that never leaves.** The wheeled "power cow" bulk pack can roll out for events; the greenhouse safety loop survives its absence on the reserve + passive layer. | Safety, Resilience |
-| REQ-PWR-9 | SHOULD | Cow docking uses **keyed, arc-safe high-current DC connectors** (load-break / pre-charge), terminal-protected in transit; moved by Amber/Red only, never Green/students. | Safety |
-| REQ-PWR-10 | MUST | **Managed coupling** between house + cow banks — **never hard-parallel at mismatched SOC** (inrush/arc). Pre-charge contactor (default) or bidirectional DC-DC. | Safety, Resilience |
-| REQ-PWR-11 | MUST | **House pack (~35% of total) sized to carry Tier-1 autonomy on its own**; cow (~65%) is additive when docked. | Safety, Resilience |
-| REQ-PWR-12 | MUST | **SOC policy enforced:** house reserve floor sacred; a depleted cow recharges from **solar first**; house→cow transfer rate-limited and only when house is high; **block sub-freezing charging**. | Safety, Resilience |
+| REQ-PWR-8 | MUST | **Two independent banks:** a **house bank** (critical: Tier 1 + 2, always present) and an **isolated, charge-only "power cow"** (Tier-3 sub-panel + events). The cow **never parallels the house bus.** | Safety, Resilience |
+| REQ-PWR-9 | SHOULD | Cow **charge-in and load-out** use **keyed, arc-safe connectors** (Anderson SB / Powerpole class), terminal-protected in transit; moved by Amber/Red only, never Green/students. | Safety |
+| REQ-PWR-10 | MUST | **House → cow charging is one-way via a current-limited DC-DC charger** (no inrush at any SOC), **gated to run only when the house is healthy** so it never competes with critical loads. Block sub-freezing charging. | Safety, Resilience |
+| REQ-PWR-11 | MUST | **House bank sized to carry its critical loads (Tier 1, + Tier 2 not covered solar-direct) for the autonomy window on its own** (~35% of total); cow capacity is independent/bonus. | Safety, Resilience |
+| REQ-PWR-12 | MUST | **Cow → dedicated sub-panel, discharge-only**, live **only when docked AND above the cow's LVD**; de-energizes automatically when the cow leaves or runs low. | Safety, Resilience |
 | REQ-PWR-13 | SHOULD | Campus tether can **power loads + recharge the house** via an AC→DC charger / inverter-charger (Layer-3, emergency/temporary). | Resilience |
-| REQ-PWR-14 | SHOULD | **Manual battery selector/isolator** on the **bulk pool** for Amber override/maintenance. **Tier-1 feed is NOT behind it** (can't be switched off); **BOTH only when SOC-matched** (prefer dual-on/off over make-before-break). | Safety, Resilience |
-| REQ-PWR-15 | SHOULD | **Integrated, locally-controllable EMS** providing per-bank SOC, coordinated charge control, inverter/charger, and automations. *(Platform open — Victron / Sol-Ark / EG4 / Schneider / DIY.)* | Resilience, Off-grid |
+| REQ-PWR-14 | MUST | **No DC coupling/paralleling of the two banks** — charge-in and load-out are separate one-way paths, eliminating inrush/back-feed by design (no coupler, selector, or combiner). | Safety, Resilience |
+| REQ-PWR-15 | SHOULD | **Integrated, locally-controllable single-bank house EMS** (inverter/charger, MPPT, monitor, controller). *(Platform open — EG4 / Victron / Sol-Ark / DIY; single-bank = no multi-bank orchestration needed.)* | Resilience, Off-grid |
 
 ## G. Safety & egress
 
