@@ -37,7 +37,7 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 | **Tank tower / stand** | Engineered for dead + wind load (HIGH tanks) | 1 | REQ-STR-1, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | ~1,700 lb full + wind sail; **foundation pre-pour** (🔴 Red) |
 | Tank covers / screens | All open surfaces | TBD | REQ-WATER-2 | TBD | TBD | TBD | TBD | proposed | Mosquito + child safety |
 | Tank level sensors | (driven by [controls](controls.md)) | — | REQ-CYCLE-3 | TBD | — | — | — | cross-ref | Low-water alerts |
-| **Managed-spill cascade** | Grey buffer overflow → **beds**; bed overflow → swale | TBD | REQ-CYCLE-13, REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | Passive priority: buffer→beds→swale; no waste/flood |
+| **Managed waterfall spill** | Grey buffer → bed-to-bed waterfall → drain-line emitters → high-volume bypass | TBD | REQ-CYCLE-13, REQ-CYCLE-14, REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | Passive priority, zero controls; see chainable-bed rows in **D** |
 | Overflow routing | White→cistern | TBD | REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | No wasted water |
 
 ## C. Pumps & pressure
@@ -56,7 +56,11 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 | **Latching solenoid valves** | Per zone; ~zero holding current | TBD | REQ-WATER-1, REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | Off-grid default; driver in [controls](controls.md) |
 | Manifold / mainline | Sized to zones | TBD | REQ-WATER-1 | TBD | TBD | TBD | TBD | proposed | |
 | Drip lines + emitters | **Pressure-compensating, low-head** | TBD | REQ-PASV-4 | TBD | TBD | TBD | TBD | proposed | Must work at gravity pressure |
-| Wicking-bed kits | Reservoir liner, fill/overflow, wick media | TBD | REQ-PASV-5 | TBD | TBD | TBD | TBD | proposed | Multi-day untended buffer |
+| Wicking/SIP bed kits | Reservoir liner, wick media; **dedicated inlet** (separate from outlet) | TBD | REQ-PASV-5, REQ-CYCLE-14 | TBD | TBD | TBD | TBD | proposed | Multi-day untended buffer; **never a single dual-purpose port** |
+| **Bed overflow standpipes** | Set at reservoir top = the "can't overfill" guarantee; stepped down bed-to-bed | TBD | REQ-CYCLE-14 | TBD | TBD | TBD | TBD | proposed | Water line set by standpipe, not fill volume |
+| **Bed-to-bed couplers** | outlet(N) → inlet(N+1), one-way waterfall (air-gapped spill preferred) | TBD | REQ-CYCLE-14 | TBD | TBD | TBD | TBD | proposed | **No bottom-to-bottom manifold** (communicating-vessel + back-siphon risk) |
+| **Sloped drain line + emitters** | Last bed's overflow; bleeds to perimeter/swale plants | TBD | REQ-CYCLE-14, REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | Size for **sum** of upstream inflow |
+| **High-volume bypass tee** | Tee/standpipe high on drain line → bypass to daylight (swale/recharge) | TBD | REQ-CYCLE-14, REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | Fires only when all soaked; **to daylight, not back to buffer** |
 | Ollas | Buried porous pots (demo beds) | TBD | REQ-PASV-5 | TBD | TBD | TBD | TBD | proposed | Optional/education |
 | Humidity domes | Clear covers for seed/cutting trays | TBD | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | **Passive** propagation humidity — zero power/pressure |
 | **DC ultrasonic fogger** | Low-voltage piezo fogger, enclosed propagation chamber | 1 | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | **Pure-tank-fed** (mineral-free); no pressure needed; **Tier-3, HA-controllable**; showcase. *Not* a pressure/gravity mister (head insufficient) |

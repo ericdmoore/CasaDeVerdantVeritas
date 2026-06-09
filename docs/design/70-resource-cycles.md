@@ -24,15 +24,25 @@ Sources produce **different grades** of water; match grade to use, and store acr
 ### Two water-handling principles
 
 1. **Catch high, preserve head.** Capture returns (sink drains, fogger overflow) **at their source height** and gravity-cascade down — never drop water to the floor and then need to lift it. There's only a narrow vertical band between catch height (~36") and bed height (~24"), so every inch of head counts.
-2. **Managed spill.** The medium grey **buffer** gives *optionality* (outlet valves actively send water to chosen beds/compost), and a **passive priority cascade** handles the rest with zero controls: **buffer fills → managed spill to beds (when full) → swale/recharge (only when beds are saturated).** Nothing wasted, nothing floods, no pump.
+2. **Managed waterfall spill.** The medium grey **buffer** gives *optionality* (outlet valves actively send water to chosen beds/compost), and a **passive priority waterfall** handles the rest with zero controls: each stage fills, then *spills* to the next only when full. **Buffer → bed → bed → … → drain-line emitters → high-volume bypass to daylight.** Nothing wasted, nothing floods, no pump.
+
+   **The bed-scale rule that makes it work — dedicated inlet + outlet, never one dual-purpose port.** A single fill/overflow port can't fill and define an overflow level at the same time, and it can't chain. Split them:
+   - **Inlet** feeds the reservoir. **Outlet = an overflow standpipe set at the top of the reservoir** — *this* is the guarantee a bed can never overfill its top: the water line is set by the standpipe height, not by how much you pour in. Excess just leaves.
+   - **Chain them: outlet(N) → inlet(N+1).** Each bed's overflow becomes the next bed's supply — a one-way waterfall, **never a bottom-to-bottom manifold** (that makes the reservoirs communicating vessels: levels equalize, per-bed overflow control is lost, back-siphon path opens).
+   - **Head is the budget, not the pipe.** Bed N's overflow lip must sit above bed N+1's water line, so **stair-step the beds or step the standpipe heights down** bed-to-bed. With only ~12" between catch (~36") and bed (~24") height (↑ principle 1), the step-per-bed caps how many beds chain in one run before a fresh run must start from the buffer.
+   - **Two failsafe tiers below the last bed:** its overflow feeds a **sloped drain line with emitters** (even the "waste" waters perimeter/swale plants); only if those emitters are maxed (everything soaked) does water back up to a **tee/standpipe higher on that line → a high-volume bypass to daylight** (swale / recharge). The bypass goes to daylight, *not* back to the grey buffer — when this tier fires the buffer is full too, so recirculating just chases its tail; route through the buffer only if the buffer itself has a daylight overflow.
 
 ```
 returns (caught high) ─drop line─▶ GREY BUFFER (MEDIUM) ── valves: direct to beds/compost
 rain → roof+PV → CISTERN(LOW) ──pump──▶ WHITE(HIGH) ──gravity──▶ sinks · clean irrigation
 condensate ─▶ PURE(HIGH) ─▶ fogger · evap · battery · hydro          │ when full ▼
-campus tether ─air-gap─▶ WHITE(HIGH)                          MANAGED SPILL → beds
-soil-catch + sediment ─────────────────────────▶ back to beds        │ beds saturated ▼
-                                                              swale / compost / recharge
+campus tether ─air-gap─▶ WHITE(HIGH)                       MANAGED WATERFALL SPILL
+soil-catch + sediment ─────────────────────────▶ back to beds        ▼
+                              bed1 IN→[overflow]→bed2 IN→[overflow]→…→bedN
+                                                                     │ overflow
+                                                          sloped drain line + emitters → perimeter/swale plants
+                                                                     │ emitters maxed (all soaked) ▼
+                                                          tee/standpipe → HIGH-VOLUME BYPASS → daylight: swale / recharge
 ```
 
 Get right: **covered tanks** ([REQ-WATER-2](10-requirements.md#e-irrigation--water)); **engineered tower** for the HIGH tanks (heavy + wind sail — 🔴 Red, foundation pre-pour); **air-gap** tether fill = textbook backflow control ([REQ-WATER-4](10-requirements.md#e-irrigation--water)); white/grey **strictly separate + labeled**; **size the grey buffer for turnover** (modest — no stagnant greywater); managed spill **feeds soil**, not waste.

@@ -18,7 +18,7 @@ The parts list falls out of three inputs:
 | **Tier 2** (cooling assist) | Exhaust/circulation fans, evap pump — *prefer solar-direct* | sun-correlated | TBD | TBD |
 | **Tier 3** (sheds first) | Full HA host, access point, dashboards, grow lights, data logging | continuous-ish | TBD | TBD |
 
-> Fill from the actual device specs. Network gear alone is ~15–25 W continuous ([net §3](../../design/40-network-and-connectivity.md#3-network-gear-is-a-continuous-off-grid-load--split-it-by-tier)).
+> Fill from the **[bed & device schedule](../../design/90-bed-and-device-schedule.md)** (§2–3) — it enumerates the devices per tier and their watts. Network gear alone is ~15–25 W continuous ([net §3](../../design/40-network-and-connectivity.md#3-network-gear-is-a-continuous-off-grid-load--split-it-by-tier)).
 
 ### 2. Days of autonomy — *the key insight that shrinks the battery*
 
