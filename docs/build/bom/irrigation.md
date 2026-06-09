@@ -58,6 +58,8 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 | Ollas | Buried porous pots (demo beds) | TBD | REQ-PASV-5 | TBD | TBD | TBD | TBD | proposed | Optional/education |
 | Humidity domes | Clear covers for seed/cutting trays | TBD | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | **Passive** propagation humidity — zero power/pressure |
 | **DC ultrasonic fogger** | Low-voltage piezo fogger, enclosed propagation chamber | 1 | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | **Pure-tank-fed** (mineral-free); no pressure needed; **Tier-3, HA-controllable**; showcase. *Not* a pressure/gravity mister (head insufficient) |
+| Fogger basin + float valve | Constant-level basin, **gravity-filled via float valve** | 1 | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | Holds the transducer at depth; **covered** (child safety) |
+| Basin overflow (failsafe) | Standpipe/weir → irrigation/beds | 1 | REQ-CYCLE-12, REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | If the float sticks: no flood, no waste (electronics in water) |
 | Manual override valves | Hand valves per zone | TBD | REQ-PASV-7 | TBD | TBD | TBD | TBD | proposed | Tool-free fallback |
 
 ## E. Fertigation

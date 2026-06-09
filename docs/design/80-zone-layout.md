@@ -87,7 +87,7 @@ From the science/garden teacher ([growing program](../operate/30-growing-program
 | **Hydroponic demo** | Small-scale, **visible reservoir** (IZ6) | Clear reservoir; own loop |
 | **Data station** | Sensors + dashboard made visible (data corner) | Power/data drops ([REQ-SLAB-3](#a2-foundation--slab--the-one-way-door)) |
 | **Tall-crop trellis** | Walk-under climbing-crop arch over the spine | Anchored to structure/slab |
-| **Seedling station** | Germination bench + grow lights (IZ5); **humidity domes + a DC ultrasonic fogger** (pure-tank-fed) for propagation | Power + water + drainage; fogger is Tier-3/HA-controllable |
+| **Seedling station** | Germination bench + grow lights (IZ5); **humidity domes + a DC ultrasonic fogger** in a **float-valve constant-level basin** (pure-tank-fed, covered, overflow→irrigation) | Power + water + drainage; fogger is Tier-3/HA-controllable |
 | **Repotting station** | Work bench, child + ADA height | Water + drainage nearby |
 | **Soil-catch potting table** | Table with an integrated **hole + catchment** to scrape soil into → returned to beds | Drain to soil-catch; closes the soil loop |
 | **Aquaponics rough-in** | *Future* — stub plumbing + space/structural allowance near a future fish-tank spot | Roughed-in now, built later (like spare conduit) |

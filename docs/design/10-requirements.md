@@ -222,7 +222,7 @@ Each requirement has:
 | REQ-CYCLE-9 | SHOULD | **LiFePO₄ end-of-life recycling plan** named (the hardware half of "produce no waste"). | Resilience |
 | REQ-CYCLE-10 | SHOULD | **Wash-sink greywater reuse:** rinse runoff → settle → filter → grey tank → root/non-edible drip; **soil-catch table + settled sediment returned to beds**; reclaimed lines labeled, no cross-connection, kept off raw-edible parts. | Off-grid, Education |
 | REQ-CYCLE-11 | SHOULD | **Staged sediment filtration** on the cistern→white-tank path: coarse (~500 µm) **before** the pump (protects it); finer (~100 µm then ~50 µm) **after** the pump before the tank/basin. Prefer flushable spin-down filters. | Resilience |
-| REQ-CYCLE-12 | SHOULD | **Propagation humidity = passive humidity domes** ± a **low-power DC ultrasonic fogger** (pure-tank-fed, mineral-free; Tier-3, HA-controllable). **Not** pressure/gravity misters — gravity head (~0.43 psi/ft) can't drive mister nozzles (~40–60 psi). | Education, Off-grid |
+| REQ-CYCLE-12 | SHOULD | **Propagation humidity = passive humidity domes** ± a **low-power DC ultrasonic fogger** (pure-tank-fed, mineral-free; Tier-3, HA-controllable). Fogger sits in a **gravity-filled, float-valve constant-level basin** (steady depth for the transducer) with a **passive overflow-to-irrigation failsafe** (electronics in water → no flood); covered; low-voltage SELV. **Not** pressure/gravity misters — gravity head (~0.43 psi/ft) can't drive mister nozzles (~40–60 psi). | Education, Off-grid |
 
 ## P. Zone layout
 
