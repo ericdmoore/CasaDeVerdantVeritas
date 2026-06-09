@@ -54,7 +54,7 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| **Latching solenoid valves** | Per zone; ~zero holding current | TBD | REQ-WATER-1, REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | Off-grid default; driver in [controls](controls.md) |
+| **Latching solenoid valves** | **Irritrol DCL / Hunter 458200** DC-latching solenoid *or equal*; per zone | TBD | REQ-WATER-1, REQ-PWR-2 | TBD | TBD | TBD | TBD | proposed | Pulse-to-shift, **~zero holding current**; off-grid default; driver in [controls](controls.md) |
 | Manifold / mainline | Sized to zones | TBD | REQ-WATER-1 | TBD | TBD | TBD | TBD | proposed | |
 | Drip lines + emitters | **Pressure-compensating, low-head** | TBD | REQ-PASV-4 | TBD | TBD | TBD | TBD | proposed | Must work at gravity pressure |
 | Wicking/SIP bed kits | Reservoir liner, wick media; **dedicated inlet** (separate from outlet) | TBD | REQ-PASV-5, REQ-CYCLE-14 | TBD | TBD | TBD | TBD | proposed | Multi-day untended buffer; **never a single dual-purpose port** |

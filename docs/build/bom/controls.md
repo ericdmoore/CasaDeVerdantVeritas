@@ -30,11 +30,11 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Air temp / humidity | Greenhouse-rated, multiple zones | TBD | REQ-COOL-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Feeds safety loop **and** data layer |
+| Air temp / humidity | **SHT31** (DFRobot SEN0385 outdoor / FS200-SHT31 probe) *or equal*; I²C | TBD | REQ-COOL-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | <10 mA (on the node); feeds safety loop **and** data layer |
 | **Overtemp safety sensor** | Independent of the data sensors | 1+ | REQ-SAFE-5, REQ-NET-1 | TBD | TBD | TBD | TBD | proposed | Drives the alarm + vent on the safety controller |
-| Soil / media moisture | Per bed/zone | TBD | REQ-WATER-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Drives irrigation logic |
+| Soil / media moisture | **Capacitive** (DFRobot SEN0193 *or equal*) — no corrosion | TBD | REQ-WATER-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | mW on the node; drives irrigation logic |
 | Light (PAR/lux) | 1–2 | REQ-DATA-1 | REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Shade/lesson data |
-| **Wind sensor (speed + direction)** | **Ultrasonic, no moving parts** preferred (low maintenance) | 1 | REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | Selects chimney vs. ridge-venturi mode; **direction** guards the due-west wind-shadow case |
+| **Wind sensor (speed + direction)** | **Ultrasonic, no moving parts** — Calypso ULP (~0.005–0.12 W) / Niubol RS485 Modbus (~0.4 W) *or equal* | 1 | REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | T1; selects chimney vs. ridge-venturi mode; **direction** guards the due-west wind-shadow case |
 | Tank level | Cistern + header + pure tank | TBD | REQ-CYCLE-3, REQ-ELEC-4 | TBD | TBD | TBD | TBD | proposed | Low-water alert |
 | Hydroponic EC / pH | If hydro zone | TBD | REQ-EDU-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Research zone |
 | Battery SOC / shunt | (see [power BOM](off-grid-power.md)) | — | REQ-ELEC-4 | TBD | — | — | — | cross-ref | Feeds load-shed + alerts |
@@ -43,12 +43,13 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Powered vent / louver actuators | DC linear actuators; **fail-open** | TBD | REQ-COOL-7 | TBD | TBD | TBD | TBD | proposed | Backed by passive wax-piston openers (passive BOM) |
-| **Chimney baffle actuator** | DC actuator; **mode valve + winter damper** | 1 | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | Open = stack mode; closed = wind mode / winter. **Wax-piston backstop** = fail open-when-hot |
-| **Ridge-venturi vent actuator** | DC actuator on the wind-capped ridge vent | TBD | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | **Interlocked** with the chimney baffle — never both open (short-circuit) |
-| Exhaust / circulation fans | **Solar-direct DC** preferred | TBD | REQ-COOL-5 | TBD | TBD | TBD | TBD | proposed | Run hardest when sun = heat is max |
+| Powered vent / louver actuators | **DC linear actuator**, greenhouse window-opener class (RollerTrol / PowerJack *or equal*) — ~1.5–2 A @12 V (≈18–24 W moving, **0 idle**), 20–60 lb force; **fail-open** | TBD | REQ-COOL-7 | TBD | TBD | TBD | TBD | proposed | Backed by passive wax-piston openers (passive BOM) |
+| **Chimney baffle actuator** | Window-opener-class linear actuator (~2 A @12 V moving, 0 idle); **mode valve + winter damper** | 1 | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | Open = stack mode; closed = wind mode / winter. **Wax-piston backstop** = fail open-when-hot |
+| **Ridge-venturi vent actuator** | Same window-opener-class actuator | TBD | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | **Interlocked** with the chimney baffle — never both open (short-circuit) |
+| Exhaust / circulation fans | **Backwoods 16" 12/24 V** (36 W → 1627 CFM) / 80 W→3000 CFM class *or equal*; **solar-direct** | ~2 | REQ-COOL-5 | TBD | TBD | TBD | TBD | proposed | Run hardest when sun = heat is max |
 | Evap-cooling pump driver | Relay/driver (pump in irrigation BOM) | TBD | REQ-COOL-6 | TBD | TBD | TBD | TBD | proposed | |
 | Irrigation valve drivers | Drivers for **latching solenoids** (irrigation BOM) | TBD | REQ-WATER-1 | TBD | TBD | TBD | TBD | proposed | Latching = ~zero holding current (off-grid) |
+| **Structural / work lighting** | **Dimmable DC LED strip** (12/24 V) + PWM dimmer, HA-controllable | TBD | REQ-LIGHT-2, REQ-EDU-4 | TBD | TBD | TBD | TBD | proposed | **T3**; ambient/work/event/showcase light (*not* a grow light); ~5–15 W per run-meter, dimmed |
 | High-temp alarm | Audible/visible, on safety controller | 1 | REQ-SAFE-5 | TBD | TBD | TBD | TBD | proposed | Fires before danger |
 | Load-shed relays | SOC-tiered switching (T2/T3) | TBD | REQ-PWR-3, REQ-PWR-4 | TBD | TBD | TBD | TBD | proposed | |
 
@@ -71,14 +72,20 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | Keyed DC power connectors | **Anderson Powerpole** (color-coded, polarity-safe) | TBD | REQ-CTRL-1, REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | The one connector 🟢 Green may plug |
 | Sealed field connectors | **M12 X-coded (IP67)** for wet/exposed runs | TBD | REQ-CTRL-2 | TBD | TBD | TBD | TBD | proposed | Minimize exposed runs |
 | Indoor data connectors | RJ45 (inside enclosures) | TBD | REQ-CTRL-2 | TBD | TBD | TBD | TBD | proposed | |
-| Cabling | PoE/Cat6, low-voltage DC, conduit | TBD | REQ-ELEC-1, REQ-CTRL-3 | TBD | TBD | TBD | TBD | proposed | Conduit stub-ups pre-poured (REQ-SLAB-3) |
+| Cabling | **Cat6/6A for PoE++ (802.3bt)**, low-voltage DC, conduit | TBD | REQ-ELEC-1, REQ-CTRL-3 | TBD | TBD | TBD | TBD | proposed | Conduit stub-ups pre-poured (REQ-SLAB-3) |
+| Cable glands | **IP-rated** entries into every enclosure | TBD | REQ-CTRL-2, REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | Keep water out at penetrations |
 | Wire-to-wire splices | **Wago Lever-Nuts (221-series or equal)** — tool-free, reusable, transparent | TBD | REQ-CTRL-1, REQ-CTRL-8 | TBD | TBD | TBD | TBD | proposed | **Splices only** (non-terminations); low-voltage control — *not* the high-current bus (lugs/Anderson there) |
 
 ## F. Enclosure & support
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Core enclosure | Sealed, **shaded/cool sited**, breather + desiccant | 1 | REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | Commodity-in-a-box; thermal-managed |
+| Core enclosure / wiring case | Sealed, **shaded/cool sited**, breather + desiccant | 1 | REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | Commodity-in-a-box; thermal-managed |
+| DIN rail + terminal blocks | Standard rail for breakers/relays/PSUs/terminals | TBD | REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | Tidy, serviceable panel |
+| **DC circuit breakers** | **DC-rated** (polarity-correct), per low-voltage circuit | TBD | REQ-CTRL-7 | TBD | TBD | TBD | TBD | proposed | Per-circuit protection — **not** AC breakers |
+| Network switch enclosure | Case for the PoE switch + patch | 1 | REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | |
+| Desiccant + breather vent | Enclosure moisture control | TBD | REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | Recharge/replace; pairs w/ breather membrane |
+| **Anti-condensation heater** | Thermostatic, mild (~10–50 W) | 1 | REQ-CTRL-5 | TBD | TBD | TBD | TBD | proposed | **T3**; keeps electronics above dew point on cold/humid nights |
 | GFCI / protection | On any AC; conduit, out of reach | TBD | REQ-ELEC-1 | TBD | TBD | TBD | TBD | proposed | |
 | Spares shelf | Coordinator stick, sensor/node samples, fuses, fittings | 1 set | REQ-CTRL-4 | TBD | TBD | TBD | TBD | proposed | Amber repair stock; ≥2 of failure-prone parts |
 
