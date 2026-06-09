@@ -84,7 +84,7 @@ From the science/garden teacher ([growing program](../operate/30-growing-program
 | Feature | What / where | Build note |
 |---------|--------------|-----------|
 | **Root window** | Below-grade viewing glazing into a raised bed — taproot vs. fibrous, potatoes | Built into the bed wall; drainage + viewing pane |
-| **Worm window** | Cutaway view into a vermicompost bin | Viewing pane; sited near work zone |
+| **Worm window** | Cutaway view into the vermicompost bin (*the anchor compost method*) | Viewing pane; site **cool/stable** — north wall by thermal mass, shaded, low (worms die >85–90 °F) |
 | **Hydroponic demo** | Small-scale, **visible reservoir** (IZ6) | Clear reservoir; own loop |
 | **Data station** | Sensors + dashboard made visible (data corner) | Power/data drops ([REQ-SLAB-3](#a2-foundation--slab--the-one-way-door)) |
 | **Tall-crop trellis** | Walk-under climbing-crop arch over the spine | Anchored to structure/slab |

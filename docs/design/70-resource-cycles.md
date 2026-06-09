@@ -53,7 +53,7 @@ Active composting lives in an **outdoor service zone** — pests, pathogens, and
 
 | Method | Role | Notes |
 |--------|------|-------|
-| **Vermicompost (worms)** | Continuous, education, **worm tea** liquid feed | Low odor, small footprint, near year-round. The kid favorite. |
+| **Vermicompost (worms)** — *the anchor* | Continuous, education, **worm tea** liquid feed | **The low-maintenance backbone** — a big established bin runs itself for years with near-zero attention (keep the mass high, don't over-pull). Its **neglect-tolerance matches the summer-coverage gap**, so it's the primary method. ⚠️ **Site it COOL/stable** (north wall by thermal mass, shaded, low) — worms die above ~85–90 °F, so a sun-baked spot kills the very hardiness we want. |
 | **Bokashi** | **Cafeteria-scrap pre-treatment** (incl. meat/dairy) | Sealed anaerobic ferment — fast, pest-free; output then feeds the hot pile / hügel beds. |
 | **Hot compost** | Bulk plant waste + pre-treated scraps | Outdoor pile, 130–160 °F (optional minor winter warmth); needs turning + space. |
 | **Hügelkultur beds** | **Water-storing beds that compost in place** | Buried wood core = water sponge; build-time decision. *Merges both cycles.* |

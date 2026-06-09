@@ -10,13 +10,15 @@
 - **Gloves on; wash hands after.** No composting with open cuts; keep hands away from face.
 - Amendments/additives stay **locked** unless child-safe ([REQ-SAFE-4](../../design/10-requirements.md#g-safety--egress)).
 
-## 1. Worm bin (vermicompost) 🪱
+## 1. Worm bin (vermicompost) 🪱 — *the anchor; it mostly runs itself*
+- [ ] **Keep the mass high — don't over-pull.** A big, established bin is what makes it hardy through summer and winter. Harvest *some*, never strip it down. *(This is the #1 rule.)*
 - [ ] **Feed small** — fruit/veg scraps, coffee grounds, crushed eggshell. *No* meat/dairy/oily food, go easy on citrus/onion. 📷
 - [ ] **Bury the food** under bedding; don't pile on top.
 - [ ] **Moist like a wrung-out sponge** — add water if dry, dry bedding if soggy.
 - [ ] **Don't overfeed** — only add more when the last feeding is mostly gone.
+- [ ] **☀️ Summer heat is the real risk** — keep the bin in its **cool, shaded spot** (worms die above ~85–90 °F). If a hot stretch looms, check it's not heating up.
 - [ ] **Harvest** castings / drain **worm tea** when ready → fertigation ([SOP-06](SOP-06-water-system-check.md) / drip).
-- ✅ *Good:* worms active, earthy smell, no flies. 🚩 *Wrong:* sour smell/soggy → too wet or overfed (stop feeding, add dry bedding); fruit flies → bury food deeper, cover.
+- ✅ *Good:* worms active, earthy smell, no flies. 🚩 *Wrong:* sour smell/soggy → too wet or overfed (stop feeding, add dry bedding); fruit flies → bury food deeper, cover; **sluggish/dying in summer → too hot, move to shade/cool.**
 
 ## 2. Bokashi (cafeteria scraps) 🪣
 - [ ] Layer scraps + **bokashi bran**, **press out air**, reseal the lid tight. 📷
