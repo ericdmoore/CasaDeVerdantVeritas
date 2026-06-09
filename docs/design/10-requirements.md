@@ -56,6 +56,8 @@ Each requirement has:
 | REQ-COOL-6 | SHOULD | Evaporative (swamp) cooling as an assist — viable because TX summer humidity still leaves headroom; pad area ≈ exhaust CFM ÷ ~250. Note its **water draw** counts against the off-grid water budget. *(verify pad type.)* | Dallas, Production |
 | REQ-COOL-7 | MUST | On power or controller failure, powered vents/louvers **fail open**, never closed. | Safety, Resilience |
 | REQ-COOL-8 | SHOULD | Cross-ventilation aligned to prevailing summer breeze (intake low, exhaust high/opposite). | Dallas |
+| REQ-COOL-9 | SHOULD | **Two context-switched high exhausts, never both open at once:** (a) a **tall solar chimney** (buoyancy — high-pressure/low-volume, wins still+hot) and (b) a **wind-capped ridge vent** (venturi — high-volume, wins breezy), sharing **low intakes** so the canopy is vertically flushed in either mode. The inactive exhaust is **positively closed** (the chimney baffle is the mode valve + winter heat-retention damper) — open both and they short-circuit. | Dallas, Resilience |
+| REQ-COOL-10 | SHOULD | **Mode-switch logic = optimization layer over the passive baseline.** Interior **temperature** gates *whether* to vent; **windspeed + direction** select *which* exhaust (chimney vs. ridge). Switch on a **dwell timer (~15 min)** with an **emergency-override** (recompute immediately if temp exceeds a hard ceiling). On power/controller loss it **fails to the passive thermal default** (wax-piston openers, [REQ-COOL-4](#b-cooling--ventilation--the-headline-system)/[REQ-COOL-7](#b-cooling--ventilation--the-headline-system)) — open-when-hot / closed-when-cold, no decision. | Off-grid, Safety |
 
 ## C. Shading & light
 

@@ -44,7 +44,7 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Transfer pump | DC, cistern → white tank (**solar-direct** if possible) | 1 | REQ-WATER-1, REQ-PWR-3 | TBD | TBD | TBD | TBD | proposed | Lifts to the elevated tank |
+| Transfer / lift pump | **Submersible brushless DC, high-flow** — e.g. **HYSKY DC60G-24120S-1: 24 V / 120 W, ~16.7 GPM (3800 LPH), 12 m head, dry-run protected** *or equal*; **solar-direct** | 1 | REQ-WATER-1, REQ-PWR-3 | TBD | TBD | TBD | TBD | proposed | **Mount submerged in cistern → no priming issue**; lifts → white tank, fast refill. Brushless = quiet/durable; dry-run-safe. Manual-switch wash-down (~17 psi). *Continuous-flow, not on-demand-pressure — add a diaphragm pump only if punchy wash-down wanted* |
 | **Coarse pre-filter (~500 µm)** | Flushable spin-down, **before the pump** | 1 | REQ-CYCLE-11 | TBD | TBD | TBD | TBD | proposed | Protects the pump from grit |
 | **Fine filters (~100 µm → ~50 µm)** | Staged spin-down, **after the pump** before the tank | 2 | REQ-CYCLE-11 | TBD | TBD | TBD | TBD | proposed | Coarse-first = each stage lasts longer; flushable |
 | Pressure regulation | Low-pressure reg for gravity drip | TBD | REQ-PASV-4 | TBD | TBD | TBD | TBD | proposed | Match emitter spec |

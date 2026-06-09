@@ -39,6 +39,7 @@
 | RTC / watchdog / load-shed relays | modules | T1 | ~1 W |
 | **Exhaust fans (DC, solar-direct)** | **Backwoods 16" 12/24 V** (1627 CFM); 80 W→3000 CFM class | **T2** | **~36–80 W each** (~×2 for ~6k CFM) |
 | Evap-cooling pump | submersible cooler pump | T2 | **~33 W** (tiny DC fountain ~4–5 W) |
+| **Transfer / lift pump** | **HYSKY DC60G-24120S-1**, 24 V submersible brushless, ~16.7 GPM, 12 m head *or equal* | **T2** | **~120 W** (solar-direct; intermittent tank refills; dry-run protected) |
 | Vent linear actuators | 12/24 V, brief runs | T2 | ~20–50 W for seconds → ~0 daily; **wax-piston = 0 W** |
 | Latching solenoid valves | per zone | T1 | **~0 W holding**; ms pulse → negligible/day |
 | Grow light (seedling) | **SHOPLED 4 ft, 40 W** (true draw) | T3 | **~40 W** (run 12–16 h for starts) |
@@ -51,7 +52,7 @@
 | Tier | Real items | Continuous | Wh/day |
 |------|-----------|------------|--------|
 | **Tier 1** (survives) | ESP32 safety + nodes (~2–3 W) + ZBT-1 (~1 W) + cellular alert (~1–2 W) + valve pulses | **~5–8 W** | **~120–190** |
-| **Tier 2** (solar-correlated) | 2× DC fans (~72–160 W) + evap pump (~33 W) — **solar-direct, minimal battery** | ~100–200 W when running | sized to PV |
+| **Tier 2** (solar-correlated) | 2× DC fans (~72–160 W) + evap pump (~33 W) + transfer/lift pump (~120 W, intermittent) — **solar-direct, minimal battery** | ~100–280 W when running | sized to PV |
 | **Tier 3** (sheds first) | Pi 5 (~3–4 W) + PoE sw + combo router (~8–13 W) + fogger (~12–15 W) + grow light (~40 W when on) | ~15–25 W base | ~300–700 |
 
 → **Battery floor = Tier 1:** e.g. **~150 Wh/day × 3 days ÷ 0.85 DoD ≈ ~530 Wh usable** — a *small* LiFePO₄ carries the safety loop through 3 cloudy days. The PV + cow/house bulk carry Tier 2/3. This is the real load list the [power BOM](../build/bom/off-grid-power.md#sizing-basis--do-this-before-buying-anything) sizes against.
