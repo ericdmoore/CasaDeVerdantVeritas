@@ -63,7 +63,7 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 | Cow connectors | **Keyed, arc-safe** charge-in + load-out (Anderson SB class) | TBD | REQ-PWR-9, REQ-CTRL-1 | TBD | TBD | TBD | TBD | proposed | Separate one-way paths; terminal-protected in transit |
 | House→cow DC-DC charger | Victron **Orion-Tr 48/48** *or equal*, ~8 A; input-V lockout | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | **Tier-① baseline** — always-on, current-limited, gated house-healthy |
 | Routable PV string | One string sized to **cow MPPT max** (fits 6000XP MPPT-2 too) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | **Tier-② manual boost** |
-| PV-rated DC changeover | Rated to string Voc/Isc; **switch no-load** (not a marine selector) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | HOUSE→MPPT-2 / COW→cow MPPT |
+| PV-rated DC changeover | **Listed PV DC changeover, ≥ string Voc (1000 VDC typ.), UL98B/IEC 60947-3** — *or* **two interlocked PV-DC isolators**. Interlock mandatory; switch **no-load**. NOT an AC cam switch. See refs ↓ | 1 | REQ-PWR-10, REQ-PWR-16 | TBD | TBD | TBD | TBD | proposed | House / Off / Cow |
 | Cow MPPT | Solar charge controller on the cow (sized to the routable string) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | Receives the string in COW position |
 | Cow PV connector | Keyed PV connector at the dock; live only in COW position | 1 | REQ-PWR-9 | TBD | TBD | TBD | TBD | proposed | Switch HOUSE before undock |
 | DC distribution + fusing | Bus, fuses/breakers per tier | TBD | REQ-PWR-2..4 | TBD | TBD | TBD | TBD | proposed | **Tier-separated** so shedding T3 can't brown out T1 |
@@ -86,6 +86,13 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 - **LiFePO₄ on a school campus** brings fire-code / State Fire Marshal siting + ventilation considerations — coordinate via [`10-regulatory-governance.md`](../10-regulatory-governance.md) (fire overlay) and the sealed-design requirement.
 - Battery + PV gear **secured, ventilated, out of child reach** ([REQ-PWR-6](../../design/10-requirements.md#f2-off-grid-energy--solar--battery-no-utility)).
 - All of this is part of the **sealed architect/engineer design** for a public school building.
+
+### PV changeover — sourcing notes
+Most "PV isolator switches" are **ON/OFF disconnects**, not true 3-position changeovers — so plan on either a genuine listed changeover *or* **two interlocked PV-DC isolators**. Hand the 🔴 Red designer this spec and let them source the listed part they'll stamp. Reference parts (starting points, verify rating + listing):
+- IMO DC disconnect (reputable; on/off isolator) — [signaturesolar.com](https://signaturesolar.com/dc-disconnect-rooftop-isolator-switch-by-imo/)
+- BENY PV DC isolator line (manufacturer) — [beny.com](https://www.beny.com/dc-isolator-switch/)
+- flexman 1000 V PV isolator (import, IP66) — [amazon.com](https://www.amazon.com/flexman-Photovoltaic-Disconnect-Waterproof-Residential/dp/B0CZ461MH3)
+- Eujgoov PV "changeover" (verify true 3-position) — [amazon.com](https://www.amazon.com/Eujgoov-DC1000V-Photovoltaic-Isolator-Changeover/dp/B0DWNKYX8J)
 
 ## Open questions
 > **OPEN QUESTION:** Tier 1/2/3 load list — the numbers that drive the whole sizing. (Needs controls + network device specs.)
