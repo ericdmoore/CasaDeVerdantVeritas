@@ -17,6 +17,8 @@
 | [SOP-02](SOP-02-weekly-check.md) | **Weekly check** | Volunteer | Weekly, year-round | ~30 min |
 | [SOP-03](SOP-03-summer-survival.md) | **Summer survival** | Season owner + rota | Pre-summer + weekly over break | varies |
 | [SOP-04](SOP-04-something-isnt-working.md) | **Something isn't working** | 🟢 Green (anyone) | When a behavior is missing | ~2 min |
+| [SOP-05](SOP-05-compost-care.md) | **Compost care** | 🟢 Green (+ volunteer) | Weekly + ongoing | ~15 min |
+| [SOP-06](SOP-06-water-system-check.md) | **Water-system check** | 🟢 Green / volunteer | Weekly | ~15 min |
 
 *More to come: planting, harvest, freeze response, pest scouting, controller reset. Add them here as they're written.*
 
