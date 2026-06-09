@@ -61,6 +61,7 @@ Grouped by trade. Walk it on site with the plan in hand before the pour crew arr
 - [ ] Anchor layout matches the (custom) frame — verified against shop drawings. **(MUST)**
 - [ ] Anchor/embed design is **sealed by the licensed architect/engineer** before pour — required for a public school building per [regulatory governance](10-regulatory-governance.md). **(MUST)**
 - [ ] **Elevated water-tank tower foundation/anchors** set per the engineered stand (dead + wind load — a full tank is ~1,700 lb and a wind sail). **(MUST)**
+- [ ] **South ramada post footings/anchors** set for the full-length [Covered Outdoor Instruction Area](../design/80-zone-layout.md#schematic-plan) — dead load + a leafed-out vine's wet load + Dallas wind, engineered per the sealed design. Use rot/termite-proof bases at the wet ground line (steel or stucco-clad posts). **(MUST)**
 
 ### 6. Accessibility & finish (REQ-SLAB-7, REQ-ACC-1)
 - [ ] Finished floor flush/level at the accessible entry; no lip or step. **(MUST)**

@@ -53,6 +53,18 @@ They're not redundant — they're tuned for different flow regimes, and **low in
 - **Deciduous living shade** — vines on a west/south trellis or a tree: leafs out for summer, drops for winter, self-regulating *and* a teaching feature. West side especially (brutal low afternoon sun).
 - **Seasonal shade cloth / whitewash** ([REQ-LIGHT-1](10-requirements.md#c-shading--light)).
 
+> **Decided — the south face is a deciduous-vine ramada (the [Covered Outdoor Instruction Area](80-zone-layout.md#schematic-plan)).** A full-length, open-sided Spanish-style ramada runs along the south wall: timber/steel posts, a **latilla (open-slat) top, and a deciduous vine** trained over it. One structure, three jobs — the **primary "teach-outside" gathering space** ([Group U](../build/10-regulatory-governance.md#-the-decision-that-governs-everything-occupancy-classification)-preserving), the **south shade device**, and it **pre-cools the breeze intake** (the low intakes draw shaded air, not sun-baked air).
+>
+> **The latillas and the vine do different jobs — keep them honest:** fixed latillas shade *year-round* (they don't know it's January), so on their own a dense slat roof would over-shade the south beds exactly when we want the low 34° winter sun. **The deciduous vine is the part that self-regulates** — bare in winter, low sun rakes through the open slats; leafed-out in summer, full dapple. Keep the latilla spacing open-ish and let the vine be the seasonal valve. **Open sides are non-negotiable** — a solid-walled lean-to would dam the S/SSE breeze the cooling design depends on (and risk pushing past Group U). The **roll-up south wall stays the operable membrane** between interior and the covered classroom.
+>
+> **Vine shortlist (Dallas 8a/8b, kids underneath — deciduous, tough, safe/teachable):**
+> - **Grape** (*Vitis* — Pierce's-disease-tolerant: muscadine, 'Black Spanish/Lenoir', 'Blanc du Bois') — **the pick.** Classic ramada vine, dense summer shade, **edible** (food + teaching missions), non-toxic, on-theme. *PD is endemic in the South — choose PD-tolerant stock.*
+> - **Passionflower / Maypop** (*Passiflora incarnata*) — TX native, edible fruit, spectacular flowers, **host plant for Gulf Fritillary butterflies** (caterpillar-to-butterfly lesson). Herbaceous — dies back fully (maximal winter light) and rebuilds each spring, so pair with a woody backbone.
+> - **American wisteria** (*Wisteria frutescens*) — native and well-behaved (*not* the structure-crushing invasive Asian wisterias), lovely blooms. ⚠️ seeds/pods **toxic if eaten** — only if pods can stay above grabbing height.
+> - **Virginia creeper** (*Parthenocissus quinquefolia*) — native, bulletproof, brilliant red fall color. ⚠️ berries **toxic** (oxalates) — same site-it-high caveat.
+>
+> **Recommendation:** **grape** as the primary woody canopy (safe, edible, on-theme), optionally **interplant passionflower at one bay** for the butterfly/pollinator lesson — food, shade, and a living curriculum from one structure. *Build note: the posts are a slab one-way-door — footings/anchors in the [slab pre-pour checklist §5](../build/00-slab-prepour-checklist.md).*
+
 ## 3. Water — passive irrigation survives a dead battery
 
 - **Gravity-fed irrigation from an elevated header tank.** A raised rainwater tank drip-feeds by gravity, **no pump** — plants water even with the battery flat. The strongest water-side fool-proofing; pairs with the off-grid ethos. *(Elevation must be designed in now.)*
