@@ -26,6 +26,7 @@ Each requirement has:
 | REQ-STR-4 | MUST | Anchored to a foundation rated for uplift; not a free-standing kit staked to soil. | Safety, Resilience |
 | REQ-STR-5 | SHOULD | Clear interior footprint ≥ ~800 sq ft (e.g. 20×40) to hold a class of 20–25 plus growing zones. | Education |
 | REQ-STR-6 | SHOULD | Roof pitch and gutters sized to shed Dallas downpours and feed rainwater capture. | Dallas, Affordability |
+| REQ-STR-7 | SHOULD | **Class-scale tool/implement storage system:** shadow boards / French-cleat wall (every tool an outlined home → missing-tool obvious) + **numbered class-set caddies** (fast hand-out/collect); kid-height + ADA; **lockable** for sharp tools/amendments ([REQ-SAFE-4](#g-safety--egress)); rust-managed + tool-care station. | Safety, Education |
 
 ## A2. Foundation & slab — *the one-way door*
 

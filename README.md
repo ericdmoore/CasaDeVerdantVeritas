@@ -57,7 +57,8 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │       ├── README.md
     │       ├── off-grid-power.md
     │       ├── controls.md
-    │       └── irrigation.md
+    │       ├── irrigation.md
+    │       └── structure.md
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
         ├── 00-operating-principles.md
         ├── 10-roles-and-tiers.md

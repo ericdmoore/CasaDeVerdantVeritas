@@ -9,7 +9,7 @@
 | [off-grid-power.md](off-grid-power.md) | Solar array, battery, charge control, distribution | 🟡 Scaffolding (awaiting sizing) |
 | [controls.md](controls.md) | Compute core, sensors, actuators, comms, connectors | 🟡 Scaffolding (awaiting device list) |
 | [irrigation.md](irrigation.md) | Harvest, storage, gravity drip, fertigation, freeze | 🟡 Scaffolding (awaiting zone layout) |
-| *(structure.md)* | Frame, glazing, foundation hardware | ⚪ Later |
+| [structure.md](structure.md) | Frame, glazing, vents, doors, beds, **tool/implement storage** | 🟡 Scaffolding (awaiting sealed design) |
 
 ## Standard format
 

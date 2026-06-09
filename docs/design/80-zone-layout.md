@@ -70,6 +70,7 @@ Working assumption: **~20 × 40 ft, E–W long axis**, broad south face ([site r
 | **Covered outdoor pad** | Attached, shaded | **Primary** instruction (Group U preserving) |
 | Data / research corner | Interior, near power | Sensors hub, dashboards ([REQ-DATA](10-requirements.md#j-data--monitoring--the-optional-layer)) |
 | Work / potting | North, mid | Child + one ADA height ([REQ-EDU-2](10-requirements.md#i-education--layout)) |
+| **Tool / storage wall** | By work zone + entry | Shadow-board/French-cleat wall + class-set caddies + lockable cabinet ([REQ-STR-7](10-requirements.md#a-structure--envelope)); kid-height + ADA |
 | Controls enclosure | Cool/shaded corner, high | [REQ-CTRL-5](10-requirements.md#k-electronics--controls-architecture); out of reach |
 | Water infra | Service end | **HIGH** white+pure tanks (tower); **MEDIUM** grey reuse buffer (catches returns, feeds beds — *managed spill*); **LOW** cistern outside. Narrow head band: catch ~36" → beds ~24" |
 | Power / cow dock | Near entry | Cow rolls out for events; fixed reserve stays ([REQ-PWR-8](10-requirements.md#f2-off-grid-energy--solar--battery-no-utility)) |
