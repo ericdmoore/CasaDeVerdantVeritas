@@ -59,7 +59,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | High-temp alarm | Audible/visible, on safety controller | 1 | REQ-SAFE-5 | TBD | TBD | TBD | TBD | proposed | Fires before danger |
 | Load-shed relays | SOC-tiered switching (T2/T3) | TBD | REQ-PWR-3, REQ-PWR-4 | TBD | TBD | TBD | TBD | proposed | |
 | **Per-circuit indicator lamps** | **6 mm metal IP66 panel lamp** after each fuse/breaker, in the **matching voltage per rail** (DC **5 V / 12 V / 24 V / 48 V** variants — don't cross-use); **color-coded by rail/tier**; + **blown-fuse LED**; optional **controller-driven status LED** (green on / amber shed / red fault) off ESP32 GPIO | TBD | REQ-NET-7, REQ-EDU-4, REQ-CTRL-1 | TBD | TBD | TBD | TBD | proposed | "Is it live?" at a glance — Amber diagnostic + teaching display; mW. **Not Shelly** (WiFi sprawl/power, DC-range, network-dependent). Tier-1 indication stays **passive** |
-| Per-circuit DC sense *(optional)* | **INA219/INA226** (DC V + I) on the ESPHome node | TBD | REQ-NET-7, REQ-ELEC-4 | TBD | TBD | TBD | TBD | proposed | Per-circuit power/on-off into HA — **DC-native, local**; covers the Shelly "monitoring" use-case without WiFi-per-device |
+| Per-circuit power **metering** *(optional)* | **INA219/INA226** (DC V + I) on the ESPHome node | TBD | REQ-NET-7, REQ-ELEC-4 | TBD | TBD | TBD | TBD | proposed | **A meter chip, not a light** — measures V/A/W → HA (dashboard/history/alerts). For "is it live?" use the indicator lamps above. *Optional:* drive an RGB status LED from its reading. Covers the Shelly *monitoring* role, no WiFi-per-device |
 
 ## D. Network & comms (the locked transports)
 
