@@ -15,7 +15,7 @@ Per the design docs, **two compute roles** — never merged:
 
 Edge nodes reach the core over **band-diverse transports** ([locked stack](../../design/40-network-and-connectivity.md#5-transport-as-few-as-the-physics-needs--band-diverse-each-earning-its-keep)): wired PoE + Zigbee + LoRa + WiFi.
 
-> **DC-direct off the 48 V rail (no inverter).** PoE runs at ~48 V = our battery voltage, so the **PoE switch is DC-fed from the rail** (cams + powered nodes ride PoE off it). The rail then fans out by buck: a **48→24 V** rail carries the actuation (fans · pump · actuators · fogger — most gear is 24 V), and small **48→12 V / 48→5 V** rails feed the router / Pi / logic. Each buck spans the **full ~46–58 V** battery swing; **Tier 1 gets its own converter** (independent of the workhorse bucks). So the **entire control/network/camera/actuation stack is DC** — the inverter is *only* for the cow's event AC ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)). Efficient (no AC round-trip) *and* survives inverter-off.
+> **DC-direct off the 48 V rail (no inverter).** PoE runs at ~48 V = our battery voltage, so the **PoE switch is DC-fed from the rail** (cams + powered nodes ride PoE off it). The rail then fans out: a **48→24 V** workhorse carries the actuation (fans · pump · actuators · fogger — most gear is 24 V), and the logic rails **cascade off it (24→12→5 V)** using cheap, common parts — the cascade loss is negligible because those loads are tiny. **The one exception: Tier 1** (ESP32 safety + critical alert) runs on a **separate 48→5 V feed**, so a workhorse/cascade failure can't reach the safety loop. The 48-input stages span the **full ~46–58 V** battery swing. So the **entire control/network/camera/actuation stack is DC** — the inverter is *only* for the cow's event AC ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)). Efficient (no AC round-trip) *and* survives inverter-off.
 
 ---
 
@@ -27,7 +27,8 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | HA host | Mini PC / SBC, **SSD boot** (not SD card) | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Tier 3; sheddable |
 | Real-time clock | Battery-backed RTC module | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Off-grid timekeeping w/o NTP |
 | Watchdog | HW watchdog / scheduled power-cycle relay | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Auto-recover a hung host/modem |
-| DC-DC converters | **48→24 V** (main actuation rail: fans, pump, actuators, fogger), **48→12 V** (router/relays), **48→5 V** (Pi/ESP/sensors); each rated for the **full ~46–58 V** battery swing | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | DC-direct off the 48 V rail. Size the 24 V buck to **peak concurrent load**. **Tier-1 (ESP32 safety + alert) on its own small converter** so a workhorse-buck failure can't kill the safety loop |
+| DC-DC converters | **48→24 V workhorse** (full ~46–58 V in, sized to **peak concurrent load**) → **cascade 24→12 V → 12→5 V** for Tier-2/3 logic (cheap, common parts; cascade loss negligible at these small loads) | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Cascade for cheapness where it's fine; **Pi (T3) rides it** |
+| Tier-1 power feed | **Separate small 48→5 V** (independent of the workhorse/cascade) | 1 | REQ-CTRL-6, REQ-NET-1 | TBD | TBD | TBD | TBD | proposed | ESP32 safety + critical alert — a workhorse/cascade failure must **not** reach Tier 1 |
 
 ## B. Sensing
 
