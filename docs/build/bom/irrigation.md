@@ -56,6 +56,8 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 | Drip lines + emitters | **Pressure-compensating, low-head** | TBD | REQ-PASV-4 | TBD | TBD | TBD | TBD | proposed | Must work at gravity pressure |
 | Wicking-bed kits | Reservoir liner, fill/overflow, wick media | TBD | REQ-PASV-5 | TBD | TBD | TBD | TBD | proposed | Multi-day untended buffer |
 | Ollas | Buried porous pots (demo beds) | TBD | REQ-PASV-5 | TBD | TBD | TBD | TBD | proposed | Optional/education |
+| Humidity domes | Clear covers for seed/cutting trays | TBD | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | **Passive** propagation humidity — zero power/pressure |
+| **DC ultrasonic fogger** | Low-voltage piezo fogger, enclosed propagation chamber | 1 | REQ-CYCLE-12 | TBD | TBD | TBD | TBD | proposed | **Pure-tank-fed** (mineral-free); no pressure needed; **Tier-3, HA-controllable**; showcase. *Not* a pressure/gravity mister (head insufficient) |
 | Manual override valves | Hand valves per zone | TBD | REQ-PASV-7 | TBD | TBD | TBD | TBD | proposed | Tool-free fallback |
 
 ## E. Fertigation
