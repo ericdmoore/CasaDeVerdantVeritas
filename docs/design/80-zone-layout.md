@@ -45,6 +45,8 @@ Working assumption: **~20 × 40 ft, E–W long axis**, broad south face ([site r
 
 ## Zones
 
+> **Bed model (decided):** the primary growing is **6 elevated 4×8 SIP beds — one per grade (K–5)**, free-standing islands (4-ft width needs both-side access), ~360 sq ft footprint. See the [bed & device schedule](90-bed-and-device-schedule.md). The IZ table below is the *earlier* zone framing; grade beds are the authoritative bed count.
+
 ### Growing zones → irrigation zones (this sets the valve count)
 
 | ID | Zone | Location / why | Irrigation |

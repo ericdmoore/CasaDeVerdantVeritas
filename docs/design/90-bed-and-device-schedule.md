@@ -10,17 +10,17 @@
 
 | Zone | Beds | Size (each) | Method | Irrigation |
 |------|------|-------------|--------|-----------|
-| **IZ1** south in-ground | ~3 | ~3×8 ft | Soil (full sun) | Drip zone |
-| **IZ2** south raised | ~3 | ~3×6 ft | Soil, raised | Drip zone |
-| **IZ3** north raised | ~3 | ~3×6 ft | Soil, shade-tolerant | Drip zone |
-| **IZ4** ADA bed | 1 | ~3×6 ft @ ~30" | Soil, knee clearance | Drip zone |
-| **IZ5** seedling bench | 1 | ~2×8 ft | Trays + grow light + fogger | Fine/low-flow + fogger |
-| **IZ6** hydroponic demo | 1 | ~2×8 ft | Kratky/NFT | Recirculating (own loop) |
-| **IZ7** wicking/SIP run | ~3 (chained) | ~3×6 ft | Sub-irrigated, **waterfall-chained** ([REQ-CYCLE-14](10-requirements.md#o-resource-cycles)) | Buffer → bed→bed spill |
-| **IZ8** outdoor pad | ~4 containers | — | Soil/native | Drip / hose-bib |
-| Root-window bed | 1 *(within IZ1/IZ2)* | ~3×4 ft | Soil + viewing pane | Drip |
+| **Grade beds (1 per grade, K–5)** | **6** | **4×8 ft elevated** (32 sq ft ea → **192 sq ft growing**) | **SIP / wicking**, free-standing islands | Grey-buffer fed; **waterfall-chainable** ([REQ-CYCLE-14](10-requirements.md#o-resource-cycles)) |
+| **Seedling bench** (IZ5) | 1 | ~2×8 ft | Trays + grow light + fogger | Fine/low-flow + fogger |
+| **Hydroponic demo** (IZ6) | 1 | ~2×8 ft | Kratky/NFT | Recirculating (own loop) |
+| **Outdoor pad** (IZ8) | ~4 containers | — | Soil / TX-native | Drip / hose-bib |
+| Root-window bed | 1 *(= one grade bed w/ a pane)* | 4×8 | SIP + viewing pane | Buffer-fed |
 
-→ **~18 beds / ~6 drip valve zones + 1 recirc (IZ6) + 1 wicking-run fill (IZ7).** Confirms the [irrigation](../build/bom/irrigation.md) valve count.
+**Footprint check:** 6 grade beds at **6×10 ft effective** (the 4×8 bed + 2-ft access on *both* long sides — a 4-ft bed needs both-side reach, so islands) = **~360 sq ft**. In ~800 sq ft that leaves ~440 for spine + stations + infra → **fits.**
+
+**Notes:** classes within a grade share their grade's bed. Make ≥1 grade bed **ADA height + knee clearance** to satisfy [REQ-ACC-2](10-requirements.md#h-accessibility--inclusion) (no separate ADA bed needed). All grade beds are **SIP**, so they tie into the grey-buffer **managed waterfall**.
+
+→ **6 grade SIP beds + seedling + hydro (recirc) + outdoor.** SIP beds fill from the buffer (chained/valved, not 6 separate drip zones) → simplifies the [irrigation](../build/bom/irrigation.md) valve count.
 
 ## 2. Device schedule
 
@@ -57,7 +57,7 @@
 
 ## 4. Derived counts (what this unblocks)
 
-- **Irrigation:** ~8 latching valves · ~6 drip zones · 1 recirc · 1 wicking run · standpipes/couplers per IZ7 chain.
+- **Irrigation:** the **6 grade SIP beds fill from the grey buffer as chained waterfall run(s)** (standpipes + couplers per [REQ-CYCLE-14](10-requirements.md#o-resource-cycles)) — so ~2–3 fill valves, *not* 6 drip zones; + 1 hydro recirc + seedling/fogger lines. Fewer valves than the old all-drip model.
 - **Controls:** ~18 sensors + ~10 actuators + the core/network set → device count + conduit/stub-ups.
 - **Tools (structure):** class of ~25 → **~30 trowels + sets** of forks/cultivators; ~6 table-group caddies; glove sets kid+adult.
 - **Power:** the Tier rollup → battery + array sizing.
