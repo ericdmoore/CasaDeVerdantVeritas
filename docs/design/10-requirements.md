@@ -186,7 +186,7 @@ Each requirement has:
 | REQ-NET-7 | SHOULD | **Per-node heartbeat / last-seen + a reachability diagnostic**, surfaced so an Amber volunteer can localize a fault post-escalation; alerts when a node drops off. This is what lets a Green SOS resolve without Green diagnosing. | Resilience |
 | REQ-NET-8 | SHOULD | Transport = **as few as the physics needs, band-diverse, each earning its keep:** wired PoE backbone (wired-first) + one 2.4 GHz mesh (Zigbee, Thread-capable HW) + sub-GHz/LoRa for far/canopy nodes + WiFi for powered/bandwidth nodes. Guardrails: one transport per niche; each gateway a budgeted power line; spares + ≥2 Amber people per transport; one HA integration pattern. | Resilience, Simplicity |
 | REQ-NET-9 | SHOULD | Visitor access via **two QR codes** (guest WiFi join + local dashboard URL, mDNS `greenhouse.local`); optional **public read-only dashboard** for showcase. | Education, Showcase |
-| REQ-NET-10 | SHOULD | **Camera/data privacy:** any webcam points at plants not students, local-first, with a written data-governance note. | Safety, Education |
+| REQ-NET-10 | SHOULD | **Cameras = local-first, segmented, privacy-bounded.** Internal **growth** cams point at *plants, not students* (realizes [REQ-DATA-4](#j-data--monitoring--the-optional-layer)); external **security** cams need **signage + retention policy + restricted viewing**. All on a **camera VLAN, never internet-exposed**; video stays **local** (only timelapse/snapshots over the uplink). | Safety, Education |
 
 ## M. Passive architecture
 

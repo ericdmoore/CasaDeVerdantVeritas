@@ -15,6 +15,8 @@ Per the design docs, **two compute roles** — never merged:
 
 Edge nodes reach the core over **band-diverse transports** ([locked stack](../../design/40-network-and-connectivity.md#5-transport-as-few-as-the-physics-needs--band-diverse-each-earning-its-keep)): wired PoE + Zigbee + LoRa + WiFi.
 
+> **DC-direct off the 48 V rail (no inverter).** PoE runs at ~48 V = our battery voltage, so the **PoE switch is DC-fed from the rail** (cams + powered nodes ride PoE off it); the Pi-5 host and router run via small **48→5 V / 48→12 V DC-DCs**. So the **entire greenhouse control/network/camera stack is DC** — the inverter is *only* for the cow's event AC ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)). Efficient (no AC round-trip) *and* survives inverter-off.
+
 ---
 
 ## A. Compute & core
@@ -25,6 +27,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | HA host | Mini PC / SBC, **SSD boot** (not SD card) | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Tier 3; sheddable |
 | Real-time clock | Battery-backed RTC module | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Off-grid timekeeping w/o NTP |
 | Watchdog | HW watchdog / scheduled power-cycle relay | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Auto-recover a hung host/modem |
+| DC-DC converters | **48→12 V** and **48→5 V** buck (for router / Pi / 12 V devices) | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Feed the DC-direct stack off the 48 V rail (no inverter) |
 
 ## B. Sensing
 
@@ -44,6 +47,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
 | Powered vent / louver actuators | **DC linear actuator**, greenhouse window-opener class (RollerTrol / PowerJack *or equal*) — ~1.5–2 A @12 V (≈18–24 W moving, **0 idle**), 20–60 lb force; **fail-open** | TBD | REQ-COOL-7 | TBD | TBD | TBD | TBD | proposed | Backed by passive wax-piston openers (passive BOM) |
+| **Sliding shade-panel drive** | **Self-locking geared DC motor** + continuous-cable drum + pulleys + **mechanical limit switches**; UV-stable cable (s/s or Dyneema) | TBD | REQ-PASV-3 | TBD | TBD | TBD | TBD | proposed | Long bidirectional travel (CW/CCW); **holds at 0 power** (worm gear) + resists wind; limit switches = foolproof end-stops + stall timeout. **Stepper avoided** (holding current = off-grid penalty). ~20–50 W moving, 0 idle (T2); adjustable layer *atop* the fixed-overhang baseline |
 | **Chimney baffle actuator** | Window-opener-class linear actuator (~2 A @12 V moving, 0 idle); **mode valve + winter damper** | 1 | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | Open = stack mode; closed = wind mode / winter. **Wax-piston backstop** = fail open-when-hot |
 | **Ridge-venturi vent actuator** | Same window-opener-class actuator | TBD | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | **Interlocked** with the chimney baffle — never both open (short-circuit) |
 | Exhaust / circulation fans | **Backwoods 16" 12/24 V** (36 W → 1627 CFM) / 80 W→3000 CFM class *or equal*; **solar-direct** | ~2 | REQ-COOL-5 | TBD | TBD | TBD | TBD | proposed | Run hardest when sun = heat is max |
@@ -57,12 +61,14 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| PoE switch | Managed, VLAN-capable | 1 | REQ-NET-3, REQ-NET-8 | TBD | TBD | TBD | TBD | proposed | IoT / guest segmentation |
+| PoE++ switch (**DC-input**) | Managed, VLAN-capable; **48 V DC input** (wide ~48–57 V, *or* a DC-DC holding ~53–54 V) — fed from the **battery rail, no inverter** | 1 | REQ-NET-3, REQ-NET-8, REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | PoE powers cams + nodes; DC-feed skips the AC round-trip + survives inverter-off. ++ = headroom (cams need only PoE+) |
 | Zigbee coordinator | USB stick, **Thread-capable** 802.15.4 | 1 | REQ-NET-8 | TBD | TBD | TBD | TBD | proposed | On a USB extension (2.4 GHz noise) |
 | LoRa gateway | For far/canopy nodes | 1 | REQ-NET-8 | TBD | TBD | TBD | TBD | proposed | Day-1 vs later — open Q |
 | WiFi access point | Guest + powered-node SSIDs, client isolation | 1 | REQ-NET-3, REQ-NET-9 | TBD | TBD | TBD | TBD | proposed | |
 | Cellular uplink | LTE router + IoT SIM | 1 | REQ-NET-5 | TBD | TBD | TBD | TBD | proposed | Primary uplink |
 | Critical-alert channel | Independent cellular/SMS from safety controller | 1 | REQ-NET-2 | TBD | TBD | TBD | TBD | proposed | Survives HA/AP loss |
+| **PoE camera — external (security)** | Fixed PoE IP cam, local RTSP/ONVIF | TBD | REQ-NET-3, REQ-NET-10 | TBD | TBD | TBD | TBD | proposed | ~5–15 W ea (PoE+ per cam; powered by the DC-fed switch); **camera VLAN**, local-first, **no internet-expose**; signage + retention policy; T2-ish |
+| **PoE camera — internal (plant growth)** | Fixed PoE cam, timelapse | TBD | REQ-DATA-4, REQ-NET-10 | TBD | TBD | TBD | TBD | proposed | Points at **plants, not students**; realizes the classroom timelapse (REQ-DATA-4); **T3** |
 | Comms SPD | Surge protection on data/antenna lines | TBD | REQ-CTRL-7 | TBD | TBD | TBD | TBD | proposed | TX storms |
 
 ## E. Connectors & wiring

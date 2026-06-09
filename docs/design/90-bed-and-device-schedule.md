@@ -34,7 +34,8 @@
 | Zigbee coordinator | **HA Connect ZBT-1** (USB) | T1 | **<1 W** |
 | Cellular uplink **+ WiFi AP (combo)** | **USR-G806w**-class LTE + WiFi 6 | T1 alert / T3 rest | **~1.8 W standby, ~3.1 W full** |
 | (alt ultra-low uplink) | Milesight UR41 / LINOVISION IOT-R41 | T1 | **<1 W idle** (~2.7 W typ.) |
-| PoE switch (small 8-port) | managed | T3 | **~5–10 W idle** |
+| PoE switch (small 8-port) | managed | T3 | **~5–10 W idle** + cam PoE budget |
+| **PoE cameras** (external security + internal growth) | fixed PoE IP cam, local RTSP/ONVIF | T2 security / T3 growth | **~5–15 W each**, continuous; video stays **local** (don't stream over LTE) |
 | HA host | **Raspberry Pi 5** + SSD (*not* an N100) | T3 | **~3–4 W idle** (N100 ~8–9 W) |
 | RTC / watchdog / load-shed relays | modules | T1 | ~1 W |
 | **Exhaust fans (DC, solar-direct)** | **Backwoods 16" 12/24 V** (1627 CFM); 80 W→3000 CFM class | **T2** | **~36–80 W each** (~×2 for ~6k CFM) |
