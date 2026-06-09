@@ -83,6 +83,7 @@ Overall stack: **ESPHome + HA** fits our ethos — open, local-first, cheap, hug
 - **Range reality:** local WiFi won't cover the whole campus. For range-free access, a **public read-only dashboard** over the uplink doubles as the **community/showcase** feature — anyone can pull up live greenhouse data.
 - **`REQ-DATA-4` is a networking requirement in disguise:** classrooms setting up experiments and watching from the room means the data has to *reach the school building* — favors a path that bridges to the school LAN or a cloud dashboard.
 - **Camera + kids = privacy.** Any webcam points at **plants, not students**, leans local-first, and gets a line on data governance so a showcase feature doesn't become a privacy problem.
+- **Cooling-mode page (teaching surface).** A dashboard page shows the **current vent mode** (stack vs. wind-venturi), *why* it chose it (interior temp + windspeed/direction), and a **countdown to the next mode re-evaluation** (the ~15-min dwell, [REQ-COOL-10](../design/10-requirements.md#b-cooling--ventilation--the-headline-system)) — plus an **"override-tripped"** flag when a temp-spike forces an early switch, so a sudden change doesn't look like a glitch. Great live-physics lesson.
 
 ---
 

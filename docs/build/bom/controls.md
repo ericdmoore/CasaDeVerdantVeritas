@@ -34,6 +34,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | **Overtemp safety sensor** | Independent of the data sensors | 1+ | REQ-SAFE-5, REQ-NET-1 | TBD | TBD | TBD | TBD | proposed | Drives the alarm + vent on the safety controller |
 | Soil / media moisture | Per bed/zone | TBD | REQ-WATER-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Drives irrigation logic |
 | Light (PAR/lux) | 1–2 | REQ-DATA-1 | REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Shade/lesson data |
+| **Wind sensor (speed + direction)** | **Ultrasonic, no moving parts** preferred (low maintenance) | 1 | REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | Selects chimney vs. ridge-venturi mode; **direction** guards the due-west wind-shadow case |
 | Tank level | Cistern + header + pure tank | TBD | REQ-CYCLE-3, REQ-ELEC-4 | TBD | TBD | TBD | TBD | proposed | Low-water alert |
 | Hydroponic EC / pH | If hydro zone | TBD | REQ-EDU-1, REQ-DATA-1 | TBD | TBD | TBD | TBD | proposed | Research zone |
 | Battery SOC / shunt | (see [power BOM](off-grid-power.md)) | — | REQ-ELEC-4 | TBD | — | — | — | cross-ref | Feeds load-shed + alerts |
@@ -43,6 +44,8 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
 | Powered vent / louver actuators | DC linear actuators; **fail-open** | TBD | REQ-COOL-7 | TBD | TBD | TBD | TBD | proposed | Backed by passive wax-piston openers (passive BOM) |
+| **Chimney baffle actuator** | DC actuator; **mode valve + winter damper** | 1 | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | Open = stack mode; closed = wind mode / winter. **Wax-piston backstop** = fail open-when-hot |
+| **Ridge-venturi vent actuator** | DC actuator on the wind-capped ridge vent | TBD | REQ-COOL-9, REQ-COOL-10 | TBD | TBD | TBD | TBD | proposed | **Interlocked** with the chimney baffle — never both open (short-circuit) |
 | Exhaust / circulation fans | **Solar-direct DC** preferred | TBD | REQ-COOL-5 | TBD | TBD | TBD | TBD | proposed | Run hardest when sun = heat is max |
 | Evap-cooling pump driver | Relay/driver (pump in irrigation BOM) | TBD | REQ-COOL-6 | TBD | TBD | TBD | TBD | proposed | |
 | Irrigation valve drivers | Drivers for **latching solenoids** (irrigation BOM) | TBD | REQ-WATER-1 | TBD | TBD | TBD | TBD | proposed | Latching = ~zero holding current (off-grid) |

@@ -22,6 +22,30 @@ These sit at the base of the resilience stack: **passive (always) → solar+batt
 - **Stack-effect geometry** — tall ridge, low intakes; design the building *section* for buoyancy-driven flow. Height is the lever.
 - **High-albedo / reflective roof surfaces** — reject solar gain before it enters.
 
+### Two exhausts, one driver at a time — the mode-switch ([REQ-COOL-9/10](10-requirements.md#b-cooling--ventilation--the-headline-system))
+
+Buoyancy and wind both want to create a low-pressure zone up top, but they peak at **opposite times** and, if you let both top openings exhaust at once, they fight: they share one internal pressure node, the weaker one reverses, and the two high openings short-circuit air *between themselves* — bypassing the canopy. So run **two purpose-built high exhausts and only ever one at a time:**
+
+| | **Solar chimney (tall)** | **Wind-capped ridge vent (lower, long)** |
+|---|---|---|
+| Driver | Buoyancy | Wind / venturi |
+| Why this height | Stack ΔP scales with height → give the **weak** driver max height | Long distributed area along the ridge |
+| Regime | **High-pressure, low-volume** | **High-volume, lower-pressure** |
+| Wins when | **Still + hot** (no wind to drive anything else) | **Breezy** (wind suction ~10 Pa ≫ buoyancy ~1–5 Pa) |
+
+They're not redundant — they're tuned for different flow regimes, and **low intakes stay open in both modes** so the canopy is flushed vertically either way; only the driver and the outlet change. Why this beats one venturi-capped chimney: buoyancy is pressure-limited (needs the tall flue, moves modest volume); wind has pressure to spare but you want *volume* — the long ridge delivers it.
+
+**The five rules that keep it honest:**
+1. **The inactive exhaust is positively closed.** The chimney baffle *is* the mode valve (and doubles as the winter heat-retention damper). Leave it cracked in wind mode and you reintroduce the short-circuit.
+2. **Fail to the passive thermal default, not a fixed position.** Heat is the lethal failure here (Principle 3); a stuck-open vent in a mild Dallas freeze is the minor one — so the bias is *when in doubt, dump heat.* But "fail all-open" bleeds heat on a winter night, so the de-energized layer is **wax-piston auto-openers** (↑): open-when-hot / closed-when-cold, zero power, no decision. The powered mode-switch is an **optimization layer on top**, never what keeps the plants alive.
+3. **Temperature gates venting; wind only selects the path.** Interior temp decides *whether* to vent; windspeed decides *which* exhaust. (Earlier worry — "don't gate cooling on windspeed" — resolved: windspeed never closes the system, it just picks chimney vs. ridge.)
+4. **Switch on a dwell timer (~15 min) with an emergency-override.** Matches the structure's thermal lag and spares the actuators; but if interior temp blows past a hard ceiling mid-dwell, recompute *now* — don't let the timer trap a failing mode during a spike.
+5. **Omnidirectional cap + wind *direction*, not just speed.** A directional cap only suctions from its prevailing quarter, so windspeed alone can read "windy" while the venturi is dead. Sense direction too and use an omnidirectional cowl.
+
+**Site geometry (favorable, and it closes rule 5):** Dallas sun is south → the large glazed roof face is **south**, the **ridge runs E–W**, and the chimney sits at the **west end** of the ridge. Prevailing **S/N** winds cross the ridge crest *perpendicular* — the ideal ridge-venturi angle (an N–S ridge would barely venturi) — and put the west-end chimney *beside*, not upwind of, the ridge flow, so no wind-shadow. The one angle that would shadow the cap is a due-**west** wind down the ridge line; that's exactly where the wind-direction input earns its keep — on west winds the controller falls back to stack mode. Bonus: the west chimney soaks the brutal low **afternoon** sun → peak buoyancy right when the afternoon heat peaks.
+
+> **Build-locked vs. tunable:** chimney position, ridge orientation, and intake locations are **construction-locked**; the windspeed crossover, dwell time, and which exhaust is the fail-default are **commissioning-tunable** software knobs — don't mistake the knobs for one-way doors. Commission with the wax-piston thermal default, watch which exhaust actually carries the load, and reassign from data.
+
 ## 2. Shade — the cheapest cooling is heat never admitted
 
 - **Sliding solar louvers** — adjustable external shading that can track season/sun.
