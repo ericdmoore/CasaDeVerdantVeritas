@@ -68,6 +68,8 @@ They're not redundant — they're tuned for different flow regimes, and **low in
 
 The **slab** ([REQ-SLAB-6](10-requirements.md#a2-foundation--slab--the-one-way-door)) plus **water containers** absorb daytime heat and release it at night, flattening every swing — summer comfort *and* freeze protection. The water mass triple-counts as irrigation buffer. *Open: how much mass to build in (drives slab/structure loading).*
 
+> **Considered & rejected — solar Trombe wall.** A Trombe wall is a *heating* device, wrong for a **cooling-dominant** greenhouse: it adds heat we spend the season removing, and it wants the **south face** — which is our glazed, light-admitting wall for the *plants* (a masonry Trombe wall there steals their light). Our minimal freeze-night need is already met by the **internal water-barrel thermal mass** (buffers, doesn't net-add heat; doesn't block south light). *(A fan-driven vented Trombe could summer-vent to outside, but the south-light conflict still sinks it here.)*
+
 ## 6. Structural fail-safes
 
 - **Gravity/counterweight-default vents** — fail *open* mechanically when an actuator dies (the physical form of the [fail-open rule](10-requirements.md#b-cooling--ventilation--the-headline-system)).
