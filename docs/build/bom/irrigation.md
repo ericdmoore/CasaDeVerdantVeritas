@@ -29,20 +29,23 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Bulk cistern | Sized per autonomy calc | TBD | REQ-WATER-5 | TBD | TBD | TBD | TBD | proposed | **Covered** (child safety, REQ-WATER-2) |
-| Pure-water tank | Condensate store | 1 | REQ-CYCLE-2 | TBD | TBD | TBD | TBD | proposed | Evap/battery/hydro feed |
-| **Elevated header tank** | Gravity head for drip | 1 | REQ-PASV-4, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | Elevation **construction-locked** |
+| Bulk cistern | Sized per autonomy calc; low/ground | TBD | REQ-WATER-5 | TBD | TBD | TBD | TBD | proposed | Raw rainwater; **covered** (REQ-WATER-2) |
+| **Elevated WHITE tank** | Clean water, gravity head | 1 | REQ-PASV-4, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | Filtered rain + tether; feeds sinks/clean irrigation |
+| **Elevated GREY tank** | Wash-reuse, gravity head | 1 | REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | Settled+filtered wash water → root drip |
+| **Elevated PURE tank** | Condensate store | 1 | REQ-CYCLE-2 | TBD | TBD | TBD | TBD | proposed | Evap/battery/hydro feed |
+| **Tank tower / stand** | Engineered for dead + wind load | 1 | REQ-STR-1, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | ~1,700 lb full + wind sail; **foundation pre-pour** (🔴 Red) |
 | Tank covers / screens | All open surfaces | TBD | REQ-WATER-2 | TBD | TBD | TBD | TBD | proposed | Mosquito + child safety |
 | Tank level sensors | (driven by [controls](controls.md)) | — | REQ-CYCLE-3 | TBD | — | — | — | cross-ref | Low-water alerts |
-| Overflow routing | To swale / compost beds / recharge | TBD | REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | No wasted water |
+| Overflow routing | White→cistern; grey→beds/swale | TBD | REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | No wasted water |
 
 ## C. Pumps & pressure
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Transfer pump | DC, cistern → header (**solar-direct** if possible) | 1 | REQ-WATER-1, REQ-PWR-3 | TBD | TBD | TBD | TBD | proposed | Refills the gravity tank |
+| Transfer pump | DC, cistern → white tank (**solar-direct** if possible) | 1 | REQ-WATER-1, REQ-PWR-3 | TBD | TBD | TBD | TBD | proposed | Lifts to the elevated tank |
+| **Coarse pre-filter (~500 µm)** | Flushable spin-down, **before the pump** | 1 | REQ-CYCLE-11 | TBD | TBD | TBD | TBD | proposed | Protects the pump from grit |
+| **Fine filters (~100 µm → ~50 µm)** | Staged spin-down, **after the pump** before the tank | 2 | REQ-CYCLE-11 | TBD | TBD | TBD | TBD | proposed | Coarse-first = each stage lasts longer; flushable |
 | Pressure regulation | Low-pressure reg for gravity drip | TBD | REQ-PASV-4 | TBD | TBD | TBD | TBD | proposed | Match emitter spec |
-| Filtration | Screen/disc filter before emitters | TBD | REQ-WATER-1 | TBD | TBD | TBD | TBD | proposed | Prevent clogging |
 
 ## D. Distribution
 
@@ -62,13 +65,22 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 | Fertigation injector | Venturi / dosing for **compost / worm tea** | 1 | REQ-CYCLE-7 | TBD | TBD | TBD | TBD | proposed | Nutrient cycle → distribution |
 | Tea filter / strainer | Pre-emitter | 1 | REQ-CYCLE-7 | TBD | TBD | TBD | TBD | proposed | Stops clogging |
 
-## F. Backup & protection
+## F. Wash station & greywater reuse
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| Campus hose inlet | Emergency fill point | 1 | REQ-WATER-5, REQ-PWR-7 | TBD | TBD | TBD | TBD | proposed | Emergency only |
-| **Backflow preventer** | On the campus/potable connection | 1 | REQ-WATER-4 | TBD | TBD | TBD | TBD | proposed | **Required** (cross-connection) |
-| Freeze protection | Heat tape / drain-down / insulation on lines | TBD | REQ-HEAT-1 | TBD | TBD | TBD | TBD | proposed | Survive hard-freeze nights |
+| Wash sinks | Row; kid-height + one ADA | TBD | REQ-CYCLE-10 | TBD | TBD | TBD | TBD | proposed | Fed from WHITE tank |
+| Soil-catch potting table | Bench w/ integrated hole + catchment | 1 | REQ-CYCLE-10 | TBD | TBD | TBD | TBD | proposed | Soil → back to beds |
+| Settling tank / sediment trap | Before the grey filter | 1 | REQ-CYCLE-10 | TBD | TBD | TBD | TBD | proposed | Sediment → beds/compost; clean periodically |
+| Greywater filter | Screen/disc, pre-grey-tank | 1 | REQ-CYCLE-10 | TBD | TBD | TBD | TBD | proposed | So reuse won't clog drip |
+| Reclaimed plumbing | **Labeled (purple), no cross-connection** | TBD | REQ-WATER-4, REQ-CYCLE-10 | TBD | TBD | TBD | TBD | proposed | Grey → root/non-edible only |
+
+## G. Backup & protection
+
+| Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
+|------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
+| Campus hose inlet | **Air-gap discharge into the top of the WHITE tank** | 1 | REQ-WATER-4, REQ-WATER-5, REQ-PWR-7 | TBD | TBD | TBD | TBD | proposed | Air gap = textbook backflow control; emergency only |
+| Freeze protection | Heat tape / drain-down / insulation; elevated tanks more exposed | TBD | REQ-HEAT-1 | TBD | TBD | TBD | TBD | proposed | Survive hard-freeze nights |
 
 **Running subtotal:** TBD
 

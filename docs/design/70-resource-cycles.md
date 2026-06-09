@@ -8,24 +8,29 @@
 
 ## Cycle 1 — Water: harvest by quality, not just quantity
 
-The three catchment surfaces produce **different grades** of water; match grade to use.
+Sources produce **different grades** of water; match grade to use, and store in **four tiers** (three elevated for gravity feed).
 
-| Source | Surface | Quality | Best use |
-|--------|---------|---------|----------|
-| Rain | **Greenhouse roof** (primary, large area) | Good; carries debris/droppings | Bulk irrigation — via **first-flush diverter + screening** |
-| Rain | **PV array** (tilted glass) | Clean (rain also washes panel dust = free efficiency) | Gutter the low edge → bulk cistern |
-| **Condensation** | **Interior glazing / twin-wall channels** | **Distilled-grade, near-zero minerals** | The *premium* stream ↓ |
+| Grade | Source | Stored in | Gravity-feeds |
+|-------|--------|-----------|---------------|
+| **Pure** | Condensation (distilled-grade) | Small pure tank (elevated) | Evap pads (no scale) · battery top-up · sensitive hydro |
+| **White (clean)** | Filtered rainwater **+ campus tether (air-gap)** | **Elevated white tank** | Produce-wash sinks · hand-wash · clean irrigation |
+| **Grey (reuse)** | Wash-sink runoff (settled + filtered) | **Elevated grey tank** | Root / non-edible drip only |
+| **Bulk** | Raw rainwater (roof + PV gutter) | Cistern (low/ground) | Pumped up → white tank |
 
-**The condensation sleeper:** the greenhouse makes its own humidity (transpiration + evaporation) that condenses on cool inner surfaces; twin/triple-wall polycarbonate has internal channels you can drain to an interior eave gutter. Because it's mineral-free it's *ideal* for **evaporative pads** (no scale), **battery top-up** (it's distilled water), and **sensitive hydroponics** (you control every nutrient). Capturing it also **closes the greenhouse's own humidity loop** — transpire → condense → recapture → re-irrigate.
+**The condensation sleeper:** the greenhouse makes its own humidity that condenses on cool inner surfaces; twin/triple-wall polycarbonate has internal channels you can drain to an eave gutter. Mineral-free → *ideal* for evap pads, battery, and hydro. Capturing it **closes the greenhouse's own humidity loop** (transpire → condense → recapture).
+
+**The wash-sink loop:** rinsing soil off harvested veg makes *light* greywater (just water + dirt). **Settle → screen-filter → grey tank → root irrigation**; the settled soil + the **potting-table soil-catch** both go **back to the beds**. Water *and* soil returned. (Keep reuse off raw-edible parts; plant-safe soap only.)
 
 ```
-rain → roof + PV → first-flush/screen → CISTERN ┐
-transpiration → interior condensate → "pure" tank ┤→ elevated HEADER tank →(gravity)→ drip + wicking beds → plants
-                                                  │        (REQ-PASV-4)                              ↑ transpiration loops back
-                            battery + evap pads ←─┘                       overflow → swale / compost beds / ground recharge
+rain → roof + PV → first-flush/screen → CISTERN ──(pump)──┐
+condensate ───────────────────────────────▶ PURE tank    │
+campus tether ──air-gap──▶ WHITE tank ◀───────────────────┘  ─(gravity)─▶ sinks · clean irrigation
+wash sinks → settle → filter → GREY tank ──(gravity)──▶ root/non-edible drip
+soil-catch + settled sediment ─────────────────────────▶ back to beds
+overflow ───────────────────────────────────────────────▶ swale / compost / recharge
 ```
 
-Get right: **covered storage** (mosquitoes + the open-water child-safety rule, [REQ-WATER-2](10-requirements.md#e-irrigation--water)); **gravity head** via the elevated header tank ([REQ-PASV-4](10-requirements.md#m-passive-architecture)); and **overflow that feeds soil/compost**, not waste — that's the loop closing.
+Get right: **covered tanks** ([REQ-WATER-2](10-requirements.md#e-irrigation--water)); **gravity head** from elevated tanks ([REQ-PASV-4](10-requirements.md#m-passive-architecture)) on an **engineered tower** (heavy + wind sail — 🔴 Red, foundation pre-pour); **air-gap** tether fill = textbook backflow control ([REQ-WATER-4](10-requirements.md#e-irrigation--water)); white/grey **strictly separate + labeled**; **overflow feeds soil/compost**, not waste.
 
 ## Cycle 2 — Nutrient: four composting methods, each with a role
 
@@ -40,7 +45,7 @@ Active composting lives in an **outdoor service zone** — pests, pathogens, and
 
 ### The cafeteria loop (designed in)
 
-Scraps → **bokashi** (ferments tricky waste safely, no open pile) → **hot compost or buried in hügel/beds** → soil → food → cafeteria. Closes the **food→soil→food** civic loop the missions already want.
+Cafeteria scraps → **bokashi** (ferments tricky waste safely, no open pile) → **hot compost or buried in hügel/beds** → soil → food → **take-home** ("backpack Thursday"). Scraps come *in* for compost; produce goes *home* with students, **not back to the cafeteria** (see [growing program](../operate/30-growing-program.md) — avoids the district food-service hurdle).
 ⚠️ Cafeteria scraps likely need **health-dept / district sign-off** ([regulatory governance](../build/10-regulatory-governance.md)) and **sealed, rodent-proof handling**. Bokashi's sealed buckets are part of *why* this is manageable.
 
 ## How the cycles integrate — the loop closures

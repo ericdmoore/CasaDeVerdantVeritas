@@ -43,14 +43,24 @@ Grouped by trade. Walk it on site with the plan in hand before the pour crew arr
 ### 4. Plumbing stub-ups (REQ-SLAB-4)
 - [ ] Irrigation supply stub-up located per plan. **(MUST)**
 - [ ] Rainwater line route to/from tank stubbed (REQ-WATER-3/5). **(MUST)**
+- [ ] **White / grey / pure tank lines + sink-station supply & drains** roughed in (water architecture, [REQ-CYCLE](../design/10-requirements.md#o-resource-cycles)). **(MUST)**
+- [ ] **Soil-catch potting-table drain** stubbed (returns soil to beds). 
+- [ ] **Aquaponics rough-in** — capped plumbing stub + space allowance for a future fish tank ([growing program](../operate/30-growing-program.md) phasing).
 - [ ] Any reservoir/hydroponic drain lines roughed in.
-- [ ] Backflow prevention provision if a potable connection exists (REQ-WATER-4).
+- [ ] Backflow prevention / **air-gap provision** for the campus tether fill (REQ-WATER-4).
 - [ ] All penetrations sleeved/protected before pour.
+
+### 4b. Built-in educational features (construction-locked, [REQ-EDU-5](../design/10-requirements.md#i-education--layout))
+- [ ] **Root-window** bed structure + viewing-pane recess + drainage located per plan.
+- [ ] **Worm-window** bin recess located.
+- [ ] **Data station** power/data drops; **seedling & repotting stations** power + water + drains.
+- [ ] **Tall-crop trellis** anchor points set with the structure anchors.
 
 ### 5. Structural anchors & embeds (REQ-SLAB-5, REQ-STR-1/4)
 - [ ] Anchor bolts / embed plates set per the **wind-uplift design**, located to the structure's base plan. **(MUST)**
 - [ ] Anchor layout matches the (custom) frame — verified against shop drawings. **(MUST)**
 - [ ] Anchor/embed design is **sealed by the licensed architect/engineer** before pour — required for a public school building per [regulatory governance](10-regulatory-governance.md). **(MUST)**
+- [ ] **Elevated water-tank tower foundation/anchors** set per the engineered stand (dead + wind load — a full tank is ~1,700 lb and a wind sail). **(MUST)**
 
 ### 6. Accessibility & finish (REQ-SLAB-7, REQ-ACC-1)
 - [ ] Finished floor flush/level at the accessible entry; no lip or step. **(MUST)**

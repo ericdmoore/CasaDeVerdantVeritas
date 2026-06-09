@@ -62,6 +62,8 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
         ├── 00-operating-principles.md
         ├── 10-roles-and-tiers.md
         ├── 20-troubleshooting-runbook.md
+        ├── 30-growing-program.md
+        ├── 40-growing-calendar.md
         └── sops/            ← laminated, point-of-use procedures
             ├── SOP-01-daily-check.md
             ├── SOP-02-weekly-check.md

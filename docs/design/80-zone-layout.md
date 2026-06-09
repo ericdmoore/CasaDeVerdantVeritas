@@ -76,8 +76,24 @@ Working assumption: **~20 × 40 ft, E–W long axis**, broad south face ([site r
 | Thermal mass | North wall | Water drums ([REQ-PASV-6](10-requirements.md#m-passive-architecture)) |
 | Solar chimney + ridge vent | Ridge / S-center | Passive exhaust ([REQ-PASV-2](10-requirements.md#m-passive-architecture)) |
 
+### Built-in educational features — *construction-locked*
+
+From the science/garden teacher ([growing program](../operate/30-growing-program.md)). Each is designed *into* a bed/structure now — **one-way door** ([REQ-EDU-5](10-requirements.md#i-education--layout)):
+
+| Feature | What / where | Build note |
+|---------|--------------|-----------|
+| **Root window** | Below-grade viewing glazing into a raised bed — taproot vs. fibrous, potatoes | Built into the bed wall; drainage + viewing pane |
+| **Worm window** | Cutaway view into a vermicompost bin | Viewing pane; sited near work zone |
+| **Hydroponic demo** | Small-scale, **visible reservoir** (IZ6) | Clear reservoir; own loop |
+| **Data station** | Sensors + dashboard made visible (data corner) | Power/data drops ([REQ-SLAB-3](#a2-foundation--slab--the-one-way-door)) |
+| **Tall-crop trellis** | Walk-under climbing-crop arch over the spine | Anchored to structure/slab |
+| **Seedling station** | Germination bench + grow lights (IZ5) | Power + water + drainage |
+| **Repotting station** | Work bench, child + ADA height | Water + drainage nearby |
+| **Soil-catch potting table** | Table with an integrated **hole + catchment** to scrape soil into → returned to beds | Drain to soil-catch; closes the soil loop |
+| **Aquaponics rough-in** | *Future* — stub plumbing + space/structural allowance near a future fish-tank spot | Roughed-in now, built later (like spare conduit) |
+
 ## What this unblocks
-- **Slab** ([REQ-SLAB-1](../build/00-slab-prepour-checklist.md)) — drains, conduit, plumbing stub-ups, anchors all place off this plan.
+- **Slab** ([REQ-SLAB-1](../build/00-slab-prepour-checklist.md)) — drains, conduit, plumbing stub-ups, anchors **and the built-in features above** all place off this plan.
 - **Irrigation BOM** — ~8 zones → valve/line counts.
 - **Controls BOM** — sensors/actuators per zone → device counts → **Tier 1/2/3 load list** → unblocks the **power BOM** sizing.
 

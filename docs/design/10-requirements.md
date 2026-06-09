@@ -141,6 +141,7 @@ Each requirement has:
 | REQ-EDU-2 | SHOULD | Work surfaces and controls reachable by a 2nd grader (~30 in counter height option). | Education, Safety |
 | REQ-EDU-3 | SHOULD | Unobstructed sightlines so one adult can supervise the whole interior. | Safety, Education |
 | REQ-EDU-4 | MAY | Key systems left visible and labeled (exposed water lines, clear reservoir, airflow indicators) as teaching aids. | Education |
+| REQ-EDU-5 | SHOULD | **Built-in educational features** designed into beds/structure (root window, worm window, visible hydro reservoir, data station, tall-crop trellis, seedling + repotting stations, soil-catch potting table, aquaponics rough-in) — **construction-locked**; see [zone layout](#p-zone-layout). | Education |
 
 ## J. Data & monitoring — *the optional layer*
 
@@ -212,13 +213,15 @@ Each requirement has:
 |----|-----|-------------|-------|
 | REQ-CYCLE-1 | SHOULD | **Multi-surface rainwater harvest** (greenhouse roof + PV array) with first-flush diverter + screening → cistern. | Off-grid, Education |
 | REQ-CYCLE-2 | SHOULD | **Interior condensation capture** (twin-wall channels / eave gutters) to a separate **pure-water** store for evap pads, battery top-up, and sensitive hydroponics. | Resilience, Off-grid |
-| REQ-CYCLE-3 | SHOULD | **Tiered, covered storage** ([REQ-WATER-2](#e-irrigation--water)) + an **elevated header tank** for gravity feed ([REQ-PASV-4](#m-passive-architecture)). | Resilience, Safety |
+| REQ-CYCLE-3 | SHOULD | **Four water tiers** — pure (condensate) / white (rain + tether) / grey (wash reuse) / bulk (cistern); three **elevated for gravity** ([REQ-PASV-4](#m-passive-architecture)) on an **engineered tower**; **covered** ([REQ-WATER-2](#e-irrigation--water)); tether fills white via **air-gap** ([REQ-WATER-4](#e-irrigation--water)). | Resilience, Safety |
 | REQ-CYCLE-4 | SHOULD | **Overflow routed to soil / swale / compost beds**, never to waste. | Off-grid, Education |
 | REQ-CYCLE-5 | SHOULD | **Composting program** — vermicompost, bokashi, hot compost, hügelkultur — sited in an **outdoor service zone** (pests/pathogens out of the growing house); finished product returns inside. | Education, Production |
 | REQ-CYCLE-6 | SHOULD | **Cafeteria-scrap loop** via **bokashi pre-treatment**; requires health-dept/district sign-off ([REQ-REG](../build/10-regulatory-governance.md)) and sealed, rodent-proof handling. | Education, Production |
 | REQ-CYCLE-7 | SHOULD | **Fertigation path** — compost / worm tea into the irrigation system. | Production, Education |
 | REQ-CYCLE-8 | MAY | **Hügelkultur beds** merging water storage + in-place composting (build-time). | Resilience, Production |
 | REQ-CYCLE-9 | SHOULD | **LiFePO₄ end-of-life recycling plan** named (the hardware half of "produce no waste"). | Resilience |
+| REQ-CYCLE-10 | SHOULD | **Wash-sink greywater reuse:** rinse runoff → settle → filter → grey tank → root/non-edible drip; **soil-catch table + settled sediment returned to beds**; reclaimed lines labeled, no cross-connection, kept off raw-edible parts. | Off-grid, Education |
+| REQ-CYCLE-11 | SHOULD | **Staged sediment filtration** on the cistern→white-tank path: coarse (~500 µm) **before** the pump (protects it); finer (~100 µm then ~50 µm) **after** the pump before the tank/basin. Prefer flushable spin-down filters. | Resilience |
 
 ## P. Zone layout
 
