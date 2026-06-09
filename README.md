@@ -67,10 +67,13 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
         ├── 30-growing-program.md
         ├── 40-growing-calendar.md
         └── sops/            ← laminated, point-of-use procedures
+            ├── README.md
             ├── SOP-01-daily-check.md
             ├── SOP-02-weekly-check.md
             ├── SOP-03-summer-survival.md
-            └── SOP-04-something-isnt-working.md
+            ├── SOP-04-something-isnt-working.md
+            ├── SOP-05-compost-care.md
+            └── SOP-06-water-system-check.md
 ```
 
 Each phase gets its own folder. Documents are numbered (`00-`, `10-`, `20-`…) so the intended reading order is obvious and new docs can be inserted without renumbering everything.
