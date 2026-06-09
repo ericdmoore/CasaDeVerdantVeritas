@@ -58,6 +58,8 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | **Structural / work lighting** | **Dimmable DC LED strip** (12/24 V) + PWM dimmer, HA-controllable | TBD | REQ-LIGHT-2, REQ-EDU-4 | TBD | TBD | TBD | TBD | proposed | **T3**; ambient/work/event/showcase light (*not* a grow light); ~5–15 W per run-meter, dimmed |
 | High-temp alarm | Audible/visible, on safety controller | 1 | REQ-SAFE-5 | TBD | TBD | TBD | TBD | proposed | Fires before danger |
 | Load-shed relays | SOC-tiered switching (T2/T3) | TBD | REQ-PWR-3, REQ-PWR-4 | TBD | TBD | TBD | TBD | proposed | |
+| **Per-circuit indicator LEDs** | **Passive LED + resistor** after each fuse/breaker (+ **blown-fuse LED**); optional **controller-driven status LED** (green on / amber shed / red fault) off ESP32 GPIO | TBD | REQ-NET-7, REQ-EDU-4 | TBD | TBD | TBD | TBD | proposed | "Is it live?" at a glance — Amber diagnostic + teaching display; mW. **Not Shelly** (WiFi sprawl/power, parallel ecosystem, DC-range, network-dependent). Tier-1 indication stays **passive** |
+| Per-circuit DC sense *(optional)* | **INA219/INA226** (DC V + I) on the ESPHome node | TBD | REQ-NET-7, REQ-ELEC-4 | TBD | TBD | TBD | TBD | proposed | Per-circuit power/on-off into HA — **DC-native, local**; covers the Shelly "monitoring" use-case without WiFi-per-device |
 
 ## D. Network & comms (the locked transports)
 
