@@ -24,7 +24,8 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
 | Safety controller | Low-power MCU/PLC running critical loop on-device (e.g. ESPHome on ESP32, or industrial micro-PLC) | 1 | REQ-NET-1, REQ-ELEC-2 | TBD | TBD | TBD | TBD | proposed | Independent of HA; **fail-open** defaults |
-| HA host | Mini PC / SBC, **SSD boot** (not SD card) | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Tier 3; sheddable |
+| HA / NVR host | **Mini PC (N100-class)** + SSD — **justified by the ~20-camera NVR** compute (a Pi 5 can't) | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | ~8–30 W under NVR load; T3. *The camera count is what stepped this up off the Pi* |
+| UPS (host) | Small UPS / battery-backed DC for the mini PC | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | **Graceful shutdown** on a rail dropout (avoid corruption). The 48 V battery is system-wide ride-through; this protects the host |
 | Real-time clock | Battery-backed RTC module | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Off-grid timekeeping w/o NTP |
 | Watchdog | HW watchdog / scheduled power-cycle relay | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Auto-recover a hung host/modem |
 | DC-DC converters (**point-of-load**) | **48 V distributed to each zone**, stepped down **locally**: 48→24 V at actuation clusters; 48→5 V at sensor nodes; cascade 24→12→5 V only *within* a co-located cluster (cheap common parts) | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Thin wire + no voltage drop; size the 24 V buck to **peak concurrent load**; **Pi (T3) rides the core cascade** |
@@ -62,14 +63,14 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
-| PoE++ switch (**DC-input**) | Managed, VLAN-capable; **48 V DC input** (wide ~48–57 V, *or* a DC-DC holding ~53–54 V) — fed from the **battery rail, no inverter** | 1 | REQ-NET-3, REQ-NET-8, REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | PoE powers cams + nodes; DC-feed skips the AC round-trip + survives inverter-off. ++ = headroom (cams need only PoE+) |
+| PoE++ switches (**DC-input**) | **2× 8-port** managed, VLAN-capable; **48 V DC input** (wide ~48–57 V, *or* a DC-DC holding ~53–54 V) — fed from the **battery rail, no inverter** | 2 | REQ-NET-3, REQ-NET-8, REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | ~20 cams + nodes + APs exceed one switch; **48 V feed must source the full PoE budget**; DC-feed skips AC round-trip + survives inverter-off |
 | Zigbee coordinator | USB stick, **Thread-capable** 802.15.4 | 1 | REQ-NET-8 | TBD | TBD | TBD | TBD | proposed | On a USB extension (2.4 GHz noise) |
-| LoRa gateway | For far/canopy nodes | 1 | REQ-NET-8 | TBD | TBD | TBD | TBD | proposed | Day-1 vs later — open Q |
+| LoRa / **Meshtastic node** | **High on the weather station** (ESP32 + LoRa, solar-standalone) | 1 | REQ-NET-8, REQ-NET-2 | TBD | TBD | TBD | TBD | proposed | Far/canopy telemetry **+ resilient off-grid mesh alert path** (independent of cellular); sub-watt; height = range |
 | WiFi access point | Guest + powered-node SSIDs, client isolation | 1 | REQ-NET-3, REQ-NET-9 | TBD | TBD | TBD | TBD | proposed | |
 | Cellular uplink | LTE router + IoT SIM | 1 | REQ-NET-5 | TBD | TBD | TBD | TBD | proposed | Primary uplink |
 | Critical-alert channel | Independent cellular/SMS from safety controller | 1 | REQ-NET-2 | TBD | TBD | TBD | TBD | proposed | Survives HA/AP loss |
-| **PoE camera — external (security)** | Fixed PoE IP cam, local RTSP/ONVIF | TBD | REQ-NET-3, REQ-NET-10 | TBD | TBD | TBD | TBD | proposed | ~5–15 W ea (PoE+ per cam; powered by the DC-fed switch); **camera VLAN**, local-first, **no internet-expose**; signage + retention policy; T2-ish |
-| **PoE camera — internal (plant growth)** | Fixed PoE cam, timelapse | TBD | REQ-DATA-4, REQ-NET-10 | TBD | TBD | TBD | TBD | proposed | Points at **plants, not students**; realizes the classroom timelapse (REQ-DATA-4); **T3** |
+| **PoE cameras — external (security)** | Fixed PoE IP cam, local RTSP/ONVIF | **8** | REQ-NET-3, REQ-NET-10 | TBD | TBD | TBD | TBD | proposed | ~5–15 W ea; **motion-triggered recording** to cut load; camera VLAN, local-first, **no internet-expose**; signage + retention; T2 |
+| **PoE cameras — internal (growth)** | Fixed PoE cam, timelapse | **~12 (2/bed × 6)** | REQ-DATA-4, REQ-NET-10 | TBD | TBD | TBD | TBD | proposed | **Duty-cycle / snapshot — timelapse ≠ 24/7 streaming** (order-of-magnitude power saver); plants not students; **T3** |
 | Comms SPD | Surge protection on data/antenna lines | TBD | REQ-CTRL-7 | TBD | TBD | TBD | TBD | proposed | TX storms |
 
 ## E. Connectors & wiring
