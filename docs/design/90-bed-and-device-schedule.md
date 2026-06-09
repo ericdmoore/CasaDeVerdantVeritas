@@ -2,7 +2,7 @@
 
 *The keystone quantity artifact. The [zone layout](80-zone-layout.md) says **where**; this says **how many** — beds, sensors, actuators, and their power tier. Populating it cascades into every BOM: the **Tier 1/2/3 load list** ([off-grid power](../build/bom/off-grid-power.md) sizing), **valve counts** ([irrigation](../build/bom/irrigation.md)), **device counts** ([controls](../build/bom/controls.md)), and **tool-set counts** ([structure](../build/bom/structure.md)).*
 
-> **Status:** 🟡 **Proposed v1** for an ~800 sq ft (20×40) house. Numbers are *defensible starting points*, **not confirmed** — the science/garden teacher sets the beds, the 🔴 Red designer sets device specs/wattages. Replace `~` values as they firm up; the rollups recompute from there.
+> **Status:** 🟡 Firming up. **Beds = decided** (6 grade SIP beds, §1). **Device wattages = grounded in real products** (§2–3, sourced) — no longer estimates. Still open: final device *selection* + *counts* and the days-of-autonomy target (→ battery size), confirmed with the 🔴 Red designer.
 
 ---
 
@@ -22,38 +22,41 @@
 
 → **6 grade SIP beds + seedling + hydro (recirc) + outdoor.** SIP beds fill from the buffer (chained/valved, not 6 separate drip zones) → simplifies the [irrigation](../build/bom/irrigation.md) valve count.
 
-## 2. Device schedule
+## 2. Device schedule — grounded in real products
 
-| Device | Zone(s) | Qty | Tier | ~W (run) | Drives |
-|--------|---------|-----|------|----------|--------|
-| **Overtemp safety sensor** | ridge/core | 1–2 | **T1** | ~0.5 | controls (safety loop) |
-| Air temp/humidity | 2–3 zones | ~3 | T1/data | ~1 | controls, data |
-| Soil-moisture | per bed group | ~6 | T1/T3 | ~0.5 | irrigation logic |
-| Light / PAR | interior | 1–2 | T3 | ~0.5 | data |
-| Tank levels | cistern/white/grey/pure + basin | ~5 | T1 | ~0.5 | low-water alerts |
-| Hydro EC / pH | IZ6 | ~2 | T3 | ~1 | research |
-| **Exhaust / circ fans (DC)** | ridge/walls | ~2–3 | **T2 (solar-direct)** | ~100–400 ea | power (peak), cooling |
-| Vent actuators | ridge/sides | ~2–4 | T2 | ~10 (pulse) | + passive wax-piston backup |
-| Evap pump | pad wall | 1 | T2 | ~50–150 | cooling assist |
-| **Latching irrigation valves** | per zone | ~8 | T1 (pulse) | ~0 hold | irrigation |
-| Grow light | IZ5 | 1–2 | T3 | ~50–200 | seedlings |
-| DC ultrasonic fogger | IZ5 | 1 | T3 | ~20–50 | propagation/showcase |
-| Safety controller | core | 1 | **T1** | ~2 | the brain |
-| HA host (SSD) | core | 1 | T3 | ~5–15 | orchestration |
-| Network (PoE sw, Zigbee, LoRa, WiFi AP, cellular) | core | set | T1 alert / T3 rest | ~15–25 | network |
-| Load-shed relay, watchdog, RTC | core | set | T1 | ~1 | resilience |
+*Power figures are real product specs / measured draws, not estimates (sources ↓). "Or equal" — these anchor the wattage, not the brand.*
 
-## 3. Load-tier rollup → power sizing
+| Device | Real product (or equal) | Tier | Power (real) |
+|--------|--------------------------|------|--------------|
+| Safety controller + sensor nodes | **ESP32 / ESPHome**, always-on | **T1** | **~0.5–1 W each** (active WiFi ~80–160 mA @5 V; deep-sleep µA but ours stay on) |
+| Sensors: temp/RH, soil-moisture, tank level, overtemp | I²C/analog on the ESP nodes | T1/T3 | ~mW (powered by the node) |
+| Hydro EC/pH, light/PAR | sensor modules | T3 | ~mW–1 W |
+| Zigbee coordinator | **HA Connect ZBT-1** (USB) | T1 | **<1 W** |
+| Cellular uplink **+ WiFi AP (combo)** | **USR-G806w**-class LTE + WiFi 6 | T1 alert / T3 rest | **~1.8 W standby, ~3.1 W full** |
+| (alt ultra-low uplink) | Milesight UR41 / LINOVISION IOT-R41 | T1 | **<1 W idle** (~2.7 W typ.) |
+| PoE switch (small 8-port) | managed | T3 | **~5–10 W idle** |
+| HA host | **Raspberry Pi 5** + SSD (*not* an N100) | T3 | **~3–4 W idle** (N100 ~8–9 W) |
+| RTC / watchdog / load-shed relays | modules | T1 | ~1 W |
+| **Exhaust fans (DC, solar-direct)** | **Backwoods 16" 12/24 V** (1627 CFM); 80 W→3000 CFM class | **T2** | **~36–80 W each** (~×2 for ~6k CFM) |
+| Evap-cooling pump | submersible cooler pump | T2 | **~33 W** (tiny DC fountain ~4–5 W) |
+| Vent linear actuators | 12/24 V, brief runs | T2 | ~20–50 W for seconds → ~0 daily; **wax-piston = 0 W** |
+| Latching solenoid valves | per zone | T1 | **~0 W holding**; ms pulse → negligible/day |
+| Grow light (seedling) | **SHOPLED 4 ft, 40 W** (true draw) | T3 | **~40 W** (run 12–16 h for starts) |
+| **Small ultrasonic fogger** | **single-disc 24 V** (e.g. RM-1236, 24 V/0.65 A) | T3 | **~12–15 W** — *not* a 12-head 300–400 W pond unit |
 
-*Fill the watts above, then sum. Proposed v1 ballparks:*
+> **Consolidation wins:** a **combo LTE + WiFi router** is *both* the uplink and the AP in one ~2–3 W box; the **Pi-5 host beats an N100 by ~5 W continuous (~120 Wh/day)** — real money off-grid.
 
-| Tier | What | ~Continuous | ~Wh/day | Notes |
-|------|------|-------------|---------|-------|
-| **Tier 1** (survives) | Safety controller + sensing + alert + Zigbee + night-irrigation pulses | **~6–10 W** | **~150–240** | This × autonomy days ÷ DoD = the **battery floor** |
-| **Tier 2** (solar-correlated) | Fans + evap pump + vent actuators | ~150–600 W *when running* | *(sun-direct — minimal battery)* | Sized to PV, runs on sun |
-| **Tier 3** (sheds first) | HA + AP + LoRa + grow light + fogger + data | ~30–60 W | ~400–900 | Drops on low SOC |
+## 3. Load-tier rollup → power sizing (grounded)
 
-→ This is the **load list the [power BOM](../build/bom/off-grid-power.md#sizing-basis--do-this-before-buying-anything) waits on.** Tier 1 sets the battery; PV sized to recharge + carry daytime Tier 2/3.
+| Tier | Real items | Continuous | Wh/day |
+|------|-----------|------------|--------|
+| **Tier 1** (survives) | ESP32 safety + nodes (~2–3 W) + ZBT-1 (~1 W) + cellular alert (~1–2 W) + valve pulses | **~5–8 W** | **~120–190** |
+| **Tier 2** (solar-correlated) | 2× DC fans (~72–160 W) + evap pump (~33 W) — **solar-direct, minimal battery** | ~100–200 W when running | sized to PV |
+| **Tier 3** (sheds first) | Pi 5 (~3–4 W) + PoE sw + combo router (~8–13 W) + fogger (~12–15 W) + grow light (~40 W when on) | ~15–25 W base | ~300–700 |
+
+→ **Battery floor = Tier 1:** e.g. **~150 Wh/day × 3 days ÷ 0.85 DoD ≈ ~530 Wh usable** — a *small* LiFePO₄ carries the safety loop through 3 cloudy days. The PV + cow/house bulk carry Tier 2/3. This is the real load list the [power BOM](../build/bom/off-grid-power.md#sizing-basis--do-this-before-buying-anything) sizes against.
+
+**Sources:** [ESP32 power](https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/) · [Pi 5 vs N100 idle](https://the-diy-life.com/raspberry-pi-5-vs-intel-n100-pc-which-is-right-for-you/) · [USR-G806w / IoT router power](https://www.pusr.com/blog/In-Depth-Analysis-of-Power-Consumption-for-IoT-Routers) · [Backwoods 12/24 V DC fan](http://blog.backwoodssolar.com/2014/07/16-in-large-dc-fan-12v-24v/) · [evap/fountain pump W](https://www.amazon.com/Mavel-Star-Submersible-Fountain-Upgraded/dp/B0713T9PRP) · [SHOPLED 40 W grow light](https://www.amazon.com/SHOPLED-Fixture-Spectrum-Equivalent-Reflector/dp/B088CXZ5YG) · [single-disc fogger 24 V/15 W](https://www.alibaba.com/product-detail/2021-humidifier-24v-single-disc-ultrasonic_1600262586894.html) · [PoE switch idle](https://blog.it-planet.com/en/network-switch-reduce-power-consumption-and-save-costs/)
 
 ## 4. Derived counts (what this unblocks)
 
