@@ -49,15 +49,34 @@
 
 > **Consolidation wins:** a **combo LTE + WiFi router** is *both* the uplink and the AP in one ~2–3 W box. A Pi-5 would beat an N100 by ~5 W, **but ~20 cameras + NVR force a mini PC anyway** — so the **cameras, not the host, are where the watts are.** Power-manage them (duty-cycle growth, motion-trigger security) and they're tractable; run 20 live streams 24/7 and they'd **swamp the budget (~2–4 kWh/day).**
 
-## 3. Load-tier rollup → power sizing (grounded)
+## 3. Load envelope → power sizing (grounded W, bounded duty)
 
-| Tier | Real items | Continuous | Wh/day |
-|------|-----------|------------|--------|
-| **Tier 1** (survives) | ESP32 safety + nodes (~2–3 W) + ZBT-1 (~1 W) + cellular alert (~1–2 W) + valve pulses | **~5–8 W** | **~120–190** |
-| **Tier 2** (solar-correlated) | 2× DC fans (~72–160 W) + evap pump (~33 W) + transfer/lift pump (~120 W) + **8 security cams (motion-triggered, ~40–120 W)** — **solar-direct, minimal battery** | ~150–400 W when running | sized to PV |
-| **Tier 3** (sheds first) | **Mini-PC NVR (~8–30 W)** + 2× PoE sw (~10–20 W) + combo router + **~12 growth cams (duty-cycled)** + fogger (~12–15 W) + grow light (~40 W on) + structural LED + anti-condensation heater | ~30–60 W base | ~600–1200 |
+**Three numbers for three jobs** — and duty cycle only matters for the daily-energy one. *(Bands are engineering estimates from the grounded watts; refine in commissioning.)*
 
-→ **Battery floor = Tier 1:** e.g. **~150 Wh/day × 3 days ÷ 0.85 DoD ≈ ~530 Wh usable** — a *small* LiFePO₄ carries the safety loop through 3 cloudy days. The PV + cow/house bulk carry Tier 2/3. This is the real load list the [power BOM](../build/bom/off-grid-power.md#sizing-basis--do-this-before-buying-anything) sizes against.
+### (a) Daily energy band → sizes the **PV array**
+Grouped by duty character. **Lower** = mild day + cameras power-managed; **Upper** = summer + cameras streaming:
+
+| Load group | W (grounded) | Duty character | Lower Wh/d | Upper Wh/d |
+|---|---|---|---|---|
+| Tier-1 continuous (safety, sensors, Zigbee, alert) | ~5–8 | 100% | ~120 | ~190 |
+| Network always-on (mini-PC NVR + 2 switches + router) | ~25–55 | 100% | ~600 | ~1300 |
+| **Security cams ×8** | ~40–120 | motion ↔ continuous | ~480 | ~1900 |
+| **Growth cams ×12** | ~15–180 | snapshot ↔ stream | ~200 | ~2900 |
+| Cooling (2 fans + evap + transfer pump) — *solar-direct* | ~100–300 | weather | ~300 | ~2500 |
+| Grow light (seedling season) | ~40 | 12–16 h seasonal | ~0 | ~640 |
+| Fogger / structural LED / anti-condensation heater | ~15–60 | cycled/seasonal | ~50 | ~700 |
+| **Daily total** | | | **~1.8 kWh** | **~10 kWh** |
+
+### (b) Tier-1 floor → sizes the **battery's hard floor**
+**~120–190 Wh/day, firm (100%).** Everything else can shed to this.
+
+### (c) Peak W (everything-on) → sizes **converters / wire / the 24 V buck**
+≈ **~700–800 W** simultaneous. The **24 V actuation peak** (fans + pump + actuators) ≈ ~300 W → size that buck ~400 W.
+
+### ⭐ The swing: cameras
+The camera **policy** moves the daily band by **~4–5 kWh** (the two camera rows): power-managed (duty-cycle growth, motion-trigger security) ≈ **~0.7 kWh/day**; all-streaming ≈ **~5 kWh/day**. **Cameras are the single biggest lever on array + battery size** — decide the policy *before* sizing.
+
+→ Carried into the [power BOM sizing basis](../build/bom/off-grid-power.md#sizing-basis--do-this-before-buying-anything): PV-array band, battery hard-floor vs. keep-the-always-on-stack-overnight, and the camera sensitivity.
 
 **Sources:** [ESP32 power](https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/) · [Pi 5 vs N100 idle](https://the-diy-life.com/raspberry-pi-5-vs-intel-n100-pc-which-is-right-for-you/) · [USR-G806w / IoT router power](https://www.pusr.com/blog/In-Depth-Analysis-of-Power-Consumption-for-IoT-Routers) · [Backwoods 12/24 V DC fan](http://blog.backwoodssolar.com/2014/07/16-in-large-dc-fan-12v-24v/) · [evap/fountain pump W](https://www.amazon.com/Mavel-Star-Submersible-Fountain-Upgraded/dp/B0713T9PRP) · [SHOPLED 40 W grow light](https://www.amazon.com/SHOPLED-Fixture-Spectrum-Equivalent-Reflector/dp/B088CXZ5YG) · [single-disc fogger 24 V/15 W](https://www.alibaba.com/product-detail/2021-humidifier-24v-single-disc-ultrasonic_1600262586894.html) · [PoE switch idle](https://blog.it-planet.com/en/network-switch-reduce-power-consumption-and-save-costs/)
 

@@ -37,7 +37,11 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 - Dallas average **~5 peak sun-hours/day** (less in a cloudy stretch — that's what autonomy covers).
 - LiFePO₄ depth-of-discharge ~80–90%; system efficiency ~0.7–0.8.
 
-> **Result → TBD:** Array __ W · Battery __ kWh. These set the quantities below.
+> **Result (from the [load envelope](../../design/90-bed-and-device-schedule.md#3-load-envelope--power-sizing-grounded-w-bounded-duty)):**
+> - **PV array ≈ 0.5 kW (managed) ↔ 2.7 kW (all-streaming + summer).** Design point **~1.5–2 kW** (managed cameras + summer cooling). *Camera policy ≈ quadruples the array — decide it first.*
+> - **Battery:** **hard floor ~0.5 kWh** (Tier-1 only, 3-day) — but to keep the **always-on stack (NVR + switches + security cams) running overnight through cloudy stretches**, **~3–6 kWh**. *The battery-size decision = "is the camera/NVR stack must-run, or sheddable to the Tier-1 floor?"*
+> - **Peak ~700–800 W** simultaneous → DC distribution + the 24 V buck (~400 W).
+> These set the quantities below; finalize with the Red designer once camera policy + autonomy days are fixed.
 
 ---
 
