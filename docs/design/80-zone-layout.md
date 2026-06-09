@@ -71,7 +71,7 @@ Working assumption: **~20 × 40 ft, E–W long axis**, broad south face ([site r
 | Data / research corner | Interior, near power | Sensors hub, dashboards ([REQ-DATA](10-requirements.md#j-data--monitoring--the-optional-layer)) |
 | Work / potting | North, mid | Child + one ADA height ([REQ-EDU-2](10-requirements.md#i-education--layout)) |
 | Controls enclosure | Cool/shaded corner, high | [REQ-CTRL-5](10-requirements.md#k-electronics--controls-architecture); out of reach |
-| Water infra | Service end | Elevated header tank, pure tank; cistern just outside |
+| Water infra | Service end | **HIGH** white+pure tanks (tower); **MEDIUM** grey reuse buffer (catches returns, feeds beds — *managed spill*); **LOW** cistern outside. Narrow head band: catch ~36" → beds ~24" |
 | Power / cow dock | Near entry | Cow rolls out for events; fixed reserve stays ([REQ-PWR-8](10-requirements.md#f2-off-grid-energy--solar--battery-no-utility)) |
 | Thermal mass | North wall | Water drums ([REQ-PASV-6](10-requirements.md#m-passive-architecture)) |
 | Solar chimney + ridge vent | Ridge / S-center | Passive exhaust ([REQ-PASV-2](10-requirements.md#m-passive-architecture)) |

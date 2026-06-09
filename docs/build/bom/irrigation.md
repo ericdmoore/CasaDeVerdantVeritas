@@ -30,13 +30,15 @@ The water is **quality-tiered** ([resource cycles](../../design/70-resource-cycl
 | Item | Spec / Model (or "or equal") | Qty | REQ trace | Source | Unit $ | Ext $ | Lead | Status | Notes |
 |------|------------------------------|-----|-----------|--------|--------|-------|------|--------|-------|
 | Bulk cistern | Sized per autonomy calc; low/ground | TBD | REQ-WATER-5 | TBD | TBD | TBD | TBD | proposed | Raw rainwater; **covered** (REQ-WATER-2) |
-| **Elevated WHITE tank** | Clean water, gravity head | 1 | REQ-PASV-4, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | Filtered rain + tether; feeds sinks/clean irrigation |
-| **Elevated GREY tank** | Wash-reuse, gravity head | 1 | REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | Settled+filtered wash water → root drip |
-| **Elevated PURE tank** | Condensate store | 1 | REQ-CYCLE-2 | TBD | TBD | TBD | TBD | proposed | Evap/battery/hydro feed |
-| **Tank tower / stand** | Engineered for dead + wind load | 1 | REQ-STR-1, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | ~1,700 lb full + wind sail; **foundation pre-pour** (🔴 Red) |
+| **WHITE tank (HIGH/tower)** | Clean water, gravity head | 1 | REQ-PASV-4, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | Filtered rain + tether; feeds sinks/clean irrigation |
+| **PURE tank (HIGH/tower)** | Condensate store | 1 | REQ-CYCLE-2 | TBD | TBD | TBD | TBD | proposed | Evap/battery/hydro/fogger feed |
+| **GREY buffer (MEDIUM)** | Reuse buffer; **catches returns by gravity, feeds beds by gravity** | 1 | REQ-CYCLE-3, REQ-CYCLE-13 | TBD | TBD | TBD | TBD | proposed | Settled+filtered; **size for turnover** (no stagnation) |
+| Grey outlet selector valves | Direct buffer → chosen bed zones / compost | TBD | REQ-CYCLE-13 | TBD | TBD | TBD | TBD | proposed | The "optionality" (manual or latching) |
+| **Tank tower / stand** | Engineered for dead + wind load (HIGH tanks) | 1 | REQ-STR-1, REQ-CYCLE-3 | TBD | TBD | TBD | TBD | proposed | ~1,700 lb full + wind sail; **foundation pre-pour** (🔴 Red) |
 | Tank covers / screens | All open surfaces | TBD | REQ-WATER-2 | TBD | TBD | TBD | TBD | proposed | Mosquito + child safety |
 | Tank level sensors | (driven by [controls](controls.md)) | — | REQ-CYCLE-3 | TBD | — | — | — | cross-ref | Low-water alerts |
-| Overflow routing | White→cistern; grey→beds/swale | TBD | REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | No wasted water |
+| **Managed-spill cascade** | Grey buffer overflow → **beds**; bed overflow → swale | TBD | REQ-CYCLE-13, REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | Passive priority: buffer→beds→swale; no waste/flood |
+| Overflow routing | White→cistern | TBD | REQ-CYCLE-4 | TBD | TBD | TBD | TBD | proposed | No wasted water |
 
 ## C. Pumps & pressure
 

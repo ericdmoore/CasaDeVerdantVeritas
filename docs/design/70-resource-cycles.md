@@ -8,29 +8,34 @@
 
 ## Cycle 1 — Water: harvest by quality, not just quantity
 
-Sources produce **different grades** of water; match grade to use, and store in **four tiers** (three elevated for gravity feed).
+Sources produce **different grades** of water; match grade to use, and store across **three elevations** so everything flows by gravity.
 
-| Grade | Source | Stored in | Gravity-feeds |
+| Grade | Source | Stored at | Gravity-feeds |
 |-------|--------|-----------|---------------|
-| **Pure** | Condensation (distilled-grade) | Small pure tank (elevated) | Evap pads (no scale) · battery top-up · sensitive hydro |
-| **White (clean)** | Filtered rainwater **+ campus tether (air-gap)** | **Elevated white tank** | Produce-wash sinks · hand-wash · clean irrigation |
-| **Grey (reuse)** | Wash-sink runoff (settled + filtered) | **Elevated grey tank** | Root / non-edible drip only |
-| **Bulk** | Raw rainwater (roof + PV gutter) | Cistern (low/ground) | Pumped up → white tank |
+| **Pure** | Condensation (distilled-grade) | **HIGH** (tower) | Evap pads (no scale) · battery top-up · sensitive hydro · fogger basin |
+| **White (clean)** | Filtered rainwater **+ campus tether (air-gap)** | **HIGH** (tower) | Produce-wash sinks · hand-wash · clean irrigation |
+| **Grey (reuse buffer)** | Wash-sink + fogger returns (settled + filtered) | **MEDIUM** | Root / non-edible drip — see *managed spill* ↓ |
+| **Bulk** | Raw rainwater (roof + PV gutter) | **LOW** (cistern) | Pumped up → white tank |
 
-**The condensation sleeper:** the greenhouse makes its own humidity that condenses on cool inner surfaces; twin/triple-wall polycarbonate has internal channels you can drain to an eave gutter. Mineral-free → *ideal* for evap pads, battery, and hydro. Capturing it **closes the greenhouse's own humidity loop** (transpire → condense → recapture).
+> **Why three elevations:** the fresh tanks (white/pure) sit **HIGH** for head to the sinks; the **returns** (sink drains, fogger overflow) originate at bench height and can only be reused *pump-free* if the grey buffer sits **MEDIUM** — low enough to gravity-collect them, high enough to gravity-feed the (lower) beds.
 
-**The wash-sink loop:** rinsing soil off harvested veg makes *light* greywater (just water + dirt). **Settle → screen-filter → grey tank → root irrigation**; the settled soil + the **potting-table soil-catch** both go **back to the beds**. Water *and* soil returned. (Keep reuse off raw-edible parts; plant-safe soap only.)
+**The condensation sleeper:** the greenhouse makes its own humidity that condenses on cool inner surfaces; twin/triple-wall polycarbonate has internal channels you can drain to an eave gutter. Mineral-free → *ideal* for evap pads, battery, hydro, and the fogger. Closes its own humidity loop (transpire → condense → recapture).
+
+### Two water-handling principles
+
+1. **Catch high, preserve head.** Capture returns (sink drains, fogger overflow) **at their source height** and gravity-cascade down — never drop water to the floor and then need to lift it. There's only a narrow vertical band between catch height (~36") and bed height (~24"), so every inch of head counts.
+2. **Managed spill.** The medium grey **buffer** gives *optionality* (outlet valves actively send water to chosen beds/compost), and a **passive priority cascade** handles the rest with zero controls: **buffer fills → managed spill to beds (when full) → swale/recharge (only when beds are saturated).** Nothing wasted, nothing floods, no pump.
 
 ```
-rain → roof + PV → first-flush/screen → CISTERN ──(pump)──┐
-condensate ───────────────────────────────▶ PURE tank    │
-campus tether ──air-gap──▶ WHITE tank ◀───────────────────┘  ─(gravity)─▶ sinks · clean irrigation
-wash sinks → settle → filter → GREY tank ──(gravity)──▶ root/non-edible drip
-soil-catch + settled sediment ─────────────────────────▶ back to beds
-overflow ───────────────────────────────────────────────▶ swale / compost / recharge
+returns (caught high) ─drop line─▶ GREY BUFFER (MEDIUM) ── valves: direct to beds/compost
+rain → roof+PV → CISTERN(LOW) ──pump──▶ WHITE(HIGH) ──gravity──▶ sinks · clean irrigation
+condensate ─▶ PURE(HIGH) ─▶ fogger · evap · battery · hydro          │ when full ▼
+campus tether ─air-gap─▶ WHITE(HIGH)                          MANAGED SPILL → beds
+soil-catch + sediment ─────────────────────────▶ back to beds        │ beds saturated ▼
+                                                              swale / compost / recharge
 ```
 
-Get right: **covered tanks** ([REQ-WATER-2](10-requirements.md#e-irrigation--water)); **gravity head** from elevated tanks ([REQ-PASV-4](10-requirements.md#m-passive-architecture)) on an **engineered tower** (heavy + wind sail — 🔴 Red, foundation pre-pour); **air-gap** tether fill = textbook backflow control ([REQ-WATER-4](10-requirements.md#e-irrigation--water)); white/grey **strictly separate + labeled**; **overflow feeds soil/compost**, not waste.
+Get right: **covered tanks** ([REQ-WATER-2](10-requirements.md#e-irrigation--water)); **engineered tower** for the HIGH tanks (heavy + wind sail — 🔴 Red, foundation pre-pour); **air-gap** tether fill = textbook backflow control ([REQ-WATER-4](10-requirements.md#e-irrigation--water)); white/grey **strictly separate + labeled**; **size the grey buffer for turnover** (modest — no stagnant greywater); managed spill **feeds soil**, not waste.
 
 ## Cycle 2 — Nutrient: four composting methods, each with a role
 
