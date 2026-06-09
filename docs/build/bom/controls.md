@@ -15,7 +15,7 @@ Per the design docs, **two compute roles** — never merged:
 
 Edge nodes reach the core over **band-diverse transports** ([locked stack](../../design/40-network-and-connectivity.md#5-transport-as-few-as-the-physics-needs--band-diverse-each-earning-its-keep)): wired PoE + Zigbee + LoRa + WiFi.
 
-> **DC-direct off the 48 V rail (no inverter).** PoE runs at ~48 V = our battery voltage, so the **PoE switch is DC-fed from the rail** (cams + powered nodes ride PoE off it); the Pi-5 host and router run via small **48→5 V / 48→12 V DC-DCs**. So the **entire greenhouse control/network/camera stack is DC** — the inverter is *only* for the cow's event AC ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)). Efficient (no AC round-trip) *and* survives inverter-off.
+> **DC-direct off the 48 V rail (no inverter).** PoE runs at ~48 V = our battery voltage, so the **PoE switch is DC-fed from the rail** (cams + powered nodes ride PoE off it). The rail then fans out by buck: a **48→24 V** rail carries the actuation (fans · pump · actuators · fogger — most gear is 24 V), and small **48→12 V / 48→5 V** rails feed the router / Pi / logic. Each buck spans the **full ~46–58 V** battery swing; **Tier 1 gets its own converter** (independent of the workhorse bucks). So the **entire control/network/camera/actuation stack is DC** — the inverter is *only* for the cow's event AC ([REQ-CTRL-6](../../design/10-requirements.md#k-electronics--controls-architecture)). Efficient (no AC round-trip) *and* survives inverter-off.
 
 ---
 
@@ -27,7 +27,7 @@ Edge nodes reach the core over **band-diverse transports** ([locked stack](../..
 | HA host | Mini PC / SBC, **SSD boot** (not SD card) | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Tier 3; sheddable |
 | Real-time clock | Battery-backed RTC module | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Off-grid timekeeping w/o NTP |
 | Watchdog | HW watchdog / scheduled power-cycle relay | 1 | REQ-NET-6 | TBD | TBD | TBD | TBD | proposed | Auto-recover a hung host/modem |
-| DC-DC converters | **48→12 V** and **48→5 V** buck (for router / Pi / 12 V devices) | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Feed the DC-direct stack off the 48 V rail (no inverter) |
+| DC-DC converters | **48→24 V** (main actuation rail: fans, pump, actuators, fogger), **48→12 V** (router/relays), **48→5 V** (Pi/ESP/sensors); each rated for the **full ~46–58 V** battery swing | TBD | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | DC-direct off the 48 V rail. Size the 24 V buck to **peak concurrent load**. **Tier-1 (ESP32 safety + alert) on its own small converter** so a workhorse-buck failure can't kill the safety loop |
 
 ## B. Sensing
 
