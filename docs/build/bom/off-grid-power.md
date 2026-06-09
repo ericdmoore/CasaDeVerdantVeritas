@@ -61,6 +61,11 @@ Array (W)            = (daily Wh to replace) ÷ (sun-hours × system efficiency)
 | Cow portable inverter | For event AC (travels with the cow) | 1 | REQ-CTRL-6 | TBD | TBD | TBD | TBD | proposed | Greenhouse stays DC-first; inverter is for events |
 | Battery mgmt (BMS) | Per bank (house + cow); cow BMS does the LVD | TBD | REQ-PWR-2, REQ-PWR-12 | TBD | TBD | TBD | TBD | proposed | |
 | Cow connectors | **Keyed, arc-safe** charge-in + load-out (Anderson SB class) | TBD | REQ-PWR-9, REQ-CTRL-1 | TBD | TBD | TBD | TBD | proposed | Separate one-way paths; terminal-protected in transit |
+| House→cow DC-DC charger | Victron **Orion-Tr 48/48** *or equal*, ~8 A; input-V lockout | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | **Tier-① baseline** — always-on, current-limited, gated house-healthy |
+| Routable PV string | One string sized to **cow MPPT max** (fits 6000XP MPPT-2 too) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | **Tier-② manual boost** |
+| PV-rated DC changeover | Rated to string Voc/Isc; **switch no-load** (not a marine selector) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | HOUSE→MPPT-2 / COW→cow MPPT |
+| Cow MPPT | Solar charge controller on the cow (sized to the routable string) | 1 | REQ-PWR-10 | TBD | TBD | TBD | TBD | proposed | Receives the string in COW position |
+| Cow PV connector | Keyed PV connector at the dock; live only in COW position | 1 | REQ-PWR-9 | TBD | TBD | TBD | TBD | proposed | Switch HOUSE before undock |
 | DC distribution + fusing | Bus, fuses/breakers per tier | TBD | REQ-PWR-2..4 | TBD | TBD | TBD | TBD | proposed | **Tier-separated** so shedding T3 can't brown out T1 |
 | DC disconnect(s) | PV + battery isolators | TBD | Safety | TBD | TBD | TBD | TBD | proposed | |
 | Surge protection (SPD) | DC + comms SPD | 1+ | REQ-CTRL-7 | TBD | TBD | TBD | TBD | proposed | TX storm surge |

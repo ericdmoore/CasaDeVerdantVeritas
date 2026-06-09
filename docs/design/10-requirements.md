@@ -112,7 +112,8 @@ Each requirement has:
 | REQ-PWR-12 | MUST | **Cow → dedicated sub-panel, discharge-only**, live **only when docked AND above the cow's LVD**; de-energizes automatically when the cow leaves or runs low. | Safety, Resilience |
 | REQ-PWR-13 | SHOULD | Campus tether can **power loads + recharge the house** via an AC→DC charger / inverter-charger (Layer-3, emergency/temporary). | Resilience |
 | REQ-PWR-14 | MUST | **No DC coupling/paralleling of the two banks** — charge-in and load-out are separate one-way paths, eliminating inrush/back-feed by design (no coupler, selector, or combiner). | Safety, Resilience |
-| REQ-PWR-15 | SHOULD | **Integrated, locally-controllable single-bank house EMS** (inverter/charger, MPPT, monitor, controller). *(Platform open — EG4 / Victron / Sol-Ark / DIY; single-bank = no multi-bank orchestration needed.)* | Resilience, Off-grid |
+| REQ-PWR-15 | SHOULD | **Integrated, locally-controllable single-bank house EMS** (inverter/charger, MPPT, monitor, controller). *(Working direction: EG4 6000XP-class all-in-one.)* | Resilience, Off-grid |
+| REQ-PWR-16 | MAY | **Manual solar boost for the cow:** a routable PV string (≤ cow MPPT max) on a **PV-rated DC changeover** (switch no-load) → house MPPT-2 *or* the cow's MPPT. Charges the cow in parallel with the Orion (no fight); combined current ≤ cow BMS limit. | Off-grid, Resilience |
 
 ## G. Safety & egress
 

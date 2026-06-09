@@ -76,21 +76,21 @@ Best if you want **built-in SOC smart-load shedding** and **tether-as-grid** sea
 Right-sized for a greenhouse (~6 kW / 8 kW PV). No fancy smart ports — **load-shedding via SOC-triggered relays** on the load panel instead.
 
 ```
-   ☀ PV ARRAY ──DC──▶ ┌─────────────────────────┐◀── CAN ──┐ closed-loop
-                       │  EG4 6000XP             │          │
-                       │  48V hybrid, dual MPPT  │   ┌───────┴──────────┐
+   ☀ PV ARRAY  ──DC──▶ ┌─────────────────────────┐◀── CAN ───┐ closed-loop
+                       │  EG4 6000XP             │           │
+                       │  48V hybrid, dual MPPT  │   ┌───────┴───────────┐
    campus tether ──AC─▶│  AC-in (grid/gen)       │   │ HOUSE BATTERY     │
-   (emergency)         └───────────┬─────────────┘   │ EG4 48V rack ×N   │
-                              AC-out│                 └───────┬──────────┘
-                                    ▼                48V DC bus│
-                    ┌───────────────────────────┐             │
-                    │ GREENHOUSE LOAD PANEL      │             │
+   (emergency)         └────────────┬────────────┘   │ EG4 48V rack ×N   │
+                              AC-out│                └─────────┬─────────┘
+                                    ▼               48V DC bus │
+                    ┌─────────────────────────────┐            │
+                    │ GREENHOUSE LOAD PANEL       │            │
                     │  ├─ Tier 1 critical (always)│            │
                     │  ├─ Tier 2/3 via SOC relay  │ ◀── SmartShunt/BatteryProtect
                     │  │   (contactor sheds)      │     drives the shed
-                    │  └─ ...                      │            │
-                    └───────────────────────────┘             │
-                                                              │
+                    │  └─ ...                     │            │
+                    └─────────────────────────────┘            │
+                                                               │
    house 48V DC bus ──▶ Victron Orion-Tr 48/48 DC-DC ──▶ COW ──▶ cow sub-panel
                         (one-way · current-limited)    (isolated, ≥ LVD)
 ```
@@ -115,7 +115,7 @@ Load-shed here = a **SOC relay** (Victron SmartShunt/BMV relay → contactor, or
 
 ## Open questions
 > **OPEN QUESTION:** Confirm + size **Option B (EG4 6000XP-class)** with the 🔴 Red designer once the load list exists.
-> **OPEN QUESTION:** Cow charging rate — the small Orion-Tr 48/48 (~8 A) may be slow; size up or give the cow its own PV+MPPT.
+> ✅ **RESOLVED:** Cow charging = Orion baseline + manual routable PV string (see [Cow charging — two tiers](#cow-charging--two-tiers--2026-06-09)).
 > **OPEN QUESTION:** Validate every port assignment against the current EG4 manuals (products evolve).
 
 ---
@@ -128,45 +128,45 @@ Terminal-level view of Option B. *(Conceptual; confirm terminal names + the neut
   PV STRINGS                                                   MONITORING
   ┌───────┐  DC                                                ┌──────────────┐
   │ str 1 ├─────▶ MPPT 1 ┐                                     │ EG4 WiFi/4G  │
-  └───────┘             ├──┐                                   │ dongle → app │
-  ┌───────┐  DC         │  │                                   └──────┬───────┘
+  └───────┘              ├──┐                                  │ dongle → app │
+  ┌───────┐  DC          │  │                                  └──────┬───────┘
   │ str 2 ├─────▶ MPPT 2 ┘  │                                         │ RS485/CAN
   └───────┘                 ▼                                          ▼
                     ┌─────────────────────────────────────────────────────────┐
-                    │                  EG4 6000XP  (48 V hybrid)               │
-   HOUSE BATTERY    │  [PV1] [PV2]   [BAT +/–]  [BMS CAN/RS485]                │
+                    │                  EG4 6000XP  (48 V hybrid)              │
+   HOUSE BATTERY    │  [PV1] [PV2]   [BAT +/–]  [BMS CAN/RS485]               │
    EG4 48V rack ×N ─┼──────────────▶ BAT ◀─────── CAN (closed-loop) ──────────┤
-   (~35% of total)  │                                                          │
-   campus tether ──▶│ [AC IN  (Grid/Gen)]              [AC OUT (Load)]         │
+   (~35% of total)  │                                                         │
+   campus tether ──▶│ [AC IN  (Grid/Gen)]              [AC OUT (Load)]        │
    (emergency AC)   └──────────────────────────────────────────┬──────────────┘
-                         ▲ auto-transfer + charge               │ 120/240 V
-                         │ (runs loads + recharges even         ▼
-                         │  with a flat battery — REQ-PWR-13)  ┌──────────────────────┐
+                         ▲ auto-transfer + charge              │ 120/240 V
+                         │ (runs loads + recharges even        ▼
+                         │  with a flat battery — REQ-PWR-13)  ┌───────────────────────┐
                          │                                     │ GREENHOUSE LOAD PANEL │
-   ⏚ ground rod / SPD ───┴── bond per manual                  │ main breaker          │
-                                                              │  ├─ Tier 1 critical ──── always on (safety loop)
-                          SmartShunt ──▶ relay ──▶ contactor ─┤  ├─ Tier 2/3 branch ──── shed on low SOC
-                          (house SOC)        (sheds T2/3)      │  └─ ...                │
-                                                              └──────────┬────────────┘
+   ⏚ ground rod / SPD ───┴── bond per manual                   │ main breaker          │
+                                                               │  ├─ Tier 1 critical ──── always on (safety loop)
+                          SmartShunt ──▶ relay ──▶ contactor  ─┤  ├─ Tier 2/3 branch ──── shed on low SOC
+                          (house SOC)        (sheds T2/3)      │  └─ ...               │
+                                                               └──────────┬────────────┘
                                                                          │
   ISOLATED COW BRANCH (taps the 48 V BATTERY bus — never the AC, never paralleled)
    48V battery bus ──▶ ┌────────────────────────────────────┐
                        │ Victron Orion-Tr Smart 48/48 DC-DC │  one-way · current-limited ·
                        │ (input-voltage lockout = house-OK) │  NO inrush
                        └──────────────────┬─────────────────┘
-                                charge only│
-                                           ▼
-                       ┌────────────────────────────────────┐
+                                          │ charge only
+                                          ▼
+                       ┌─────────────────────────────────────┐
                        │ POWER COW: EG4 48V rack + BMS/LVD,  │
                        │ on cart + portable inverter (events)│
                        │ + Victron SmartShunt (SOC readout)  │
-                       └──────────────────┬─────────────────┘
-                         load out (docked & ≥ LVD)│
-                                           ▼
-                       ┌────────────────────────────────────┐
+                       └──────────────────┬──────────────────┘
+                                          | load out (docked & ≥ LVD)
+                                          ▼
+                       ┌─────────────────────────────────────┐
                        │ COW SUB-PANEL (Tier 3): hydro demo, │
                        │ data rig, event outlet, supplemental│
-                       └────────────────────────────────────┘
+                       └─────────────────────────────────────┘
 ```
 
 **6000XP terminal connections**
@@ -182,6 +182,26 @@ Terminal-level view of Option B. *(Conceptual; confirm terminal names + the neut
 | 48 V battery bus | Victron Orion-Tr 48/48 | One-way cow charger, taps **DC**, not AC |
 
 > **Note:** the cow charger taps the **48 V battery bus** (DC side), *not* the AC output — so the cow is fed at the battery, charges one-way, and never touches the AC distribution or parallels the house.
+
+### Cow charging — two tiers (✅ 2026-06-09)
+
+The cow has **two charge paths, both into the cow battery in parallel** (no fight — each charger regulates to its own setpoint and just adds current):
+
+```
+ ① BASELINE (foolproof, automatic)
+   house 48V bus ──▶ Victron Orion-Tr 48/48 DC-DC ──▶ COW battery
+                     (always-on · ~8A · current-limited · input-V lockout = house-OK)
+
+ ② ENHANCEMENT (manual solar boost)
+                     ┌─ PV-rated DC CHANGEOVER (switch no-load) ─┐
+   routable string ─┤  HOUSE → 6000XP MPPT-2  (boosts the house) │
+   (≤ cow MPPT max) │  COW   → cow's own MPPT (fast refill)      ├─▶ COW battery
+                     └────────────────────────────────────────────┘
+```
+
+- **Baseline = Orion**: always trickles the cow from the house bus; its **input-voltage lockout** auto-pauses if the house dips → house self-protects.
+- **Enhancement = routable string**: flip to **COW** for a fast solar refill when it's come back depleted; otherwise **HOUSE** (the string feeds MPPT-2). **Switch dead**; on undock go **HOUSE first, then unplug**.
+- Constraints: string Voc/Isc fits **both** MPPT windows; **Orion + string current ≤ cow BMS charge limit**.
 
 ---
 

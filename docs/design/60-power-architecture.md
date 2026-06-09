@@ -36,11 +36,20 @@ The "power cow" is **safe by design because it's never electrically merged with 
 
 ## Cow integration — charge-only, isolated, own sub-panel
 
-The cow is **never paralleled with the house bus.** Two separate, one-directional paths — which is what makes it foolproof (no inrush, no back-feed, ever):
+The cow is **never paralleled with the house bus.** Separate, one-directional paths — which is what makes it foolproof (no inrush, no back-feed, ever).
 
-- **House → cow: charge only.** A **one-way DC-DC charger** (48→48 V; e.g. a Victron Orion-Tr *or equal*) moves energy from the house bus into the cow. A charger **inherently current-limits**, so there's *no inrush* regardless of SOC mismatch. **Gated to run only when the house is healthy** (high SOC / sun producing), so topping the cow never competes with critical loads. *(The small 48/48 Orion-Tr is ~8 A / ~380 W — slow for a large cow; size up the DC-DC, or give the cow its own small PV + MPPT for faster/independent charging. Sub-decision.)*
-- **Cow → sub-panel: discharge only.** The cow feeds a **dedicated cow-circuits sub-panel**, live **only when docked and above the cow's LVD** (low-voltage disconnect — its BMS). Two automatic protections: the **LVD** cuts the sub-panel when the cow runs low, and **physically unplugging** the cow to leave de-energizes it.
-- **No coupling device, no selector, no combiner.** Charge-in and load-out are different terminals on different one-way paths; the banks never see each other.
+### Charging the cow — two tiers (decided 2026-06-09)
+
+Both feed the **cow battery in parallel** (a standard "multiple chargers, one battery" setup — they don't fight; each regulates to its own setpoint and just adds current):
+
+- **① Foolproof baseline — Orion DC-DC charger.** A one-way 48→48 V DC-DC charger (Victron Orion-Tr *or equal*, ~8 A / ~380 W) from the house bus → cow. **Automatic, current-limited (no inrush at any SOC), always running** whenever the house is healthy. Its **input-voltage lockout** is the gate: divert solar elsewhere and let the house dip, and the Orion **auto-pauses pulling from the house** — the house protects itself. Slow but bulletproof, zero human input.
+- **② Manual enhancement — routable PV string.** One PV string (sized to the **cow MPPT's max**) on a **PV-rated DC changeover switch**: **HOUSE** position → the 6000XP's **MPPT-2** (boosts the house); **COW** position → the **cow's own MPPT** (fast solar refill). Operator-chosen, for when the cow comes back depleted.
+  - **Switch no-load** (MPPTs off / at night) — PV DC arcs; use a PV-rated changeover, not a marine selector.
+  - **On undock:** switch to **HOUSE first** (cow PV connector dead), *then* unplug. Default to **HOUSE** whenever the cow's away.
+  - String Voc/Isc must fit **both** MPPT windows; **combined charge current (Orion + string) ≤ the cow BMS limit.**
+
+- **Cow → sub-panel: discharge only.** The cow feeds a **dedicated cow-circuits sub-panel**, live **only when docked and above the cow's LVD** (its BMS). Two automatic protections: the **LVD** cuts the sub-panel when the cow runs low, and **physically unplugging** the cow de-energizes it.
+- **No coupling device, no selector across the batteries, no combiner.** Charge-in and load-out are different terminals on different one-way paths; the two **batteries** never see each other. (The changeover switches the PV *source*, never the batteries.)
 - **Block sub-freezing charging** — a cow back cold from a winter event warms before its BMS allows charge.
 
 ### EMS — now a single-bank choice
@@ -70,7 +79,7 @@ A **temporary** extension cord + garden hose from campus, for extreme weather ([
 ## Open questions
 
 > **OPEN QUESTION:** Confirm + size **EG4 6000XP-class all-in-one** (working direction) with the 🔴 Red designer once the load list exists.
-> **OPEN QUESTION:** **Cow charging path/rate** — a higher-power house→cow DC-DC charger vs. the cow's own small PV + MPPT (the Orion-Tr 48/48 alone is slow).
+> ✅ **RESOLVED (2026-06-09):** Cow charging = **two tiers** — foolproof Orion DC-DC baseline (always-on, ~8 A) + a **manual routable PV string** (PV-rated changeover → 6000XP MPPT-2 *or* the cow MPPT). Both feed the cow battery in parallel; no fight. *(Final string sizing/changeover rating with the Red designer.)*
 > **OPEN QUESTION:** House-bank autonomy — confirm the ~35% covers Tier 1 + needed Tier 2 for the autonomy window once the load list exists.
 > **OPEN QUESTION:** Cow **sub-panel circuit list** + sizing (which Tier-3 loads live on it).
 > **OPEN QUESTION:** Event use policy + district risk-management/fire sign-off for the mobile lithium station.
