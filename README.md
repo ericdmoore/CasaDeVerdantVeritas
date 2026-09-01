@@ -41,6 +41,7 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
 └── docs/
     ├── README.md            ← map of the docs (start here)
     ├── design/              ← what we're building and why (principles → requirements → drawings)
+    │   ├── README.md        ← design index
     │   ├── 00-design-principles.md
     │   ├── 10-requirements.md
     │   ├── 20-site-and-orientation.md
@@ -52,6 +53,7 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │   ├── 80-zone-layout.md
     │   └── 90-bed-and-device-schedule.md
     ├── build/               ← how it gets built (siteworks, procurement, assembly, inspections)
+    │   ├── README.md        ← build index
     │   ├── 00-slab-prepour-checklist.md
     │   ├── 10-regulatory-governance.md
     │   ├── power-wiring-concept.md   ← conceptual EG4/Victron wiring (platform open)
@@ -63,6 +65,7 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │       ├── structure.md
     │       └── BOM_considered.md  ← decision log (Selected / Pending / Disregarded)
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
+        ├── README.md        ← operate index
         ├── 00-operating-principles.md
         ├── 10-roles-and-tiers.md
         ├── 20-troubleshooting-runbook.md

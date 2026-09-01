@@ -16,7 +16,7 @@
 
 ---
 
-## [`design/`](design/) — what we're building, and why
+## [`design/`](design/README.md) — what we're building, and why
 
 The reasoning chain: **principles → requirements → sub-domain designs → the floor plan → the quantities.** Everything downstream traces back here.
 
@@ -34,7 +34,7 @@ The reasoning chain: **principles → requirements → sub-domain designs → th
 | [90-bed-and-device-schedule.md](design/90-bed-and-device-schedule.md) | **The quantities.** Beds, sensors, actuators and their power tier — the Tier 1/2/3 load list that sizes the battery and array. |
 | [images/](design/images/) | Drawings — currently the Keynote floor plan (`floorPlan.key`). |
 
-## [`build/`](build/) — how it gets built
+## [`build/`](build/README.md) — how it gets built
 
 Siteworks, approvals, wiring concepts, and procurement. The BOMs are the procurement tracker; the slab checklist is the one document that can't be edited after the fact.
 
@@ -50,7 +50,7 @@ Siteworks, approvals, wiring concepts, and procurement. The BOMs are the procure
 | ↳ [bom/structure.md](build/bom/structure.md) | Frame, glazing, vents, doors, beds, and the storage that makes a class of 25 workable. |
 | ↳ [bom/BOM_considered.md](build/bom/BOM_considered.md) | **Decision log** — every product or approach evaluated for controls, valve drivers, hydro, and charge control, marked Selected / Pending / Disregarded with the rationale. Read before re-buying a rejected part. |
 
-## [`operate/`](operate/) — how it runs
+## [`operate/`](operate/README.md) — how it runs
 
 The human system around the building. A greenhouse fails from neglect far more often than from bad construction, so this folder is about rotas, tiers, and procedures a new volunteer can follow in 15 minutes.
 
