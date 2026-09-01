@@ -10,6 +10,7 @@
 | [controls.md](controls.md) | Compute core, sensors, actuators, comms, connectors | 🟡 Scaffolding (awaiting device list) |
 | [irrigation.md](irrigation.md) | Harvest, storage, gravity drip, fertigation, freeze | 🟡 Scaffolding (awaiting zone layout) |
 | [structure.md](structure.md) | Frame, glazing, vents, doors, beds, **tool/implement storage** | 🟡 Scaffolding (awaiting sealed design) |
+| [BOM_considered.md](BOM_considered.md) | **Decision log** — products/approaches evaluated for controls, valve drivers, hydro, charge control; Selected / Pending / Disregarded + rationale | 🟡 Living |
 
 ## Standard format
 
