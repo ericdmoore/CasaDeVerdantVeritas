@@ -39,6 +39,7 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
 ├── README.md                ← you are here
 ├── LICENSE                  ← MIT
 └── docs/
+    ├── README.md            ← map of the docs (start here)
     ├── design/              ← what we're building and why (principles → requirements → drawings)
     │   ├── 00-design-principles.md
     │   ├── 10-requirements.md
@@ -59,7 +60,8 @@ A **mid-size, custom-built greenhouse** (roughly 20×40 ft on a concrete slab, *
     │       ├── off-grid-power.md
     │       ├── controls.md
     │       ├── irrigation.md
-    │       └── structure.md
+    │       ├── structure.md
+    │       └── BOM_considered.md  ← decision log (Selected / Pending / Disregarded)
     └── operate/             ← how it runs (growing calendar, SOPs, maintenance, safety, curriculum)
         ├── 00-operating-principles.md
         ├── 10-roles-and-tiers.md
